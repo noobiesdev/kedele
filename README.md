@@ -1,4 +1,5 @@
 # Cangijo
+Project PPL Agro Kelas C
 ## Team Development
 - **Analyst** AFRILIA PERMATASARI (18'1027)
 - **Tester** SITI MASRUKHA (18'1051)
