@@ -1,4 +1,4 @@
-# Cangijo
+# Kedele
 Project PPL Agro Kelas C
 ## Team Development
 - **Analyst** AFRILIA PERMATASARI (18'1027)
