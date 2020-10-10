@@ -2,38 +2,49 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+/**
+ * @property int $id
+ * @property string $nama
+ * @property string $username
+ * @property string $email
+ * @property string $no_hp
+ * @property string $password
+ * @property string $level
+ * @property string $created_at
+ * @property string $updated_at
+ * @property string $deleted_at
+ * @property Pembelian[] $pembelians
+ * @property Usaha[] $usahas
+ */
+class User extends Model
 {
-    use Notifiable;
+    /**
+     * The table associated with the model.
+     * 
+     * @var string
+     */
+    protected $table = 'user';
 
     /**
-     * The attributes that are mass assignable.
-     *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $fillable = ['nama', 'username', 'email', 'no_hp', 'password', 'level', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    public function pembelians()
+    {
+        return $this->hasMany('App\Pembelian', 'id_pembeli');
+    }
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function usahas()
+    {
+        return $this->hasMany('App\Usaha', 'id_pengusaha');
+    }
 }
