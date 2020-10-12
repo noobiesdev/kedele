@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Providers\RouteServiceProvider;
+use App\Helpers\PhoneHelper as phone;
 
 class RegisterController extends Controller
 {
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -48,11 +50,37 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        $customMessage = [
+            'nama.required'      => 'Nama lengkap wajib diisi',
+            'nama.min'           => 'Nama lengkap minimal terdiri sebanyak :min karakter',
+            'nama.max'           => 'Nama lengkap maksimal terdiri sebanyak :max karakter',
+            'username.required'  => 'Nama pengguna wajib diisi. Contoh: budianduk',
+            'username.min'       => 'Nama pengguna minimal terdiri sebanyak :min karakter',
+            'username.max'       => 'Nama pengguna maksimal terdiri sebanyak :max karakter',
+            'username.unique'    => 'Nama pengguna yang anda masukan telah terdaftar, silahkan gunakan nama pengguna lain',
+            'username.alpha_dash'=> 'Nama pengguna tidak boleh menggunakan karakter spasi',
+            'email.required'     => 'Email wajib diisi',
+            'email.min'          => 'Email minimal terdiri sebanyak :max karakter',
+            'email.max'          => 'Email maksimal terdiri sebanyak :max karakter',
+            'email.unique'       => 'Email yang anda masukan telah terdaftar, silahkan gunakan email lain',
+            'no_hp.required'       => 'Nomor telepon wajib diisi',
+            'no_hp.numeric'        => 'Pastikan nomor telepon yang dimasukkan berupa angka',
+            'no_hp.digits_between' => 'Nomor telepon harus memiliki panjang minimal :min digit dan maksimal :max digit',
+            'password.required'  => 'Kata sandi wajib diisi',
+            'password.string'    => 'Kata sandi harus terdiri dari teks',
+            'password.min'       => 'Kata sandi minimal terdiri sebanyak :min karakter',
+            'password.confirmed' => 'Pastikan kata sandi konfirmasi sesuai',
+            'role.required'     => 'Pastikan pilih salah satu keperluan anda dalam mendaftar',
+        ];
+        $dataValidator = [
+            'nama'      => ['required', 'string', 'min:5', 'max:128'],
+            'username'  => ['required', 'string', 'min:5', 'max:32', 'unique:user,username','alpha_dash'],
+            'email'     => ['required', 'string', 'email', 'max:255', 'unique:user'],
+            'no_hp'     => ['required', 'numeric', 'digits_between:10,14'],
+            'password'  => ['required', 'string', 'min:8', 'confirmed'],
+            'role'      => ['required', 'string', 'max:8'],
+        ];
+        return Validator::make($data, $dataValidator, $customMessage);
     }
 
     /**
@@ -63,10 +91,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        $user =  User::create([
+            'nama'      => $data['nama'],
+            'username'  => $data['username'],
+            'email'     => $data['email'],
+            'no_hp'     => phone::validate($data['no_hp']),
+            'password'  => Hash::make($data['password']),
+            'level'     => $data['role'],
         ]);
+        if ($data['role'] == "produsen") {
+            $user->assignRole('produsen');
+        }else if($data['role'] == "konsumen"){
+            $user->assignRole('konsumen');
+        }
+        return $user;
     }
 }

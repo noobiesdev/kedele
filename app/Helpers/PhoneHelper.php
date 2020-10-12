@@ -21,14 +21,19 @@ class PhoneHelper {
   public static function validate($phone) {
       if( !preg_match('/[^0-9]/', trim($phone)) ) {
           if(substr(trim ($phone), 0, 2) == '62') {
-            return true;
+            $result = true;
           }else if ( substr(trim ($phone), 0, 2) == '08') {
-            return false;
+            $result = false;
           }else{
-            return false;
+            $result = false;
           }
       }else{
-        return false;
+        $result = false;
+      }
+      if($result) {
+        return $phone;
+      }else{
+        return PhoneHelper::make($phone);
       }
   }
 

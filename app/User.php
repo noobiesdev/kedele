@@ -3,7 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @property int $id
  * @property string $nama
@@ -18,20 +21,23 @@ use Illuminate\Database\Eloquent\Model;
  * @property Pembelian[] $pembelians
  * @property Usaha[] $usahas
  */
-class User extends Model
+class User extends Authenticatable
 {
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
+    use Notifiable, HasRoles, SoftDeletes;
     protected $table = 'user';
 
     /**
      * @var array
      */
     protected $fillable = ['nama', 'username', 'email', 'no_hp', 'password', 'level', 'created_at', 'updated_at', 'deleted_at'];
-
+    protected $hidden = [
+        'password'
+    ];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

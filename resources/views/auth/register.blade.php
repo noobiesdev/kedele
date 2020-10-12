@@ -1,77 +1,134 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Daftar</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ asset('auth/images/icons/favicon.ico') }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('auth/vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('auth/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('auth/vendor/animate/animate.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('auth/vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('auth/vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('auth/vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('auth/vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('auth/css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('auth/css/main.css') }}">
+<!--===============================================================================================-->
+</head>
+<body>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+        <form method="POST" action="{{ route('register') }}" class="login100-form validate-form p-l-55 p-r-55 p-t-178" autocomplete="off">
+        @csrf
+					<span class="login100-form-title">
+						Pendaftaran
+					</span>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+					<div class="validate-input m-b-16" data-validate="Harap pilih salah satu">
+						<input id="level-produsen" class="@error('level') is-invalid @enderror" type="radio" name="role" placeholder="{{ __('Produsen') }}" value="produsen" checked>
+						<label for="level-produsen">{{ __('Saya memiliki usaha olahan kedelai') }}</label><br>
+						<input id="level-konsumen" class="@error('level') is-invalid @enderror" type="radio" name="role" placeholder="{{ __('Konsumen') }}" value="konsumen">
+						<label for="level-konsumen">{{ __('Saya ingin membeli produk') }}</label>
+					</div>
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Harap masukkan nama pengguna">
+						<input id="nama" class="input100 form-control @error('nama') is-invalid @enderror" type="text" name="nama" placeholder="{{ __('Nama Lengkap') }}" value="{{ old('nama') }}" required autofocus>
+            @error('nama')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+					</div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Harap masukkan nama pengguna">
+						<input id="username" class="input100 form-control @error('username') is-invalid @enderror" type="text" name="username" placeholder="{{ __('Nama Pengguna') }}" value="{{ old('username') }}" required autofocus>
+            @error('username')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+					</div>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Harap masukkan email">
+						<input id="email" class="input100 form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="{{ __('Email') }}" value="{{ old('email') }}" required autofocus>
+						@error('email')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+						@enderror
+					</div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Harap masukkan  no. handphone">
+						<input id="no_hp" class="input100 form-control @error('no_hp') is-invalid @enderror" type="text" name="no_hp" placeholder="{{ __('No Handphone') }}" value="{{ old('no_hp') }}" required autofocus>
+						@error('no_hp')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+						@enderror
+					</div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Harap masukkan kata sandi">
+						<input id="password" class="input100 form-control @error('password') is-invalid @enderror" type="password" name="password" placeholder="{{ __('Kata Sandi') }}" required autocomplete="new-password">
+						@error('password')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+						@enderror
+					</div>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Konfirmasi kata sandi">
+						<input id="password-confirmation" class="input100 form-control @error('password') is-invalid @enderror" type="password" name="password_confirmation" placeholder="{{ __('Konfirmasi kata sandi') }}" required autocomplete="new-password"s>
+					</div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn">
+						    {{ __('Daftar') }}
+						</button>
+					</div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+					<div class="flex-col-c p-t-70 p-b-40">
+						<span class="txt1 p-b-9">
+							Sudah punya akun?
+						</span>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+						<a href="{{ route('login') }}" class="txt3">
+							Masuk Sekarang
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
+<!--===============================================================================================-->
+	<script src="{{ asset('auth/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('auth/vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('auth/vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ asset('auth/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('auth/vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('auth/vendor/daterangepicker/moment.min.js') }}"></script>
+	<script src="{{ asset('auth/vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('auth/vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('auth/js/main.js') }}"></script>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+</body>
+</html>
