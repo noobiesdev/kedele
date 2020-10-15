@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Providers\RouteServiceProvider;
 use App\Helpers\PhoneHelper as phone;
 
 class RegisterController extends Controller
@@ -89,8 +90,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Array $data)
     {
+        $validation = $this->validator($data);
+        if ($validation->fails()) {
+            return response()->json(['status' => false , 'message' => $validation->errors()->all()], 400);
+        }
         $user =  User::create([
             'nama'      => $data['nama'],
             'username'  => $data['username'],

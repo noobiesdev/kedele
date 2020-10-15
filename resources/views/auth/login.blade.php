@@ -36,8 +36,8 @@
 						Otentikasi
 					</span>
 
-					<div class="wrap-input100 validate-input m-b-16" data-validate="Harap masukkan email/ no. telpon">
-						<input id="username" class="input100 form-control @error('username') is-invalid @enderror" type="text" name="username" placeholder="{{ __('Email/ No Handphone') }}" value="{{ old('username') }}" required autofocus>
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Harap masukkan nama pengguna/ email/ no. telpon">
+						<input id="username" class="input100 form-control @error('username') is-invalid @enderror" type="text" name="username" placeholder="{{ __('Nama Pengguna/ Email/ No Handphone') }}" value="{{ old('username') }}" required autofocus>
             @error('username')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

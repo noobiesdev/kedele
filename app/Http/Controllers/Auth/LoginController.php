@@ -46,14 +46,14 @@ class LoginController extends Controller
             'username' => 'required|string', //VALIDASI KOLOM USERNAME
             'password' => 'required|string|min:8',
         ]);
-        // if (filter_var($request->username)){
-        //   $loginType = 'username';
-        // }else if (filter_var(FILTER_VALIDATE_EMAIL)){
-        //   $loginType = 'email';
-        // }else{
-        //   $loginType = 'no_hp';
-        // }
-        $loginType = filter_var($request->username, FILTER_VALIDATE_EMAIL, FILTER_VALIDATE_INT) ? 'email' : 'no_hp';
+        if (filter_var($request->username, FILTER_VALIDATE_EMAIL)){
+          $loginType = 'email';
+        }else if (filter_var($request->username, FILTER_VALIDATE_INT)){
+          $loginType = 'no_hp';
+        }else{
+          $loginType = 'username';
+        }
+        // $loginType = filter_var($request->username, FILTER_VALIDATE_EMAIL, FILTER_VALIDATE_INT) ? 'email' : 'no_hp';
         if($loginType == 'no_hp') {
             $request->username = phone::validate($request->username);
         }
