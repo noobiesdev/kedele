@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Helpers\PhoneHelper as phone;
 
 class AkunController extends Controller
 {
@@ -17,7 +18,7 @@ class AkunController extends Controller
     {
         $id =  Auth::user()->id;
         $user = \App\User::where('id', $id)->first();
-        return view('profil.index',compact('user'));
+        return view('akun.index',compact('user'));
     }
     /**
      * Display the specified resource.
@@ -37,11 +38,14 @@ class AkunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $input = $request->all();
         $id =  Auth::user()->id;
         $user = \App\User::where('id', $id)->first();
+        if(isset($input['no_hp'])){
+            $input['no_hp'] = phone::validate($input['no_hp']);
+        }
         $oldpass = $input['old_password'];
         if(Hash::check($oldpass, $user->password)){
           unset( $input['old_password'] );
@@ -49,9 +53,9 @@ class AkunController extends Controller
             $input['password'] = Hash::make($input['password']);
           }
           $user->update($input);
-          return redirect()->route('profil')->with('success', 'Profil berhasil disimpan');
+          return redirect()->route('akun')->with('success', 'Profil berhasil disimpan');
         }else{
-          return redirect()->route('profil')->with('error', 'Kata Sandi konfirmasi tidak sesuai');
+          return redirect()->route('akun')->with('error', 'Kata Sandi konfirmasi tidak sesuai');
         }
     }
 }
