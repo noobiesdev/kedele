@@ -106,6 +106,11 @@ class RegisterController extends Controller
         ]);
         if ($data['role'] == "produsen") {
             $user->assignRole('produsen');
+            $usaha = \App\Usaha::create([
+              'id_pengusaha' => $user->id,
+              'nama'      => "Toko ".$data['username'],
+              'slug'      => "toko-".strtolower($data['username']),
+            ]);
         }else if($data['role'] == "konsumen"){
             $user->assignRole('konsumen');
         }
