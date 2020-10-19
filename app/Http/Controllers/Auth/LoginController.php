@@ -48,7 +48,7 @@ class LoginController extends Controller
         ]);
         if (filter_var($request->username, FILTER_VALIDATE_EMAIL)){
           $loginType = 'email';
-        }else if (filter_var($request->username, FILTER_VALIDATE_INT)){
+        }else if (filter_var($request->username, FILTER_VALIDATE_INT) or substr(trim ($request->username), 0, 2) == '08'){
           $loginType = 'no_hp';
         }else{
           $loginType = 'username';
