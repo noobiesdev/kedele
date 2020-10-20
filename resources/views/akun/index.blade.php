@@ -57,7 +57,12 @@
                                                 <div class="input-group">
 
                                                   <div class="input-group-addon"><i class="icon-user"></i></div>
-                                                  <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Lengkap" value="{{$user['nama']}}" required>
+                                                  <input type="text" class="input100 form-control @error('nama') is-invalid @enderror" name="nama" id="nama" placeholder="Nama Lengkap" value="{{$user['nama']}}" required>
+                                                  @error('nama')
+                                                      <span class="invalid-feedback" role="alert">
+                                                          <strong>{{ $message }}</strong>
+                                                      </span>
+                                                  @enderror
                                                 </div>
                                               </div>
 
@@ -65,7 +70,12 @@
                                                 <label class="control-label mb-10" for="no_hp">Nomor Handphone</label>
                                                 <div class="input-group">
                                                   <div class="input-group-addon"><i class="icon-phone"></i></div>
-                                                  <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="" data-mask="+62 999 999 999" value="+{{$user['no_hp']}}" required>
+                                                  <input type="text" class="input100 form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" placeholder="" value="{{$user['no_hp']}}" required>
+                                                  @error('no_hp')
+                                                      <span class="invalid-feedback" role="alert">
+                                                          <strong>{{ $message }}</strong>
+                                                      </span>
+                                                  @enderror
                                                 </div>
                                               </div>
 
@@ -75,7 +85,12 @@
                                                 <p>Masukkan kata sandi untuk konfirmasi</p>
                                                 <div class="input-group">
                                                   <div class="input-group-addon"><i class="icon-lock"></i></div>
-                                                  <input type="password" class="form-control" id="exampleInputpwd_02" name="old_password" placeholder="Kata Sandi" value="" required>
+                                                  <input type="password" class="input100 form-control @error('old_password') is-invalid @enderror" id="exampleInputpwd_02" name="old_password" placeholder="Kata Sandi" value="" required>
+                                                  @error('old_password')
+                                                      <span class="invalid-feedback" role="alert">
+                                                          <strong>{{ $message }}</strong>
+                                                      </span>
+                                                  @enderror
                                                 </div>
                                               </div>
 
@@ -101,21 +116,26 @@
                                     <div class="panel-body pa-0">
                                       <div class="col-sm-12 col-xs-12">
                                         <div class="form-wrap">
-                                          <form method="post" action="{{route('akun-update')}}">
+                                          <form method="post" action="{{route('akun-update2')}}">
                                             @csrf
                                             <div class="form-body overflow-hide">
                                               <div class="form-group">
                                                 <label class="control-label mb-10" for="email">Email</label>
                                                 <div class="input-group">
                                                   <div class="input-group-addon"><i class="icon-envelope-open"></i></div>
-                                                  <input type="email" class="form-control" name="email" id="email" placeholder="alamat@gmail.com" value="{{$user['email']}}" required>
+                                                  <input type="email" class="input100 form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="alamat@gmail.com" value="{{$user['email']}}" disabled>
                                                 </div>
                                               </div>
                                               <div class="form-group">
                                                 <label class="control-label mb-10" for="exampleInputpwd_01">Kata Sandi Baru</label>
                                                 <div class="input-group">
                                                   <div class="input-group-addon"><i class="icon-lock"></i></div>
-                                                  <input type="password" class="form-control" id="exampleInputpwd_01" name="password" placeholder="Kata Sandi Baru" value="" required>
+                                                  <input type="password" class="input100 form-control @error('password') is-invalid @enderror" id="exampleInputpwd_01" name="password" placeholder="Kata Sandi Baru" value="" required>
+                                                  @error('password')
+                                                      <span class="invalid-feedback" role="alert">
+                                                          <strong>{{ $message }}</strong>
+                                                      </span>
+                                                  @enderror
                                                 </div>
                                               </div>
 
@@ -123,7 +143,12 @@
                                                 <label class="control-label mb-10" for="exampleInputpwd_02">Kata Sandi Lama</label>
                                                 <div class="input-group">
                                                   <div class="input-group-addon"><i class="icon-lock"></i></div>
-                                                  <input type="password" class="form-control" id="exampleInputpwd_02" name="old_password" placeholder="Kata Sandi Lama" value="" required>
+                                                  <input type="password" class="input100 form-control @error('old_password') is-invalid @enderror" id="exampleInputpwd_02" name="old_password2" placeholder="Kata Sandi Lama" value="" required>
+                                                  @error('old_password2')
+                                                      <span class="invalid-feedback" role="alert">
+                                                          <strong>{{ $message }}</strong>
+                                                      </span>
+                                                  @enderror
                                                 </div>
                                               </div>
                                             </div>

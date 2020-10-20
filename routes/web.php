@@ -10,6 +10,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dasboard', 'HomeController@index')->name('dashboard');
     Route::get('/akun', 'AkunController@index')->name('akun');
     Route::post('/akun', 'AkunController@update')->name('akun-update');
+    Route::post('/akun2', 'AkunController@update2')->name('akun-update2');
     Route::group(['as' => 'usaha.' , 'prefix' => 'usaha'], function () {
         Route::get('/', 'UsahaController@index')->name('index')->middleware('role:produsen'); #show and edit
         Route::post('/', 'UsahaController@update')->name('update')->middleware('role:produsen'); #store new data to db
