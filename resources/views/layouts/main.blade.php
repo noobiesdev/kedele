@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="HandheldFriendly" content="True">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <meta name="msapplication-TileColor
   " content="#667eea">
@@ -218,6 +219,7 @@
 
     <!-- jQuery -->
     <script src="{{ asset('main/vendors/bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('main/vendors/bower_components/jquery/dist/jquery-mask.min.js') }}"></script>
     <!-- <script src="{{ asset('main/vendors/bower_components/filament-tablesaw/dist/dependencies') }}"></script> -->
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('main/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
@@ -278,23 +280,7 @@
 	<!-- Init JavaScript -->
 	<script src="{{ asset('main/js/init.js') }}"></script>
 	<script src="{{ asset('main/js/dashboard2-data.js') }}"></script>
-
   <script>
-    @if($message = Session::get('error'))
-    $(window).on("load",function(){
-    	window.setTimeout(function(){
-    		$.toast({
-    			heading: 'Kesalahan',
-    			text: '{{$message}}',
-    			position: 'top-left',
-    			loaderBg:'#e3c94b',
-    			icon: '',
-    			hideAfter: 3500,
-    			stack: 6
-    		});
-    	}, 1000);
-    });
-    @endif
     @if($message = Session::get('success'))
     $(window).on("load",function(){
     	window.setTimeout(function(){
@@ -302,7 +288,24 @@
     			heading: 'Sukses',
     			text: '{{$message}}',
     			position: 'top-left',
-    			loaderBg:'#e3c94b',
+          bgColor: '#18C967',
+    			loaderBg:'#A4DE02',
+    			icon: '',
+    			hideAfter: 3500,
+    			stack: 6
+    		});
+    	}, 1000);
+    });
+    @endif
+    @if ($message = Session::get('error'))
+    $(window).on("load",function(){
+    	window.setTimeout(function(){
+    		$.toast({
+    			heading: 'Kesalahan',
+    			text: '{{$message}}',
+    			position: 'top-left',
+          bgColor:'#E01A31',
+    			loaderBg:'#B53737',
     			icon: '',
     			hideAfter: 3500,
     			stack: 6

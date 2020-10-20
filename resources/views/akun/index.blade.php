@@ -7,7 +7,7 @@
 
       <div class="row heading-bg">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-          <h5 class="txt-dark">Akun</h5>
+          <h4 class="txt-dark">Akun</h4>
         </div>
         <!-- Breadcrumb -->
         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
@@ -116,7 +116,7 @@
                                     <div class="panel-body pa-0">
                                       <div class="col-sm-12 col-xs-12">
                                         <div class="form-wrap">
-                                          <form method="post" action="{{route('akun-update2')}}">
+                                          <form method="post" action="{{route('akun-update')}}">
                                             @csrf
                                             <div class="form-body overflow-hide">
                                               <div class="form-group">
@@ -190,4 +190,16 @@
     <script src="{{ asset('main/vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('main/vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('main/js/export-table-data.js') }}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#no_hp').mask('+62 9999 999 99ZZ', {
+    translation: {
+      'Z': {
+        pattern: /[0-9]/, optional: true
+      }
+    }
+  });
+});
+</script>
+
 @endsection

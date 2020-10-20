@@ -24,6 +24,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('auth/css/util.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('auth/css/main.css') }}">
 <!--===============================================================================================-->
+	<link href="{{ asset('main/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css') }}" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 
@@ -54,7 +56,7 @@
             @enderror
 					</div>
 
-					<div class="text-right p-t-13 p-b-23">
+					<!-- <div class="text-right p-t-13 p-b-23">
 						<span class="txt1">
 							Lupa
 						</span>
@@ -66,7 +68,7 @@
             <span class="txt1">
 							?
 						</span>
-					</div>
+					</div> -->
 
 					<div class="container-login100-form-btn">
 						<button type="submit" class="login100-form-btn">
@@ -105,6 +107,41 @@
 	<script src="{{ asset('auth/vendor/countdowntime/countdowntime.js') }}"></script>
 <!--===============================================================================================-->
 	<script src="{{ asset('auth/js/main.js') }}"></script>
-
+<!--===============================================================================================-->
+	<script src="{{ asset('main/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js') }}"></script>
+	<script>
+    @if($message = Session::get('success'))
+    $(window).on("load",function(){
+    	window.setTimeout(function(){
+    		$.toast({
+    			heading: 'Sukses',
+    			text: '{{$message}}',
+    			position: 'top-left',
+          bgColor: '#18C967',
+    			loaderBg:'#A4DE02',
+    			icon: '',
+    			hideAfter: 3500,
+    			stack: 6
+    		});
+    	}, 1000);
+    });
+    @endif
+    @if ($message = Session::get('error'))
+    $(window).on("load",function(){
+    	window.setTimeout(function(){
+    		$.toast({
+    			heading: 'Kesalahan',
+    			text: '{{$message}}',
+    			position: 'top-left',
+          bgColor:'#E01A31',
+    			loaderBg:'#B53737',
+    			icon: '',
+    			hideAfter: 3500,
+    			stack: 6
+    		});
+    	}, 1000);
+    });
+    @endif
+</script>
 </body>
 </html>
