@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="HandheldFriendly" content="True">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
+  @include('layouts.favicon')
   <meta name="msapplication-TileColor
   " content="#667eea">
   <meta name="theme-color" content="#667eea">
@@ -54,7 +54,7 @@
 				<div class="nav-header pull-left">
 					<div class="logo-wrap">
 						<a href="">
-							<img class="brand-img" src="" alt="Kedele"/>
+							<img class="brand-img" src="{{ asset('assets/logo_emblem.png') }}" alt="Kedele"/>
 							<span class="brand-text">Kedele</span>
 						</a>
 					</div>
