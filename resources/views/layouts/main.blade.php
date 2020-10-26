@@ -131,12 +131,7 @@
 					<a href="{{route('pembelian.index')}}" data-target="#pembelian"><div class="pull-left"><i class="glyphicon glyphicon-inbox mr-20"></i><span class="right-nav-text">Pembelian</span></div><div class="clearfix"></div></a>
 				</li>
         <li>
-					<a href="{{route('produksi.index')}}" data-toggle="collapse" data-target="#produksi"><div class="pull-left"><i class="glyphicon glyphicon-cutlery mr-20"></i><span class="right-nav-text">Produksi</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-					<ul id="produksi" class="collapse collapse-level-1">
-            <li>
-							<a href="{{route('produksi.create')}}">Tambah Produk</a>
-						</li>
-					</ul>
+					<a href="{{route('produksi.index')}}" data-toggle="collapse" data-target="#produksi"><div class="pull-left"><i class="glyphicon glyphicon-cutlery mr-20"></i><span class="right-nav-text">Produksi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 				</li>
         @endrole
 
@@ -280,6 +275,7 @@
 	<!-- Init JavaScript -->
 	<script src="{{ asset('main/js/init.js') }}"></script>
 	<script src="{{ asset('main/js/dashboard2-data.js') }}"></script>
+  <script src="{{ asset('js/slugs.js') }}"></script>
   <script>
     @if($message = Session::get('success'))
     $(window).on("load",function(){

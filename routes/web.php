@@ -2,7 +2,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('landing');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
@@ -24,9 +24,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['as' => 'produksi.' , 'prefix' => 'produksi'], function () {
         Route::post('/', 'UsahaController@update')->name('update-bahan')->middleware('role:produsen');
         Route::get('/', 'ProdukController@index')->name('index')->middleware('role:produsen');
-        Route::get('/tambah', 'ProdukController@create')->name('create')->middleware('role:produsen');
         Route::post('/tambah', 'ProdukController@store')->name('store')->middleware('role:produsen');
-        Route::post('/sunting', 'ProdukController@update')->name('update')->middleware('role:produsen');
+        Route::post('/sunting/{id}', 'ProdukController@update')->name('update')->middleware('role:produsen');
+        Route::get('/hapus', 'ProdukController@destroy')->name('delete')->middleware('role:produsen');
     });
     Route::group(['as' => 'bahan.' , 'prefix' => 'pengajuan-bahan'], function () {
         Route::get('/', 'PengajuanBahan@index')->name('index')->middleware('role:produsen');
@@ -39,11 +39,16 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', 'PembelianController@index')->name('index')->middleware('role:produsen');
         Route::get('/set/{status}/', 'PembelianController@update')->name('update')->middleware('role:produsen'); #set selesai/ batal
     });
-    Route::group(['as' => 'Belanja.' , 'prefix' => 'Belanja'], function () {
+    Route::group(['as' => 'belanja.' , 'prefix' => 'belanja'], function () {
         Route::get('/', 'BelanjaController@index')->name('index')->middleware('role:konsumen');
         Route::get('/set/{status}/', 'BelanjaController@update')->name('update')->middleware('role:konsumen'); #set arsip/ batal
         Route::get('/arsip', 'BelanjaController@arsip')->name('arsip')->middleware('role:konsumen');
         Route::get('/{hash}/kembalikan', 'BelanjaController@kembalikan')->name('arsip')->middleware('role:konsumen');
+    });
+    // =-=-=-=--= Usaha =-=-=-=--=
+    Route::group(['as' => 'web.' , 'prefix' => 'web'], function () {
+        Route::get('/', 'WebsiteUsahaController@show')->name('index');
+        Route::get('/', 'WebsiteUsahaController@product')->name('index');
     });
     // Route::group(['as' => 'Belanja.' , 'prefix' => 'Belanja'], function () {
     // });
