@@ -9,11 +9,15 @@ use Carbon\Carbon;
 
 class WebsiteUsahaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    # =-=-=-=-=-=-=-= WEBSITE PENGUSHA =-=-=-=-=-=-=-= #
+    public function show(){
+      return view('usaha.basic.show');
+    }
+    public function product(){
+      return view('usaha.basic.product');
+    }
+
+    # =-=-=-=-=-=-=-= PENGELOLAAN USAHA =-=-=-=-=-=-=-= #
     public function get_usaha($uid) {
         // $id = DB::table('usaha')->where('id', $uid);
         $id = \App\Usaha::findOrFail($uid);
