@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+// use Cviebrock\EloquentSluggable\Sluggable;
 /**
  * @property int $id
  * @property int $id_usaha
@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Produk extends Model
 {
+    // use Sluggable;
     use SoftDeletes;
     /**
      * The table associated with the model.
@@ -50,4 +51,12 @@ class Produk extends Model
     {
         return $this->hasMany('App\DetailPembelian', 'id_produk');
     }
+
+    // public function sluggable(){
+    //   return[
+    //     'slug' => [
+    //       'source' => 'id_usaha'
+    //     ]
+    //   ];
+    // }
 }

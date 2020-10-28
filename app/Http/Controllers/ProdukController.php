@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Helpers\CryptoHelper as ncrypt;
 use App\Helpers\PriceHelper as price;
+use Illuminate\Support\Str;
+// use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ProdukController extends Controller
 {
@@ -33,6 +35,7 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        // $input->slug = SlugService::createSlug(\App\Produk::class,'slug', $request->id_usaha);
         $usaha = self::get_usaha(Auth::user()->id);
         if ($request->hasFile('gambar')) {
             $uploadFile = $request->file('gambar');
@@ -46,7 +49,7 @@ class ProdukController extends Controller
         $input['harga'] = price::clear($input['harga']);
         $dataValidator = [
             'whatsapp' => 'numeric|digits_between:10,14',
-            'slug' => 'string|unique:produk,slug|alpha_dash',
+            'slug' => 'string|alpha_dash',
             'gambar' => 'mimes:jpeg,jpg,png',
         ];
         $validator = Validator::make($input,$dataValidator);

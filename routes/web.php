@@ -45,12 +45,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/arsip', 'BelanjaController@arsip')->name('arsip')->middleware('role:konsumen');
         Route::get('/{hash}/kembalikan', 'BelanjaController@kembalikan')->name('arsip')->middleware('role:konsumen');
     });
+    Route::get('/{slug}', 'WebsiteUsahaController@show')->name('index');
+    Route::get('/{slug}/produk', 'WebsiteUsahaController@product')->name('produk');
     // Route::group(['as' => 'Belanja.' , 'prefix' => 'Belanja'], function () {
     // });
     //-tagihan landing page toko, pemesanan, supplier admin, request pengiriman, riwayat penerimaan, acc transaksi
 });
 // =-=-=-=--= Usaha =-=-=-=--=
-Route::group(['as' => 'web.' , 'prefix' => 'web'], function () {
-    Route::get('/{slug}', 'WebsiteUsahaController@show')->name('index');
-    Route::get('/{slug}/produk', 'WebsiteUsahaController@product')->name('produk');
-});
+// Route::group(['as' => 'web.' , 'prefix' => 'web'], function () {
+//
+// });

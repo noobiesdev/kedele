@@ -11,11 +11,14 @@ use Carbon\Carbon;
 
 class WebsiteUsahaController extends Controller
 {
-    # =-=-=-=-=-=-=-= WEBSITE PENGUSHA =-=-=-=-=-=-=-= #
+    # =-=-=-=-=-=-=-= WEBSITE PENGUSAHA =-=-=-=-=-=-=-= #
     public function show($slug){
       $usaha = \App\Usaha::where('slug',$slug)->first();
+      $usaha_id = $usaha->id_pengusaha; //id_pengusaha
+      $user = self::get_usaha(Auth::user()->id);
+      $uid = $user->id; //id dari user
 
-      if( $usaha['status'] != 'act' ){
+      if( $usaha['status'] != 'act' || $usaha_id != $uid){
           return redirect()->route('landing')->with('error', 'Lapak pengusaha sedang tutup sementara waktu');
       }
       return view('usaha.basic.show', compact('usaha'));
