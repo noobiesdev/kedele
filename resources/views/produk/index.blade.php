@@ -192,7 +192,11 @@ $(document).ready(function() {
     <script type="text/javascript">
         $(window).on('load',function(){
             $('#editModal').modal('show');
+            var nama  = $('.nama-e').val()
+            var slug  = $('.slug-e').val(nama.toString().toLowerCase().normalize('NFD').trim().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-'));
+            var slugP = $('.slug-prev-e').text($('.slug-e').val());
         });
+        $
     </script>
 @endif
 @endsection

@@ -56,7 +56,7 @@ class ProdukController extends Controller
         if($validator->fails()){
             return redirect()->back()->with('error', 'Kesalahan saat menambahkan! '.$validator->errors()->first());
         }
-        $input = [
+        $produk = \App\Produk::create([
           'id_usaha'        => $usaha->id,
           'nama'            => $input['nama'],
           'slug'            => $input['slug'],
@@ -64,9 +64,10 @@ class ProdukController extends Controller
           'kebutuhan_bahan' => $input['kebutuhan_bahan'],
           'harga'           => $input['harga'],
           'gambar'          => $fileName
-        ];
-
-        if(\App\Produk::create($input)) {
+        ]);
+        if($produk) {
+            $produk = $usaha->produks->where('id',$produk->id)->first();
+            $produk->update( ['slug' => $produk['slug'].'-'.ncrypt::compose($produk->id)] );
             return redirect()->route('produksi.index')->with('success', 'Berhasil menambahkan produk');
         }
         return redirect()->route('produksi.index')->with('error', 'Kesalahan saat menambahkan produk');
@@ -86,16 +87,15 @@ class ProdukController extends Controller
         }else{
             $fileName = 'assets/images/default_produk.png';
         }
-        $input = [
+        $produk = $usaha->produks->where('slug',$slug)->first();
+        if($produk->update([
           'nama'            => $input['nama'],
-          'slug'            => $input['slug'],
+          'slug'            => $input['slug'].'-'.ncrypt::compose($produk->id),
           'deskripsi'       => $input['deskripsi'],
           'kebutuhan_bahan' => $input['kebutuhan_bahan'],
           'harga'           => $input['harga'],
           'gambar'          => $fileName
-        ];
-        $produk = $usaha->produks->where('slug',$slug)->first();
-        if($produk->update($input)) {
+        ])) {
             return redirect()->route('produksi.index')->with('success', 'Berhasil memperbarui produk');
         }
         return redirect()->route('produksi.index')->with('error', 'Kesalahan saat memperbarui produk');
@@ -107,14 +107,12 @@ class ProdukController extends Controller
         if( isset($request->produk) && !is_null($request->produk) ){
             $delete = $request->produk;
             $delete = \App\Produk::where('slug',$delete)->where('id_usaha', $usaha['id'])->first();
+            if($delete->delete()){
+              return redirect()->route('produksi.index')->with('success', 'Produk berhasil dihapus');
+            }
         }else{
             $delete = '';
         }
-        $bahan = \App\Pupuk::find($id);
-        if($bahan->get()->isEmpty()){
-            redirect()->route('pupuk.index')->with('error', 'Gagal menghapus pupuk/ pupuk tidak ditemukan.');
-        }
-        $bahan->delete();
-        return redirect()->route('pupuk.index')->with('success', 'Pupuk berhasil dihapus');
+            redirect()->route('produksi.index')->with('error', 'Gagal menghapus Produk/ Produk tidak ditemukan.');
     }
 }

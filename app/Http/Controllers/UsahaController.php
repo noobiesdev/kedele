@@ -46,6 +46,9 @@ class UsahaController extends Controller
         $usaha = self::get_usaha(Auth::user()->id);
         $input = $request->all();
         $usaha = \App\Usaha::findOrFail($usaha->id);
+        if(substr(trim ($input['slug']), 0, 5) != 'toko-') {
+            $input['slug'] = 'toko-'.$input['slug'];
+        }
         if( isset($input['nama']) && isset($input['slug']) ) {
             #To update Umum section
             $dataValidator = [

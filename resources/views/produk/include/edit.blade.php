@@ -16,7 +16,7 @@
             <p>Url akses: <i style="color: green;">{{route('landing')}}/{{$usaha->slug}}/<span class="slug-prev-e">{{$edit['slug']}}</span></i></p>
           </div>
           <div class="form-group">
-						<input type="text" class="form-control slug-e" id="slug_edit" name="slug" value="{{$edit['slug']}}" required style="display:none">
+						<input type="text" class="form-control slug-e" id="slug_edit" name="slug" style="display:none">
           </div>
           <div class="form-group">
             <label for="deskripsi_edit" class="col-form-label">Deskripsi produk</label>

@@ -2,33 +2,40 @@
 namespace App\Helpers;
 
 class CryptoHelper {
-  private $times   = 5;
-  private $salt    = 905;
-  private $range   = [2000, 22000];
-  private $lim_hex = 4;
+  public static function config() {
+    return [
+        "times"   => 5,
+        "salt"    => 905,
+        "range"   => ["min"=>2000, "max"=>22000],
+        "lim_hex" => 2
+      ];
+  }
   public static function compose($num) {
-      $num    = ($this->times * $num) + $this->salt;
+      $config = CryptoHelper::config();
+      $num    = ($config['times'] * $num) + $config['salt'];
       $crypt  = dechex ( $num );
       $crypt  = strrev( $crypt );
-      $random = rand ( $this->range[0] , $this->range[1] );
+      $random = rand ( $config["range"]["min"] , $config["range"]["max"] );
       $salt   = dechex ( $random );
-      $result = substr($salt, 0, $this->lim_hex);
+      $result = substr($salt, 0, $config['lim_hex']);
       $crypt  = $result.$crypt;
-      $crypt  = self::hypenate($crypt);
+      $crypt  = CryptoHelper::hypenate($crypt);
       return $crypt;
   }
 
   public static function decompose($crypt) {
+      $config = CryptoHelper::config();
       $crypt = str_replace("-", "", $crypt);
-      $crypt = substr($crypt, $this->lim_hex, 100);
+      $crypt = substr($crypt, $config['lim_hex'], 100);
       $crypt = strrev( $crypt );
       $num = hexdec($crypt);
-      $num = ($num - $this->salt) / $this->times;
+      $num = ($num - $config['salt']) / $config['times'];
       return $num;
   }
 
   public static function hypenate($str) {
-      return wordwrap($str, $this->lim_hex, '-', true);
+      $config = CryptoHelper::config();
+      return wordwrap($str, $config['lim_hex'], '-', true);
   }
 
 }

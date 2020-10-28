@@ -82,7 +82,7 @@
                             </div>
 
                             <div class="form-group">
-                              <label class="control-label mb-10" for="nama">Tautan Toko</label>
+                              <label class="control-label mb-10" for="nama">Tautan Toko <a href="{{route('landing')}}/{{$usaha->slug}}/" target="_blank"><i class="fa fa-share-square-o"></i></a> </label>
                               <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-link"></i></div>
                                 <input type="text" class="input100 form-control @error('slug') is-invalid @enderror" name="slug" id="slug" placeholder="Tautan akses ke toko" value="{{$usaha['slug']}}" required>
@@ -203,7 +203,7 @@ $(document).ready(function() {
                 $('#label_bukti').text("Foto NPWP");
             } else {
                 $('#label_nama_pemilik').text("Nama Pemilik KTP");
-                $('#label_nomor_pemilik').text("Nomer Induk Kependudukan (NIK)");
+                $('#label_nomor_pemilik').text("Nomor Induk Kependudukan (NIK)");
                 $('#label_bukti').text("Foto KTP (KTP saja)");
             }
         });
