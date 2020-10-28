@@ -14,6 +14,9 @@ class WebsiteUsahaController extends Controller
     # =-=-=-=-=-=-=-= WEBSITE PENGUSAHA =-=-=-=-=-=-=-= #
     public function show($slug){
       $usaha = \App\Usaha::where('slug',$slug)->first();
+      if($usaha == null){
+          return redirect()->route('landing')->with('error', 'Lapak tidak ditemukan');
+      }
       $usaha_id = $usaha->id_pengusaha; //id_pengusaha
       $user = self::get_usaha(Auth::user()->id);
       $uid = $user->id; //id dari user

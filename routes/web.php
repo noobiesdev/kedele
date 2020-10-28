@@ -5,6 +5,8 @@ Route::get('/', function () {
 })->name('landing');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/petunjuk-penggunaan', 'HomeController@usage')->name('usage');
+Route::get('/pertanyaan', 'HomeController@helpdesk')->name('helpdesk');
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dasboard', 'HomeController@index')->name('dashboard');
@@ -43,15 +45,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', 'BelanjaController@index')->name('index')->middleware('role:konsumen');
         Route::get('/set/{status}/', 'BelanjaController@update')->name('update')->middleware('role:konsumen'); #set arsip/ batal
         Route::get('/arsip', 'BelanjaController@arsip')->name('arsip')->middleware('role:konsumen');
-        Route::get('/{hash}/kembalikan', 'BelanjaController@kembalikan')->name('arsip')->middleware('role:konsumen');
+        Route::get('/{hash}/kembalikan', 'BelanjaController@kembalikan')->name('revert')->middleware('role:konsumen');
     });
     Route::get('/{slug}', 'WebsiteUsahaController@show')->name('index');
-    Route::get('/{slug}/produk', 'WebsiteUsahaController@product')->name('produk');
-    // Route::group(['as' => 'Belanja.' , 'prefix' => 'Belanja'], function () {
-    // });
-    //-tagihan landing page toko, pemesanan, supplier admin, request pengiriman, riwayat penerimaan, acc transaksi
+    Route::get('/{slug}/keranjang', 'WebsiteUsahaController@cart')->name('keranjang');
+    Route::get('/{slug}/{produk}', 'WebsiteUsahaController@product')->name('produk');
+
+    //-tagihan supplier admin, request pengiriman, riwayat penerimaan, acc transaksi
 });
-// =-=-=-=--= Usaha =-=-=-=--=
-// Route::group(['as' => 'web.' , 'prefix' => 'web'], function () {
-//
-// });
