@@ -5,13 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Helpers\PhoneHelper as phone;
+use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 
 class WebsiteUsahaController extends Controller
 {
     # =-=-=-=-=-=-=-= WEBSITE PENGUSHA =-=-=-=-=-=-=-= #
-    public function show(){
-      return view('usaha.basic.show');
+    public function show($slug){
+      $usaha = \App\Usaha::where('slug',$slug)->first();
+
+      if( $usaha['status'] != 'act' ){
+          return redirect()->route('landing')->with('error', 'Lapak pengusaha sedang tutup sementara waktu');
+      }
+      return view('usaha.basic.show', compact('usaha'));
     }
     public function product(){
       return view('usaha.basic.product');
@@ -27,16 +34,19 @@ class WebsiteUsahaController extends Controller
     public function banner()
     {
         $usaha = self::get_usaha(Auth::user()->id);
+        $usaha = $usaha->website()->first();
         return view('desain.banner', compact('usaha'));
     }
     public function lokasi()
     {
         $usaha = self::get_usaha(Auth::user()->id);
+        $usaha = $usaha->website()->first();
         return view('desain.lokasi', compact('usaha'));
     }
     public function kontak()
     {
         $usaha = self::get_usaha(Auth::user()->id);
+        $usaha = $usaha->website()->first();
         return view('desain.kontak', compact('usaha'));
     }
     public function update(Request $request)
@@ -44,7 +54,25 @@ class WebsiteUsahaController extends Controller
         $usaha = self::get_usaha(Auth::user()->id);
         $input = $request->all();
         $usaha = \App\Usaha::findOrFail($usaha->id);
-        if($usaha->update($input)) {
+        # validation start
+        if ( isset($input['whatsapp']) ){
+          $input['whatsapp'] = phone::validate($input['whatsapp']);
+        }
+        $dataValidator = [
+            'whatsapp' => 'numeric|digits_between:10,14',
+            'facebook' => 'string|min:5|max:32',
+            'twitter' => 'string|min:5|max:32',
+            'instagram' => 'string|min:5|max:32',
+            'marketplace' => 'string|min:5|max:64',
+            'gambar_jumbotron' => 'mimes:jpeg,jpg,png|dimensions:min_width=500,max_width=1500',
+        ];
+        $validator = Validator::make($input,$dataValidator);
+        if($validator->fails()){
+            return redirect()->back()->with('error', 'Kesalahan saat menyimpan! '.$validator->errors()->first());
+        }
+        #validation end
+        unset($input['_token'], $input['files']);
+        if($usaha->website()->update($input)) {
             return redirect()->back()->with('success', 'Berhasil disimpan');
         }
         return redirect()->back()->with('error', 'Kesalahan saat menyimpan');

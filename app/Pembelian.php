@@ -7,16 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property int $id_pembeli
- * @property int $id_produk
- * @property int $id_supplier
- * @property int $jumlah
+ * @property int $id_usaha
  * @property string $kode_pemesanan
+ * @property int $total_harga
  * @property string $status
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
  * @property User $user
- * @property Produk $produk
+ * @property DetailPembelian[] $detailPembelians
  */
 class Pembelian extends Model
 {
@@ -30,7 +29,7 @@ class Pembelian extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_pembeli', 'id_produk', 'id_supplier', 'jumlah', 'kode_pemesanan', 'status', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_pembeli', 'id_usaha', 'kode_pemesanan', 'total_harga', 'status', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -41,10 +40,10 @@ class Pembelian extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function produk()
+    public function detailPembelians()
     {
-        return $this->belongsTo('App\Produk', 'id_produk');
+        return $this->hasMany('App\DetailPembelian', 'id_pembelian');
     }
 }

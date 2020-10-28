@@ -18,20 +18,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $kualitas_bahan
  * @property string $status
  * @property string $masa_aktif
- * @property string $judul_jumbotron
- * @property string $teks_jumbotron
- * @property string $maps
- * @property string $whatsapp
- * @property string $twitter
- * @property string $instagram
- * @property string $facebook
- * @property string $marketplace
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
  * @property User $user
  * @property PengajuanBahan[] $pengajuanBahans
  * @property Produk[] $produks
+ * @property Website $website
  */
 class Usaha extends Model
 {
@@ -45,7 +38,7 @@ class Usaha extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_pengusaha', 'nama', 'slug', 'deskripsi', 'has_npwp', 'nama_pemilik', 'nomor_pemilik', 'bukti_pemilik', 'jumlah_bahan', 'kualitas_bahan', 'status', 'masa_aktif', 'judul_jumbotron', 'teks_jumbotron', 'maps', 'whatsapp', 'twitter', 'instagram', 'facebook', 'marketplace', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_pengusaha', 'nama', 'slug', 'deskripsi', 'has_npwp', 'nama_pemilik', 'nomor_pemilik', 'bukti_pemilik', 'jumlah_bahan', 'kualitas_bahan', 'status', 'masa_aktif', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -69,5 +62,13 @@ class Usaha extends Model
     public function produks()
     {
         return $this->hasMany('App\Produk', 'id_usaha');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function website()
+    {
+        return $this->hasOne('App\Website', 'id');
     }
 }

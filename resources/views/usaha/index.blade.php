@@ -109,9 +109,9 @@
                             </div>
 
                           </div>
-                          <div class="form-actions mt-10">
-                            <button type="submit" class="btn btn-success mr-10 mb-30">Simpan</button>
-                          </div>
+                          <div class="form-group mb-0">
+      											<button type="submit" class="btn btn-success btn-block mr-10 mb-15">Simpan</button>
+      										</div>
                         </form>
   										</div>
   									</div>
@@ -160,9 +160,9 @@
                             </div>
 
                           </div>
-                          <div class="form-actions mt-10">
-                            <button type="submit" class="btn btn-success mr-10 mb-30">Simpan</button>
-                          </div>
+                          <div class="form-group mb-0">
+      											<button type="submit" class="btn btn-success btn-block mr-10 mb-15">Simpan</button>
+      										</div>
                         </form>
   										</div>
   									</div>

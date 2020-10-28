@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $id_usaha
  * @property string $nama
  * @property string $deskripsi
+ * @property float $kebutuhan_bahan
  * @property int $harga
  * @property string $slug
  * @property string $gambar
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $updated_at
  * @property string $deleted_at
  * @property Usaha $usaha
- * @property Pembelian[] $pembelians
+ * @property DetailPembelian[] $detailPembelians
  */
 class Produk extends Model
 {
@@ -27,12 +28,12 @@ class Produk extends Model
      *
      * @var string
      */
-    protected $table = 'produk';
-    protected $dates = ['deleted_at'];
+     protected $table = 'produk';
+     protected $dates = ['deleted_at'];
     /**
      * @var array
      */
-    protected $fillable = ['id_usaha', 'nama', 'deskripsi', 'harga', 'slug', 'gambar', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_usaha', 'nama', 'deskripsi', 'kebutuhan_bahan', 'harga', 'slug', 'gambar', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -45,8 +46,8 @@ class Produk extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function pembelians()
+    public function detailPembelians()
     {
-        return $this->hasMany('App\Pembelian', 'id_produk');
+        return $this->hasMany('App\DetailPembelian', 'id_produk');
     }
 }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreatePermissionTables extends Migration
 {
@@ -86,6 +87,11 @@ class CreatePermissionTables extends Migration
         app('cache')
             ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
             ->forget(config('permission.cache.key'));
+        DB::table('roles')->insert([
+         ['name' => 'admin', 'guard_name' => "web"],
+         ['name' => 'produsen', 'guard_name' => "web"],
+         ['name' => 'konsumen', 'guard_name' => "web"],
+        ]);
     }
 
     /**

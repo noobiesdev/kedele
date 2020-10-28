@@ -117,6 +117,7 @@
 
 <!--===============================================================================================-->
 	<script src="{{ asset('auth/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+	<script src="{{ asset('main/vendors/bower_components/jquery/dist/jquery-mask.min.js') }}"></script>
 <!--===============================================================================================-->
 	<script src="{{ asset('auth/vendor/animsition/js/animsition.min.js') }}"></script>
 <!--===============================================================================================-->
@@ -134,6 +135,15 @@
 <!--===============================================================================================-->
 	<script src="{{ asset('main/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js') }}"></script>
 	<script>
+		$(document).ready(function(){
+				$('#no_hp').mask('+62 9999 999 99ZZ', {
+				translation: {
+					'Z': {
+						pattern: /[0-9]/, optional: true
+					}
+				}
+			});
+		});
     @if($message = Session::get('success'))
     $(window).on("load",function(){
     	window.setTimeout(function(){

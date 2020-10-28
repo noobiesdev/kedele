@@ -1,17 +1,14 @@
-@extends('layouts.usaha.basic')
-
-@section('title'){{$usaha->nama}}@endsection
-
-@section('css')
-<style media="screen">
-  :root {
-    --primer: #27ae60;
-    --sekunder: #ffffff;
-  }
-</style>
-@endsection
-@section('content')
-
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+	<title>@yield('title')</title>
+	@include('layouts.favicon')
+	<link href="{{ asset('main/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ asset('template-usaha/basic/basic.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" yahoo="fix">
+<div class="ui-sortable" id="sort_them">
 <!-- Header -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#1d3650" style="background-color: rgb(29, 54, 80);">
 	<tr>
@@ -39,19 +36,22 @@
 													<tr>
 														<td height="62" valign="middle" align="center" width="100%" class="fullCenter" style="line-height: 1px;" >
 															<a href="#" style="text-decoration: none;">
-																<img src="{{ asset('assets/logo_emblem.png') }}" width="65" alt="" border="0"  class="hover">
+																<img src="{{ asset('template-usaha/basic/images/logo.png') }}" width="120" alt="" border="0"  class="hover">
 															</a>
 														</td>
 													</tr>
 												</table>
+
 												<!-- Buy Now -->
 												<table width="100" border="0" cellpadding="0" cellspacing="0" align="right" style="text-align: right; font-size: 13px; border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
 													<tr>
 														<td width="100%" height="0" style="font-size: 1px; line-height: 1px;" class="h20">&nbsp;</td>
 													</tr>
 													<tr>
-														<td height="70" valign="middle" width="100%"  style="font-family: Helvetica, Arial, sans-serif; color: var(--primer); text-transform: uppercase;">
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><a href="#" style="text-decoration: none; color: var(--primer);" class="underline">Buy Now!</a></span>
+														<td height="70" valign="middle" width="100%"  style="font-family: Helvetica, Arial, sans-serif; color: rgb(249, 97, 69); text-transform: uppercase;">
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]--><a href="#" style="text-decoration: none; color: rgb(249, 97, 69);" class="underline">Buy Now!</a><!--[if !mso]><!--></span><!--<![endif]-->
+
+
 														</td>
 													</tr>
 												</table>
@@ -63,6 +63,9 @@
 													</tr>
 													<tr>
 														<td height="70" valign="middle" width="100%"  style="font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase;"class="h40">
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]--><a href="#" style="text-decoration: none; color: rgb(255, 255, 255);" class="underline">Support</a><!--[if !mso]><!--></span><!--<![endif]-->
+															 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]--><a href="#" style="text-decoration: none; color: rgb(255, 255, 255);" class="underline">Blog</a><!--[if !mso]><!--></span><!--<![endif]-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]--><a href="#" style="text-decoration: none; color: rgb(255, 255, 255);" class="underline">Home</a><!--[if !mso]><!--></span><!--<![endif]-->
+
 														</td>
 													</tr>
 												</table>
@@ -95,21 +98,41 @@
 											</td>
 										</tr>
 									</table><!-- End Space -->
+
 									<!-- Text -->
 									<table style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="mobile" border="0" width="600" cellpadding="0" cellspacing="0" object="drag-module-small">
 										<tr>
-											<td align="center" width="100%" style="font-size: 40px; color: rgb(255, 255, 255); text-align: center; font-family: Helvetica, Arial, sans-serif; font-weight: bold; vertical-align: top;" class="font32">
-														<span style="color: var(--primer); font-weight: bold;" class="font36">
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight:normal; word-break: break-word;">
-																{!!$usaha->website->judul_jumbotron!!}
-															</span>
+											<td align="center" width="100%" style="font-size: 40px; color: rgb(255, 255, 255); text-align: center; font-family: Helvetica, Arial, sans-serif; line-height: 48px; font-weight: bold; vertical-align: top;" class="font32">
+
+
+														<span style="color: rgb(249, 97, 69); font-weight: bold;" class="font36">
+
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight:normal; word-break: break-word;"><!--<![endif]-->
+
+																Phoenix
+
+															<!--[if !mso]><!--></span><!--<![endif]-->
 														</span>
+
 														<span style="color: rgb(255, 255, 255); font-weight: 100;" class="font36">
-															<span style="font-family: 'proxima_novalight', Helvetica; font-weight:normal; word-break: break-word;">
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novalight', Helvetica; font-weight:normal; word-break: break-word;"><!--<![endif]-->
+
+																Headphones.
+
 																<br class="erase">
-																{!!$usaha->website->teks_jumbotron!!}
-															</span>
+
+																They Simply
+															<!--[if !mso]><!--></span><!--<![endif]-->
 														</span>
+
+														<span style="color: rgb(255, 255, 255); font-weight: bold;" class="font36">
+
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight:normal; word-break: break-word;"><!--<![endif]-->
+																Rock.
+															<!--[if !mso]><!--></span><!--<![endif]-->
+														</span>
+
+
 											</td>
 										</tr>
 									</table>
@@ -125,7 +148,7 @@
 											<td width="100%" align="center">
 
 												<!-- Centered Buttons -->
-												<table border="0" cellpadding="0" cellspacing="0" align="center" class="mcenter">
+												<!--[if !mso]><!--><table border="0" cellpadding="0" cellspacing="0" align="center" class="mcenter"><!--<![endif]-->
 												<!--[if mso]><v:shape><table width="58%" border="0" cellpadding="0" cellspacing="0" align="center""></v:shape><![endif]-->
 													<tr>
 														<td width="100%" align="center">
@@ -137,11 +160,11 @@
 
 																		<table border="0" cellpadding="0" cellspacing="0" align="left" class="mcenter">
 																			<tr>
-																				<td align="right" height="38" bgcolor="var(--primer)"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: var(--primer);">
+																				<td align="right" height="38" bgcolor="#f96145"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: rgb(249, 97, 69);">
 
-																					<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
-																						<a href="#produk" class="btn" style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">Produk</a>
-																					</span>
+																					<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
+																						<a href="#"  style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">start today!</a>
+																					<!--[if !mso]><!--></span><!--<![endif]-->
 																				</td>
 																			</tr>
 																		</table>
@@ -155,22 +178,23 @@
 
 
 															<table border="0" cellpadding="0" cellspacing="0" align="right" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; margin-left: 13px;" class="mcenter">
+																<!----------------- Button ----------------->
 																<tr>
 																	<td width="auto" align="center">
 
 																		<table border="0" cellpadding="0" cellspacing="0" align="right" style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; border: 2px solid rgb(255, 255, 255); color: rgb(255, 255, 255);">
 																			<tr>
 																				<td width="auto" align="center" height="34" style="font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-transform: uppercase; color: rgb(255, 255, 255);">
-																					<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
-																						<a href="#" data-toggle="modal" class="btn" data-target=".modal-detail" style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;" class="underline">Detail</a>
-																					</span>
+																					<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
+																						<a href="#" style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;" class="underline">Learn More</a>
+																					<!--[if !mso]><!--></span><!--<![endif]-->
 																				</td>
 																			</tr>
 																		</table>
-                                    @include('usaha.basic.detail')
 
 																	</td>
 																</tr>
+																<!----------------- End Button Center ----------------->
 															</table>
 
 														</td>
@@ -212,9 +236,10 @@
 <!-- Header End -->
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#ffffff"style="background-color: rgb(255, 255, 255);">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#ffffff"style="background-color: rgb(255, 255, 255);">
 	<tr>
 		<td width="100%" valign="top" align="center">
+
 
 			<!-- Wrapper -->
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="mobile">
@@ -250,7 +275,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(1, 1, 1); line-height: 24px; font-weight: normal;"class="fullCenter" >
-												<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">Fully Tested</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Fully Tested<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -258,7 +283,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 22px;" class="fullCenter">
-												<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">Online marketing will be dominated by dynamic content marketing.</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Online marketing will be dominated by dynamic content marketing.<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -290,7 +315,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(1, 1, 1); line-height: 24px; font-weight: normal;"class="fullCenter" >
-												<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">Great Features</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Great Features<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -298,7 +323,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 22px;" class="fullCenter">
-												<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">Online marketing will be dominated by dynamic content marketing.</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Online marketing will be dominated by dynamic content marketing.<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -330,7 +355,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(1, 1, 1); line-height: 24px; font-weight: normal;"class="fullCenter" >
-												<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">Awesome Design</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Awesome Design<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -338,7 +363,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 22px;" class="fullCenter">
-												<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">Online marketing will be dominated by dynamic content marketing.</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Online marketing will be dominated by dynamic content marketing.<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -364,10 +389,10 @@
 		</div>
 		</td>
 	</tr>
-</table><!-- Wrapper 2 --> -->
+</table><!-- Wrapper 2 -->
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#f3f5f9"style="background-color: rgb(243, 245, 249);">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#f3f5f9"style="background-color: rgb(243, 245, 249);">
 	<tr>
 		<td width="100%" valign="top" align="center">
 
@@ -414,7 +439,7 @@
 													</tr>
 													<tr>
 														<td align="center" valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(1, 1, 1); line-height: 24px; font-weight: normal;"class="fullCenter" >
-															<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">Fantastic coding Headphones for the Win!</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Fantastic coding Headphones for the Win!<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -422,7 +447,7 @@
 													</tr>
 													<tr>
 														<td align="center" valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 22px;" class="fullCenter">
-															<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">Online marketing in 2014 will be dominated by dynamic content (blogging) and social media. Next year social media marketing will no longer</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Online marketing in 2014 will be dominated by dynamic content (blogging) and social media. Next year social media marketing will no longer<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -434,11 +459,11 @@
 
 															<table border="0" cellpadding="0" cellspacing="0" align="center" class="buttonScale">
 																<tr>
-																	<td width="auto" align="center" height="37" bgcolor="var(--primer)"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: var(--primer);">
+																	<td width="auto" align="center" height="37" bgcolor="#f96145"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: rgb(249, 97, 69);">
 
-																		<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+																		<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 																			<a href="#"  style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">Read More</a>
-																		</span>
+																		<!--[if !mso]><!--></span><!--<![endif]-->
 																	</td>
 																</tr>
 															</table>
@@ -486,7 +511,7 @@
 													</tr>
 													<tr>
 														<td align="center" valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(1, 1, 1); line-height: 24px; font-weight: normal;"class="fullCenter" >
-															<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">2015’s Best Back to School Headphones</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->2015’s Best Back to School Headphones<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -494,7 +519,7 @@
 													</tr>
 													<tr>
 														<td align="center" valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 22px;" class="fullCenter">
-															<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">Over the last few years SEO’s have debated on whether social signals have any effect on search results and if they do how much weight do these </span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Over the last few years SEO’s have debated on whether social signals have any effect on search results and if they do how much weight do these <!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -506,11 +531,11 @@
 
 															<table border="0" cellpadding="0" cellspacing="0" align="center" class="buttonScale">
 																<tr>
-																	<td width="auto" align="center" height="37" bgcolor="var(--primer)"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: var(--primer);">
+																	<td width="auto" align="center" height="37" bgcolor="#f96145"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: rgb(249, 97, 69);">
 
-																		<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+																		<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 																			<a href="#"  style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">Read More</a>
-																		</span>
+																		<!--[if !mso]><!--></span><!--<![endif]-->
 																	</td>
 																</tr>
 															</table>
@@ -544,10 +569,10 @@
 		</div>
 		</td>
 	</tr>
-</table><!-- Wrapper 2 --> -->
+</table><!-- Wrapper 2 -->
 
 <!-- Seperator 1 -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="var(--primer)" style="background-color: var(--primer);">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#f96145" style="background-color: rgb(249, 97, 69);">
 	<tr>
 		<td align="center" style="background-image: url('images/seperator1.jpg'); background-position: center top; background-repeat:no-preat!important; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-position: center center; background-repeat: no-repeat;" id="sep1">
 
@@ -582,9 +607,9 @@
 										</tr>
 										<tr>
 											<td valign="top" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(255, 255, 255); line-height: 26px; font-weight: bold;"class="fullCenter" >
-												<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+												<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 													Cindy Theron
-												</span>
+												<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -592,7 +617,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(255, 255, 255); line-height: 22px;" class="fullCenter">
-												<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -605,9 +630,9 @@
 												<table border="0" cellpadding="0" cellspacing="0" align="center" style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; border: 2px solid rgb(255, 255, 255); color: rgb(255, 255, 255);">
 													<tr>
 														<td width="auto" align="center" height="35" style="font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-transform: uppercase; color: rgb(255, 255, 255);">
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 																<a href="#" style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;" class="underline">About me</a>
-															</span>
+															<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 												</table>
@@ -635,7 +660,7 @@
 <!-- Seperator 1 End -->
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#ffffff"style="background-color: rgb(255, 255, 255);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#ffffff"style="background-color: rgb(255, 255, 255);">
 	<tr>
 		<td width="100%" valign="top" align="center">
 
@@ -662,7 +687,7 @@
 </table><!-- Wrapper 2 -->
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff" style="background-color: rgb(255, 255, 255);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff" style="background-color: rgb(255, 255, 255);">
 	<tr>
 		<td width="100%" valign="top" align="center">
 
@@ -732,7 +757,7 @@
 </table><!-- Wrapper 2 -->
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff" style="background-color: rgb(255, 255, 255);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff" style="background-color: rgb(255, 255, 255);">
 	<tr>
 		<td width="100%" valign="top" align="center">
 
@@ -758,9 +783,9 @@
 									<table width="600" border="0" cellpadding="0" cellspacing="0" align="center" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="fullCenter">
 										<tr>
 											<td valign="top" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 22px; color: rgb(1, 1, 1); line-height: 28px; font-weight: bold;"class="fullCenter" >
-												<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">
+												<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->
 													Go Anywhere with our new Serie of Summer Headphones
-												</span>
+												<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -769,9 +794,9 @@
 										<tr>
 											<td width="100%" valign="top" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 24px; font-weight: normal;" class="fullCenter">
 
-													<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+													<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->
 														Many website owners may find themselves confused or deflated by the lack of traffic their website is bringing in especially when they’ve been working hard to achieve high rankings within the search engines and promoting themselves frequently on social networks but what could be causing the websites downfall?
-													</span>
+													<!--[if !mso]><!--></span><!--<![endif]-->
 												<p>
 											</td>
 										</tr>
@@ -784,11 +809,11 @@
 
 												<table border="0" cellpadding="0" cellspacing="0" align="left" class="buttonScale">
 													<tr>
-														<td width="auto" align="center" height="37" bgcolor="var(--primer)"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: var(--primer);">
+														<td width="auto" align="center" height="37" bgcolor="#f96145"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: rgb(249, 97, 69);">
 
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 																<a href="#"  style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">Read More</a>
-															</span>
+															<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 												</table>
@@ -818,7 +843,7 @@
 </table><!-- Wrapper 2 -->
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#f3f5f9"style="background-color: rgb(243, 245, 249);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#f3f5f9"style="background-color: rgb(243, 245, 249);">
 	<tr>
 		<td width="100%" valign="top" align="center">
 
@@ -845,7 +870,7 @@
 </table><!-- Wrapper 2 -->
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#f3f5f9"style="background-color: rgb(243, 245, 249);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#f3f5f9"style="background-color: rgb(243, 245, 249);">
 	<tr>
 		<td width="100%" valign="top" align="center">
 
@@ -911,7 +936,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(1, 1, 1); line-height: 24px; font-weight: normal;"class="fullCenter" >
-															<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">What are you waiting for? Save 10% on select models until Jan 10th</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->What are you waiting for? Save 10% on select models until Jan 10th<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -919,7 +944,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 22px;" class="fullCenter">
-															<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">Basic search engine optimisation is essential for any website. SEO will help your website to be found within the search engines keywords relating to...</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Basic search engine optimisation is essential for any website. SEO will help your website to be found within the search engines keywords relating to...<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -931,11 +956,11 @@
 
 															<table border="0" cellpadding="0" cellspacing="0" align="left" class="buttonScale">
 																<tr>
-																	<td width="auto" align="center" height="37" bgcolor="var(--primer)"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: var(--primer);">
+																	<td width="auto" align="center" height="37" bgcolor="#f96145"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: rgb(249, 97, 69);">
 
-																		<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+																		<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 																			<a href="#"  style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">Read More</a>
-																		</span>
+																		<!--[if !mso]><!--></span><!--<![endif]-->
 																	</td>
 																</tr>
 															</table>
@@ -972,7 +997,7 @@
 </table><!-- Wrapper 2 -->
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#f3f5f9"style="background-color: rgb(243, 245, 249);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#f3f5f9"style="background-color: rgb(243, 245, 249);">
 	<tr>
 		<td width="100%" valign="top" align="center">
 
@@ -1035,7 +1060,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(1, 1, 1); line-height: 24px; font-weight: normal;"class="fullCenter" >
-															<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">Here’s some of Headroom Staffers Enjoying Epic Summers</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Here’s some of Headroom Staffers Enjoying Epic Summers<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -1043,7 +1068,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 22px;" class="fullCenter">
-															<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">Basic search engine optimisation is essential for any website. SEO will help your website to be found within the search engines keywords relating to...</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Basic search engine optimisation is essential for any website. SEO will help your website to be found within the search engines keywords relating to...<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -1055,11 +1080,11 @@
 
 															<table border="0" cellpadding="0" cellspacing="0" align="left" class="buttonScale">
 																<tr>
-																	<td width="auto" align="center" height="37" bgcolor="var(--primer)"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: var(--primer);">
+																	<td width="auto" align="center" height="37" bgcolor="#f96145"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: rgb(249, 97, 69);">
 
-																		<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+																		<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 																			<a href="#"  style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">Read More</a>
-																		</span>
+																		<!--[if !mso]><!--></span><!--<![endif]-->
 																	</td>
 																</tr>
 															</table>
@@ -1096,7 +1121,7 @@
 </table><!-- Wrapper 2 -->
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#f3f5f9"style="background-color: rgb(243, 245, 249);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#f3f5f9"style="background-color: rgb(243, 245, 249);">
 	<tr>
 		<td width="100%" valign="top" align="center">
 
@@ -1123,18 +1148,18 @@
 </table><!-- Wrapper 2 -->
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" > -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" >
 	<tr>
 		<td width="100%" valign="top" align="center">
 
 
 			<!-- Wrapper -->
-			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="var(--primer)"style="background-color: var(--primer);">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#f96145"style="background-color: rgb(249, 97, 69);">
 				<tr>
 					<td align="center">
 
 						<!-- Column Left -->
-						<table width="50%" border="0" cellpadding="0" cellspacing="0" align="left" class="full" style="border-collapse: collapse; text-align: center; background-color: var(--primer);" bgcolor="var(--primer)">
+						<table width="50%" border="0" cellpadding="0" cellspacing="0" align="left" class="full" style="border-collapse: collapse; text-align: center; background-color: rgb(249, 97, 69);" bgcolor="#f96145">
 							<tr>
 								<td width="100%" align="center">
 
@@ -1154,7 +1179,7 @@
 												<table width="250" border="0" cellpadding="0" cellspacing="0" align="left" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; text-align: center;" class="fullCenter">
 													<tr>
 														<td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(255, 255, 255); line-height: 24px; font-weight: normal;"class="fullCenter" >
-															<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">Unheard and Never Seen Before Combo Sale</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Unheard and Never Seen Before Combo Sale<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -1162,7 +1187,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(255, 255, 255); line-height: 22px;" class="fullCenter">
-															<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">Many website owners may find themselves confused or deflated by the lack of traffic their website is bringing in especially when they’ve been working what could be causing the websites downfall?</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Many website owners may find themselves confused or deflated by the lack of traffic their website is bringing in especially when they’ve been working what could be causing the websites downfall?<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -1281,7 +1306,7 @@
 </table><!-- Wrapper 2 -->
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff" style="background-color: rgb(255, 255, 255);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#ffffff" style="background-color: rgb(255, 255, 255);">
 	<tr>
 		<td width="100%" valign="top" align="center">
 
@@ -1315,9 +1340,9 @@
 										</tr>
 										<tr>
 											<td valign="top" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 22px; color: rgb(1, 1, 1); line-height: 28px; font-weight: bold;"class="fullCenter" >
-												<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">
+												<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->
 													Sure-Fire Father’s Day Gifts
-												</span>
+												<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -1326,9 +1351,9 @@
 										<tr>
 											<td width="100%" valign="top" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 24px; font-weight: normal;" class="fullCenter">
 
-													<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+													<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->
 														Many website owners may find themselves confused or deflated by the lack of traffic their website is bringing in especially when they’ve been working hard to achieve high rankings within the search engines and promoting themselves frequently on social networks but what could be causing the websites downfall?
-													</span>
+													<!--[if !mso]><!--></span><!--<![endif]-->
 												<p>
 											</td>
 										</tr>
@@ -1341,11 +1366,11 @@
 
 												<table border="0" cellpadding="0" cellspacing="0" align="left" class="buttonScale">
 													<tr>
-														<td width="auto" align="center" height="37" bgcolor="var(--primer)"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: var(--primer);">
+														<td width="auto" align="center" height="37" bgcolor="#f96145"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: rgb(249, 97, 69);">
 
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 																<a href="#"  style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">Read More</a>
-															</span>
+															<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 												</table>
@@ -1375,7 +1400,7 @@
 </table><!-- Wrapper 2 -->
 
 <!-- Wrapper 3 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#f3f5f9" style="background-color: rgb(243, 245, 249);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#f3f5f9" style="background-color: rgb(243, 245, 249);">
 	<tr>
 		<td width="100%" align="center">
 
@@ -1420,7 +1445,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 30px; color: rgb(1, 1, 1); line-height: 18px; text-transform: uppercase;" class="fullCenter">
-															<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">98</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->98<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -1428,7 +1453,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: rgb(1, 1, 1); line-height: 18px; text-transform: uppercase;" class="fullCenter">
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">PROJECTS FINISHED</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->PROJECTS FINISHED<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 												</table>
@@ -1455,7 +1480,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 30px; color: rgb(1, 1, 1); line-height: 18px; text-transform: uppercase;" class="fullCenter">
-															<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">23</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->23<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -1463,7 +1488,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: rgb(1, 1, 1); line-height: 18px; text-transform: uppercase;" class="fullCenter">
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">cups of coffee</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->cups of coffee<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 												</table>
@@ -1502,7 +1527,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 30px; color: rgb(1, 1, 1); line-height: 18px; text-transform: uppercase;" class="fullCenter">
-															<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">87</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->87<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -1510,7 +1535,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: rgb(1, 1, 1); line-height: 18px; text-transform: uppercase;" class="fullCenter">
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">awards won</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->awards won<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 												</table>
@@ -1537,7 +1562,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 30px; color: rgb(1, 1, 1); line-height: 18px; text-transform: uppercase;" class="fullCenter">
-															<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">99</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->99<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 													<tr>
@@ -1545,7 +1570,7 @@
 													</tr>
 													<tr>
 														<td valign="middle" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: rgb(1, 1, 1); line-height: 18px; text-transform: uppercase;" class="fullCenter">
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">happy customers</span>
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->happy customers<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 												</table>
@@ -1714,9 +1739,9 @@
 										</tr>
 										<tr>
 											<td valign="top" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(1, 1, 1); line-height: 26px; font-weight: bold;"class="fullCenter" >
-												<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">
+												<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->
 													Try our New High Resolution Player
-												</span>
+												<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -1725,9 +1750,9 @@
 										<tr>
 											<td width="100%" valign="top" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 24px; font-weight: normal;" class="fullCenter">
 
-													<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+													<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->
 														Online marketing in 2014 will be dominated by dynamic content (blogging) and social media. Next year social media marketing...
-													</span>
+													<!--[if !mso]><!--></span><!--<![endif]-->
 												<p>
 											</td>
 										</tr>
@@ -1740,11 +1765,11 @@
 
 												<table border="0" cellpadding="0" cellspacing="0" align="left" class="buttonScale">
 													<tr>
-														<td width="auto" align="center" height="37" bgcolor="var(--primer)"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: var(--primer);">
+														<td width="auto" align="center" height="37" bgcolor="#f96145"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: rgb(249, 97, 69);">
 
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 																<a href="#"  style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">Read More</a>
-															</span>
+															<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 												</table>
@@ -1772,9 +1797,9 @@
 										</tr>
 										<tr>
 											<td valign="top" width="100%" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(1, 1, 1); line-height: 26px; font-weight: bold;"class="fullCenter" >
-												<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">
+												<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->
 													Ever Wondered why our Headphones get Makeovers?
-												</span>
+												<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -1783,9 +1808,9 @@
 										<tr>
 											<td width="100%" valign="top" style="text-align: left; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 24px; font-weight: normal;" class="fullCenter">
 
-													<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+													<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->
 														Online marketing in 2014 will be dominated by dynamic content (blogging) and social media. Next year social media marketing...
-													</span>
+													<!--[if !mso]><!--></span><!--<![endif]-->
 												<p>
 											</td>
 										</tr>
@@ -1798,11 +1823,11 @@
 
 												<table border="0" cellpadding="0" cellspacing="0" align="left" class="buttonScale">
 													<tr>
-														<td width="auto" align="center" height="37" bgcolor="var(--primer)"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: var(--primer);">
+														<td width="auto" align="center" height="37" bgcolor="#f96145"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: rgb(249, 97, 69);">
 
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 																<a href="#"  style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">Read More</a>
-															</span>
+															<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 												</table>
@@ -1832,7 +1857,7 @@
 </table><!-- Wrapper 2 -->
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#f3f5f9"style="background-color: rgb(243, 245, 249);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#f3f5f9"style="background-color: rgb(243, 245, 249);">
 	<tr>
 		<td width="100%" valign="top" align="center">
 
@@ -1871,7 +1896,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(1, 1, 1); line-height: 24px; font-weight: normal;"class="fullCenter" >
-												<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">Quality</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Quality<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -1879,7 +1904,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 22px;" class="fullCenter">
-												<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec sed odio dui. Nullam id dolor id nibh.</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec sed odio dui. Nullam id dolor id nibh.<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -1891,11 +1916,11 @@
 
 												<table border="0" cellpadding="0" cellspacing="0" align="center" class="buttonScale">
 													<tr>
-														<td width="auto" align="center" height="37" bgcolor="var(--primer)"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: var(--primer);">
+														<td width="auto" align="center" height="37" bgcolor="#f96145"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: rgb(249, 97, 69);">
 
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 																<a href="#"  style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">Read More</a>
-															</span>
+															<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 												</table>
@@ -1928,7 +1953,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(1, 1, 1); line-height: 24px; font-weight: normal;"class="fullCenter" >
-												<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">Strength</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Strength<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -1936,7 +1961,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 22px;" class="fullCenter">
-												<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec sed odio dui. Nullam id dolor id nibh.</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec sed odio dui. Nullam id dolor id nibh.<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -1948,11 +1973,11 @@
 
 												<table border="0" cellpadding="0" cellspacing="0" align="center" class="buttonScale">
 													<tr>
-														<td width="auto" align="center" height="37" bgcolor="var(--primer)"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: var(--primer);">
+														<td width="auto" align="center" height="37" bgcolor="#f96145"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: rgb(249, 97, 69);">
 
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 																<a href="#"  style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">Read More</a>
-															</span>
+															<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 												</table>
@@ -1985,7 +2010,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 20px; color: rgb(1, 1, 1); line-height: 24px; font-weight: normal;"class="fullCenter" >
-												<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">Detail</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Detail<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -1993,7 +2018,7 @@
 										</tr>
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(135, 135, 135); line-height: 22px;" class="fullCenter">
-												<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec sed odio dui. Nullam id dolor id nibh.</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec sed odio dui. Nullam id dolor id nibh.<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -2005,11 +2030,11 @@
 
 												<table border="0" cellpadding="0" cellspacing="0" align="center" class="buttonScale">
 													<tr>
-														<td width="auto" align="center" height="37" bgcolor="var(--primer)"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: var(--primer);">
+														<td width="auto" align="center" height="37" bgcolor="#f96145"style="border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; padding-left: 20px; padding-right: 20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-transform: uppercase; background-color: rgb(249, 97, 69);">
 
-															<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">
+															<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->
 																<a href="#"  style="color: rgb(255, 255, 255); font-size: 12px; text-decoration: none; line-height: 30px; width: 100%;"class="underline">Read More</a>
-															</span>
+															<!--[if !mso]><!--></span><!--<![endif]-->
 														</td>
 													</tr>
 												</table>
@@ -2039,7 +2064,7 @@
 </table><!-- Wrapper 2 -->
 
 <!-- Seperator 3 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#1d3650" style="background-color: rgb(29, 54, 80);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#1d3650" style="background-color: rgb(29, 54, 80);">
 	<tr>
 		<td align="center" style="background-image: url('images/seperator2.jpg'); background-position: center top; background-repeat:no-preat!important; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-position: center center; background-repeat: no-repeat;" id="sep2">
 
@@ -2090,8 +2115,8 @@
 
 									<table style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="mobile" border="0" width="600" cellpadding="0" cellspacing="0" object="drag-module-small">
 										<tr>
-											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 22px; color: var(--primer); line-height: 24px; font-weight: bold;"class="fullCenter" >
-												<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">We are known All Over The Globe</span>
+											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 22px; color: rgb(249, 97, 69); line-height: 24px; font-weight: bold;"class="fullCenter" >
+												<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->We are known All Over The Globe<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 									</table>
@@ -2109,8 +2134,8 @@
 											<td align="center" width="100%" style="font-size: 14px; color: rgb(255, 255, 255); text-align: center; font-family: Helvetica, Arial, sans-serif; line-height: 24px; font-weight: bold; vertical-align: top; font-style: italic;">
 
 
-														<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight:normal;">
-														“Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoet dolore magna aliquam erat volutpat.”</span>
+														<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight:normal;"><!--<![endif]-->
+														“Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoet dolore magna aliquam erat volutpat.”<!--[if !mso]><!--></span><!--<![endif]-->
 
 
 											</td>
@@ -2127,7 +2152,7 @@
 									<table style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="mobile" border="0" width="600" cellpadding="0" cellspacing="0" object="drag-module-small">
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: rgb(255, 255, 255); line-height: 20px; font-weight: bold;"class="fullCenter" >
-												<span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;">Jonathan Strong</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgbold', Helvetica; font-weight: normal;"><!--<![endif]-->Jonathan Strong<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 									</table>
@@ -2137,7 +2162,7 @@
 											<td align="center" width="100%" style="font-size: 14px; color: rgb(255, 255, 255); text-align: center; font-family: Helvetica, Arial, sans-serif; line-height: 24px; font-weight: bold; vertical-align: top; font-style: italic;">
 
 
-														<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight:normal;">Owner Music Group</span>
+														<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight:normal;"><!--<![endif]-->Owner Music Group<!--[if !mso]><!--></span><!--<![endif]-->
 
 
 											</td>
@@ -2168,7 +2193,7 @@
 <!-- Seperator 3 End -->
 
 <!-- Wrapper 3 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#f3f5f9" style="background-color: rgb(243, 245, 249);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#f3f5f9" style="background-color: rgb(243, 245, 249);">
 	<tr>
 		<td width="100%" align="center">
 
@@ -2194,7 +2219,7 @@
 									<table width="600" border="0" cellpadding="0" cellspacing="0" align="center" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; text-align: center;" class="fullCenter">
 										<tr>
 											<td valign="middle" width="100%" style="text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 22px; color: rgb(1, 1, 1); line-height: 26px; font-weight: normal;"class="fullCenter" >
-												<span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;">Our Sponsors</span>
+												<!--[if !mso]><!--><span style="font-family: 'proxima_novasemibold', Helvetica; font-weight: normal;"><!--<![endif]-->Our Sponsors<!--[if !mso]><!--></span><!--<![endif]-->
 											</td>
 										</tr>
 										<tr>
@@ -2316,7 +2341,7 @@
 </table>
 
 <!-- Wrapper 2 -->
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#ffffff"style="background-color: rgb(255, 255, 255);"> -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full"  bgcolor="#ffffff"style="background-color: rgb(255, 255, 255);">
 	<tr>
 		<td width="100%" valign="top" align="center">
 
@@ -2430,21 +2455,21 @@
 
 
 
-													<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+													<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->
 													<a href="http://www.check_online.com" target="_blank" style="color: rgb(135, 135, 135); text-decoration: none;"class="underline" >Check online</a>
-													</span>
+													<!--[if !mso]><!--></span><!--<![endif]-->
 
 													&nbsp; | &nbsp;
 
-													<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+													<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->
 													<!--subscribe--><a href="#" style="color: rgb(135, 135, 135); text-decoration: none;"class="underline" >Unsubscribe</a><!--unsub-->
-													</span>
+													<!--[if !mso]><!--></span><!--<![endif]-->
 
 													&nbsp; | &nbsp;
 
-													<span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;">
+													<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica; font-weight: normal;"><!--<![endif]-->
 													<a href="mailto:infor@mail.com" target="_blank" style="color: rgb(135, 135, 135); text-decoration: none;"class="underline" >Forward to a friend</a>
-													</span>
+													<!--[if !mso]><!--></span><!--<![endif]-->
 
 
 
@@ -2475,4 +2500,71 @@
 </table>
 <!-- Unsubscribe End -->
 
-@endsection
+<!-- Footer -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full" bgcolor="#1d3650" style="background-color: rgb(29, 54, 80);">
+	<tr>
+		<td align="center" valign="top">
+
+
+			<!-- Wrapper -->
+			<table class="mobile" align="center" border="0" width="100%" cellpadding="0" cellspacing="0">
+				<tr>
+					<td>
+
+						<!-- Wrapper -->
+						<table class="full" align="center" border="0" width="600" cellpadding="0" cellspacing="0">
+							<tr>
+								<td width="100%">
+
+									<table style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="full" align="center" border="0" width="100%" cellpadding="0" cellspacing="0">
+										<tr>
+											<td height="25" width="100%">
+											</td>
+										</tr>
+									</table>
+
+									<table style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="full" align="center" border="0" width="100%" cellpadding="0" cellspacing="0">
+										<tr>
+											<td style="font-size: 13px; color: rgb(255, 255, 255); font-family: Helvetica, Arial, sans-serif; line-height: 22px; vertical-align: top; font-weight: normal;" align="center" width="100%">
+
+													<!--[if !mso]><!--><span style="font-family: 'proxima_nova_rgregular', Helvetica;"><!--<![endif]-->
+														Copyright © 2015
+
+														<span style="color: rgb(249, 97, 69);">
+															RocketWay</span>.
+															All Rights Reserved.
+
+
+													<!--[if !mso]><!--></span><!--<![endif]-->
+
+											</td>
+										</tr>
+									</table>
+
+									<table style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="full" align="center" border="0" width="100%" cellpadding="0" cellspacing="0">
+										<tr>
+											<td height="25" width="100%"></td>
+										</tr>
+										<tr>
+											<td height="1" style="font-size: 1px; line-height: 1px;">&nbsp;</td>
+										</tr>
+									</table>
+
+								</td>
+							</tr>
+						</table>
+
+					</td>
+				</tr>
+			</table><!-- End Wrapper -->
+
+		</div>
+		</td>
+	</tr>
+</table>
+<!-- Footer End -->
+</div>
+<script src="{{ asset('main/vendors/bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('main/vendors/bower_components/jquery/dist/jquery-mask.min.js') }}"></script>
+<script src="{{ asset('main/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+</body></html>	<style>body{ background: none !important; } </style>

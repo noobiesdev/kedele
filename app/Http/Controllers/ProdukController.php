@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use App\Helpers\CryptoHelper as ncrypt;
+use App\Helpers\PriceHelper as price;
 
 class ProdukController extends Controller
 {
@@ -41,6 +43,16 @@ class ProdukController extends Controller
         }else{
             $fileName = 'assets/images/default_produk.png';
         }
+        $input['harga'] = price::clear($input['harga']);
+        $dataValidator = [
+            'whatsapp' => 'numeric|digits_between:10,14',
+            'slug' => 'string|unique:produk,slug|alpha_dash',
+            'gambar' => 'mimes:jpeg,jpg,png',
+        ];
+        $validator = Validator::make($input,$dataValidator);
+        if($validator->fails()){
+            return redirect()->back()->with('error', 'Kesalahan saat menambahkan! '.$validator->errors()->first());
+        }
         $input = [
           'id_usaha'        => $usaha->id,
           'nama'            => $input['nama'],
@@ -61,6 +73,7 @@ class ProdukController extends Controller
     {
         $input = $request->all();
         $usaha = self::get_usaha(Auth::user()->id);
+        $input['harga'] = price::clear($input['harga']);
         if ($request->hasFile('gambar')) {
             $uploadFile = $request->file('gambar');
             $destinationPath = 'uploads/produk/';// upload path

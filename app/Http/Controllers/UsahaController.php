@@ -48,14 +48,20 @@ class UsahaController extends Controller
         $usaha = \App\Usaha::findOrFail($usaha->id);
         if( isset($input['nama']) && isset($input['slug']) ) {
             #To update Umum section
-            $customMessage = [];
-            $dataValidator = [];
+            $dataValidator = [
+              'nama' => 'required|string|min:5|max:16',
+              'slug' => 'required|string|alpha_dash|max:64|unique:usaha,slug,'.$usaha->id,
+              'deskripsi' => 'string',
+            ];
         }else{
             #To update Kepemilikan section
-            $customMessage = [];
-            $dataValidator = [];
+            $dataValidator = [
+              'nama_pemilik' => 'required|string|max:128',
+              'nomor_pemilik' => 'required|string|min:12|max:32',
+              'bukti_pemilik' => 'mimes:jpeg,jpg,png',
+            ];
         }
-        $validation = Validator::make($request->all(), $dataValidator, $customMessage);
+        $validation = Validator::make($request->all(), $dataValidator);
         if ($validation->fails()) {
             return redirect()->back()->with('error', 'Gagal memperbarui informasi usaha')
                         ->withErrors($validation)

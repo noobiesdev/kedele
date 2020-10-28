@@ -51,6 +51,6 @@ Route::group(['middleware' => ['auth']], function () {
 });
 // =-=-=-=--= Usaha =-=-=-=--=
 Route::group(['as' => 'web.' , 'prefix' => 'web'], function () {
-    Route::get('/', 'WebsiteUsahaController@show')->name('index');
-    Route::get('/produk', 'WebsiteUsahaController@product')->name('produk');
+    Route::get('/{slug}', 'WebsiteUsahaController@show')->name('index');
+    Route::get('/{slug}/produk', 'WebsiteUsahaController@product')->name('produk');
 });

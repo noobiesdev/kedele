@@ -27,36 +27,33 @@
       </div>
 
       <!-- Row -->
-      <div class="panel panel-default card-view">
-				<div class="panel-wrapper collapse in">
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-sm-12 col-xs-12">
-								<div class="form-wrap">
-
+      <div class="col-md-9">
+        <div class="panel panel-default card-view">
+          <div class="panel-wrapper collapse in">
+            <div class="panel-body">
+              <div class="col-sm-12 col-xs-12">
+                <div class="form-wrap">
 									<form class="form-horizontal" method="POST" action="{{ route('website.update') }}" autocomplete="off">
                     @csrf
                     <div class="form-group">
-                      <label for="exampleInputweb_31" class="col-sm-3 control-label">Link Google Maps</label>
-                      <div class="col-sm-6">
-
-                          <input type="text" class="form-control" name="maps" placeholder="Contoh: https://maps.google.com/maps?hl=en&amp;q=-8.0457162,113.8261433" value="{{$usaha['maps']}}" required>
+                      <label class="control-label mb-10">Link Google Maps</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" name="maps" placeholder="Contoh: https://maps.google.com/maps?hl=en&amp;q=-8.0457162,113.8261433" value="{{$usaha['maps']}}" required>
+                        <div class="col-sm-6 ml-10">
                           <ol>
                             <li>Buka website <a target="_blank" href="https://googlemapsembed.net/">https://googlemapsembed.net/</a> </li>
                             <li>Tandai tempat usaha Karya Tani 2</li>
                             <li>Tekan Get-HTML Code, dan akan ditampilkan kode yang cukup panjang. Namun anda hanya cukup untuk menyalin teks didalam tanda petik src=""
-                             </li>
+                            </li>
                             <li>Seperti gambar berikut: <img src="" alt="" style=""> </li>
                           </ol>
-
+                        </div>
                       </div>
                     </div>
 										<div class="form-group mb-0">
-											<div class="col-sm-offset-3 col-sm-6">
-												<button type="submit" class="btn btn-success ">Simpan</button>
-											</div>
+											<button type="submit" class="btn btn-success btn-block">Simpan</button>
 										</div>
-									</form>
+                  </form>
 								</div>
 							</div>
 						</div>

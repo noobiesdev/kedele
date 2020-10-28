@@ -4,6 +4,7 @@
 
 @section('css')
 <link href="{{ asset('main/vendors/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ asset('main/vendors/bower_components/switchery/dist/switchery.min.css') }}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="{{ asset('main/vendors/bower_components/summernote/dist/summernote.css') }}" />
 @endsection
 
@@ -27,33 +28,31 @@
       </div>
 
       <!-- Row -->
-      <div class="panel panel-default card-view">
-				<div class="panel-wrapper collapse in">
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-sm-12 col-xs-12">
-								<div class="form-wrap">
-                  <form class="form-horizontal" method="POST" action="{{ route('website.update') }}" autocomplete="off">
+      <div class="col-md-9">
+        <div class="panel panel-default card-view">
+          <div class="panel-wrapper collapse in">
+            <div class="panel-body">
+              <div class="col-sm-12 col-xs-12">
+                <div class="form-wrap">
+                  <form class="form-horizontal" method="POST" action="{{ route('website.update') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                      <label for="exampleInputuname_3" class="col-sm-3 control-label">Judul Banner</label>
-                      <div class="col-sm-9">
-                          <textarea class="summernote" name="judul_jumbotron" rows="2" cols="10" required style="height: 30px">{{$usaha['judul_jumbotron']}}</textarea>
-                      </div>
+                      <label for="exampleInputuname_3" class="mb-10 control-label">Judul banner</label>
+                      <textarea class="summernote" name="judul_jumbotron" rows="2" cols="10" required style="height: 30px">{{$usaha['judul_jumbotron']}}</textarea>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputweb_31" class="col-sm-3 control-label">Sub-judul Sampul</label>
-                      <div class="col-sm-9">
-                          <textarea class="summernote" name="teks_jumbotron" rows="4" cols="40" required>{{$usaha['teks_jumbotron']}}</textarea>
-                      </div>
+                      <label for="exampleInputweb_31" class="mb-10 control-label">Sub-judul sampul</label>
+                      <textarea class="summernote" name="teks_jumbotron" rows="4" cols="40" required>{{$usaha['teks_jumbotron']}}</textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputweb_31" class="mb-10 control-label">Gambar banner</label>
+                        <input type="file" id="pict_jumbo" name="gambar_jumbotron" class="dropify" data-default-file="{{asset($usaha['bukti_pemilik'])}}">
                     </div>
                     <div class="form-group mb-0">
-                      <div class="col-sm-offset-3 col-sm-9">
-                        <button type="submit" class="btn btn-success ">Simpan</button>
-                      </div>
-                    </div>
+											<button type="submit" class="btn btn-success btn-block">Simpan</button>
+										</div>
                   </form>
-								</div>
+                </div>
 							</div>
 						</div>
 					</div>
@@ -66,6 +65,8 @@
 <script src="{{ asset('main/vendors/bower_components/summernote/dist/summernote.min.js') }}"></script>
 <script src="{{ asset('main/js/summernote-data.js') }}"></script>
 <script src="{{ asset('main/vendors/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
+<script src="{{ asset('main/js/form-file-upload-data.js') }}"></script>
+<script src="{{ asset('main/vendors/bower_components/switchery/dist/switchery.min.js') }}"></script>
 
 
 @endsection

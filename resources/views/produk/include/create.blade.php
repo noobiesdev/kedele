@@ -26,7 +26,7 @@
             <label for="price" class="col-form-label">Harga produk</label>
             <div class="input-group">
               <div class="input-group-addon">Rp</div>
-							<input type="number" class="form-control price" id="price" name="harga" required>
+							<input type="text" class="form-control price" id="price" name="harga" required>
 						</div>
           </div>
           <div class="form-group">

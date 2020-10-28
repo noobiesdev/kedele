@@ -51,6 +51,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $data['no_hp'] = phone::validate($data['no_hp']);
         $customMessage = [
             'nama.required'      => 'Nama lengkap wajib diisi',
             'nama.min'           => 'Nama lengkap minimal terdiri sebanyak :min karakter',
@@ -110,6 +111,11 @@ class RegisterController extends Controller
               'id_pengusaha' => $user->id,
               'nama'      => "Toko ".$data['username'],
               'slug'      => "toko-".strtolower($data['username']),
+            ]);
+            $website = \App\Website::create([
+              'id_usaha' => $usaha->id,
+              'judul_jumbotron' => $usaha->nama,
+              'whatsapp' => $user->no_hp,
             ]);
         }else if($data['role'] == "konsumen"){
             $user->assignRole('konsumen');
