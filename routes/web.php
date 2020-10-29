@@ -47,9 +47,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/arsip', 'BelanjaController@arsip')->name('arsip')->middleware('role:konsumen');
         Route::get('/{hash}/kembalikan', 'BelanjaController@kembalikan')->name('revert')->middleware('role:konsumen');
     });
-    Route::get('/{slug}', 'WebsiteUsahaController@show')->name('index');
-    Route::get('/{slug}/keranjang', 'WebsiteUsahaController@cart')->name('keranjang');
-    Route::get('/{slug}/{produk}', 'WebsiteUsahaController@product')->name('produk');
-
     //-tagihan supplier admin, request pengiriman, riwayat penerimaan, acc transaksi
 });
+
+Route::get('/{slug}', 'WebsiteUsahaController@show')->name('index');
+Route::get('/{slug}/keranjang', 'WebsiteUsahaController@cart')->name('keranjang');
+Route::get('/{slug}/{produk}', 'WebsiteUsahaController@product')->name('produk');
+Route::post('/checkout', 'WebsiteUsahaController@checkout')->name('checkout');

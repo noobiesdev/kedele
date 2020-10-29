@@ -5,6 +5,7 @@
 @section('css')
 <link href="{{ asset('main/vendors/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('main/vendors/bower_components/switchery/dist/switchery.min.css') }}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{{ asset('main/vendors/bower_components/summernote/dist/summernote.css') }}" />
 <style media="screen">
   .switchery{
 
@@ -99,7 +100,7 @@
                               <div class="input-group">
 
                                 <div class="input-group-addon"><i class="fa fa-list-alt"></i></div>
-                                <textarea class="input100 form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" rows="8" cols="40">{{$usaha['deskripsi']}}</textarea>
+                                <textarea class=" summernote input100 form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" rows="8" cols="40">{{$usaha['deskripsi']}}</textarea>
                                 @error('deskripsi')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -177,6 +178,8 @@
 @endsection
 
 @section('js')
+<script src="{{ asset('main/vendors/bower_components/summernote/dist/summernote.min.js') }}"></script>
+<script src="{{ asset('main/js/summernote-data.js') }}"></script>
 <script src="{{ asset('main/vendors/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
 <script src="{{ asset('main/js/form-file-upload-data.js') }}"></script>
 <script src="{{ asset('main/vendors/bower_components/switchery/dist/switchery.min.js') }}"></script>
