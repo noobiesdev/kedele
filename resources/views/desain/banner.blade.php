@@ -38,7 +38,7 @@
                     @csrf
                     <div class="form-group">
                       <label for="exampleInputuname_3" class="mb-10 control-label">Judul banner</label>
-                      <textarea class="summernote" name="judul_jumbotron" rows="2" cols="10" required style="height: 30px">{{$usaha['judul_jumbotron']}}</textarea>
+                      <input class="form-control" name="judul_jumbotron" required value="{{$usaha['judul_jumbotron']}}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputweb_31" class="mb-10 control-label">Sub-judul sampul</label>

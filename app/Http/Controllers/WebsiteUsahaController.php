@@ -8,32 +8,83 @@ use Illuminate\Support\Facades\Auth;
 use App\Helpers\PhoneHelper as phone;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use Session;
 
 class WebsiteUsahaController extends Controller
 {
-    # =-=-=-=-=-=-=-= WEBSITE PENGUSAHA =-=-=-=-=-=-=-= #
-    public function show($slug){
-      $usaha = \App\Usaha::where('slug',$slug)->first();
-      $usaha_id = $usaha->id_pengusaha; //id_pengusaha
-      $user = self::get_usaha(Auth::user()->id);
-      $uid = $user->id; //id dari user
-
-      if( $usaha['status'] != 'act' || $usaha_id != $uid){
-          return redirect()->route('landing')->with('error', 'Lapak pengusaha sedang tutup sementara waktu');
-      }
-      return view('usaha.basic.show', compact('usaha'));
-    }
-    public function product(){
-      return view('usaha.basic.product');
-    }
-
-    # =-=-=-=-=-=-=-= PENGELOLAAN USAHA =-=-=-=-=-=-=-= #
     public function get_usaha($uid) {
         // $id = DB::table('usaha')->where('id', $uid);
         $id = \App\Usaha::findOrFail($uid);
         return $id;
     }
 
+    public function get_usaha_byslug($slug) {
+        $usaha = \App\Usaha::where('slug',$slug)->first();
+        if($usaha == null){
+            return redirect()->route('landing')->with('error', 'Lapak tidak ditemukan');
+        }
+        return $usaha;
+    }
+
+    # =-=-=-=-=-=-=-= WEBSITE PENGUSAHA =-=-=-=-=-=-=-= #
+    public function show($slug) {
+      $usaha    = self::get_usaha_byslug($slug);
+      $usaha_id = $usaha->id_pengusaha;
+      $terjual = \App\Pembelian::where('id_usaha',$usaha->id)->count();
+      if( $usaha['status'] != 'act'){
+          return redirect()->route('landing')->with('error', 'Lapak pengusaha sedang tutup sementara waktu');
+      }
+      return view('usaha.default.show', compact('usaha', 'terjual'));
+    }
+
+    public function product($slug, $produk) {
+      $usaha  = self::get_usaha_byslug($slug);
+      $produk = $usaha->produks->where('slug', $produk)->first();
+      return view('usaha.default.product', compact('usaha', 'produk'));
+    }
+
+    # =-=-=-=-=-=-=-= PENGELOLAAN CART =-=-=-=-=-=-=-= #
+    public function cart($slug) {
+      $usaha = self::get_usaha_byslug($slug);
+      $cart = Session::get('cart');
+      return view('usaha.cart', compact('usaha'));
+    }
+
+    public function addToCart(Request $request, $slug) {
+        $usaha  = self::get_usaha_byslug($slug);
+        $produk = $usaha->produks->where('slug', $produk)->first();
+        $cart = Session::get('cart');
+        $cart[$produk->id] = array(
+            "id" => $produk->id,
+            "nama" => $produk->nama,
+            "harga" => $produk->harga,
+            "gambar" => $produk->gambar,
+            "jumlah" => 1,
+        );
+        Session::put('cart', $cart);
+        Session::flash('success','barang berhasil ditambah ke keranjang!');
+        return redirect()->back();
+    }
+
+    public function updateCart(Request $cartdata) {
+        $cart = Session::get('cart');
+        foreach ($cartdata->all() as $id => $val) {
+            if ($val > 0) {
+                $cart[$id]['qty'] += $val;
+            } else {
+                unset($cart[$id]);
+            }
+        }
+        Session::put('cart', $cart);
+        return redirect()->back();
+    }
+
+    public function checkout(){
+      return view('usaha.checkout');
+    }
+
+
+    # =-=-=-=-=-=-=-= PENGELOLAAN USAHA =-=-=-=-=-=-=-= #
     public function banner()
     {
         $usaha = self::get_usaha(Auth::user()->id);
@@ -63,14 +114,15 @@ class WebsiteUsahaController extends Controller
         }
         $dataValidator = [
             'whatsapp' => 'numeric|digits_between:10,14',
-            'facebook' => 'string|min:5|max:32',
-            'twitter' => 'string|min:5|max:32',
-            'instagram' => 'string|min:5|max:32',
-            'marketplace' => 'string|min:5|max:64',
+            'facebook' => 'max:32',
+            'twitter' => 'max:32',
+            'instagram' => 'max:32',
+            'marketplace' => 'max:64',
             'gambar_jumbotron' => 'mimes:jpeg,jpg,png|dimensions:min_width=500,max_width=1500',
         ];
         $validator = Validator::make($input,$dataValidator);
         if($validator->fails()){
+          dd($validator->errors());
             return redirect()->back()->with('error', 'Kesalahan saat menyimpan! '.$validator->errors()->first());
         }
         #validation end

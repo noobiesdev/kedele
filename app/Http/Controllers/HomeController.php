@@ -25,4 +25,12 @@ class HomeController extends Controller
     {
         return view('dasbor.index');
     }
+    public function usage()
+    {
+        return view('front.usage');
+    }
+    public function helpdesk()
+    {
+        return view('front.helpdesk');
+    }
 }
