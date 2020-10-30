@@ -46,23 +46,30 @@ class WebsiteUsahaController extends Controller
     # =-=-=-=-=-=-=-= PENGELOLAAN CART =-=-=-=-=-=-=-= #
     public function cart($slug) {
       $usaha = self::get_usaha_byslug($slug);
-      $cart = Session::get('cart');
-      return view('usaha.cart', compact('usaha'));
+      $carts = Session::get('cart');
+      if($carts == null) {
+          Session::flash('error', 'Keranjang belanja kosong, Tidak ada produk ditambahkan');
+          return redirect()->back();
+      }
+      return view('usaha.cart', compact('usaha', 'carts'));
     }
-
     public function addToCart(Request $request, $slug) {
+        if ($request['jumlah'] < 1){
+            Session::flash('error', 'Jumlah produk minimal sebanyak 1');
+            return redirect()->back();
+        }
         $usaha  = self::get_usaha_byslug($slug);
-        $produk = $usaha->produks->where('slug', $produk)->first();
+        $produk = $usaha->produks->where('slug', $request['produk'])->first();
         $cart = Session::get('cart');
-        $cart[$produk->id] = array(
-            "id" => $produk->id,
+        $cart[$produk->slug] = array(
+            "id" => $produk->slug,
             "nama" => $produk->nama,
             "harga" => $produk->harga,
             "gambar" => $produk->gambar,
-            "jumlah" => 1,
+            "jumlah" => intval($request['jumlah']),
         );
         Session::put('cart', $cart);
-        Session::flash('success','barang berhasil ditambah ke keranjang!');
+        Session::flash('success', $produk->nama.' berhasil ditambah ke keranjang!');
         return redirect()->back();
     }
 
@@ -70,7 +77,7 @@ class WebsiteUsahaController extends Controller
         $cart = Session::get('cart');
         foreach ($cartdata->all() as $id => $val) {
             if ($val > 0) {
-                $cart[$id]['qty'] += $val;
+                $cart[$id]['jumlah'] += $val;
             } else {
                 unset($cart[$id]);
             }
@@ -78,9 +85,28 @@ class WebsiteUsahaController extends Controller
         Session::put('cart', $cart);
         return redirect()->back();
     }
+    public function clearCart(Request $request){
+      if( $request['action'] == "clear" ) {
+        $cart = Session::flush();
+        Session::flash('success', 'Keranjang belanja berhasil dikosongkan');
+        return redirect('/'.$request['toko']);
+      }else{
+        $cart = Session::get('cart');
+        $nama = $cart[$request['target']]['nama'];
+        unset($cart[$request['target']]);
+        Session::put('cart', $cart);
+        if( count($cart)<1 ) {
+          Session::flash('success', $nama.' dihapus dari kerangjang belanja');
+          return redirect('/'.$request['toko']);
+        }
+        Session::flash('success', $nama.' dihapus dari kerangjang belanja');
+        return redirect()->back();
+      }
 
+    }
     public function checkout(){
-      return view('usaha.checkout');
+      $cart = Session::get('cart');
+      return view('usaha.checkout', compact('cart'));
     }
 
 

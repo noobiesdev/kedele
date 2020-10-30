@@ -7,7 +7,7 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="black">
       @include('layouts.favicon')
       <title>@yield('title')</title>
-
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <link href="{{ asset('main/css/bootstrap.min.css') }}"			 rel="stylesheet" type="text/css">
       <link href="{{ asset('template-usaha/default/styles/style.css') }}"     		 rel="stylesheet" type="text/css">
       <link href="{{ asset('template-usaha/default/styles/framework.css') }}" 		 rel="stylesheet" type="text/css">
@@ -20,6 +20,8 @@
       <script type="text/javascript" src="{{ asset('template-usaha/default/scripts/jqueryui.js') }}"></script>
       <script type="text/javascript" src="{{ asset('template-usaha/default/scripts/framework.plugins.js') }}"></script>
       <script type="text/javascript" src="{{ asset('template-usaha/default/scripts/custom.js') }}"></script>
+      <link href="{{ asset('main/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css') }}" rel="stylesheet" type="text/css">
+      @yield('css')
       <style media="screen">
         .head{
           margin: 22px 0px 10px 30px;
@@ -167,6 +169,41 @@
         <!-- Share Elements-->
         <script src="{{ asset('main/vendors/bower_components/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset('main/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('main/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js') }}"></script>
+        <script>
+          @if($message = Session::get('success'))
+            $(window).on("load",function(){
+            	window.setTimeout(function(){
+            		$.toast({
+            			heading: 'Sukses',
+            			text: '{{$message}}',
+            			position: 'bottom-left',
+                  bgColor: '#18C967',
+            			loaderBg:'#A4DE02',
+            			icon: '',
+            			hideAfter: 3500,
+            			stack: 6
+            		});
+            	}, 1000);
+            });
+            @endif
+            @if ($message = Session::get('error'))
+            $(window).on("load",function(){
+            	window.setTimeout(function(){
+            		$.toast({
+            			heading: 'Kesalahan',
+            			text: '{{$message}}',
+            			position: 'bottom-left',
+                  bgColor:'#E01A31',
+            			loaderBg:'#B53737',
+            			icon: '',
+            			hideAfter: 3500,
+            			stack: 6
+            		});
+            	}, 1000);
+            });
+            @endif
+        </script>
         <div class="menu-wrapper-background"></div>
         <script type="text/javascript">
         $(".share").click(function() {

@@ -9,7 +9,7 @@
     <div class="homepage-slider" data-snap-ignore="true">
         <div>
             <div class="overlay"></div>
-            <div class="homepage-slider-caption homepage-center-caption">
+            <div class="homepage-slider-caption homepage-center-caption valign">
                 <h3>{!!$usaha->website->judul_jumbotron!!}</h3>
                 <p>{!!$usaha->website->teks_jumbotron!!}</p>
             </div>
@@ -45,9 +45,25 @@
     <div class="content-strip-content">
         <h1>{{$usaha->user->nama}}</h1>
         <p>
-            Mitra kedele.me. Tergabung sejak {{ \Carbon\Carbon::parse($usaha->user->created_at)->format('d/m/Y')}} dengan total penjualan {{$terjual}}
+            Mitra kedele.me. Tergabung sejak {{ \Carbon\Carbon::parse($usaha->user->created_at)->format('d/m/Y')}} dengan total penjualan {{$terjual}} produk.
         </p>
-        <div class="center-socials">
+        <div class="footer">
+            <div class="center-socials footer-socials half-bottom">
+
+                @if($usaha->website->whatsapp != null)
+                <a href="{{$usaha->website->whatsapp}}" class="footer-share show-share-bottom"><i class="fa fa-whatsapp"></i></a> @endif
+                @if($usaha->website->facebook != null)
+                <a href="{{$usaha->website->facebook}}" class="footer-facebook"><i class="fa fa-facebook"></i></a> @endif
+                @if($usaha->website->twitter != null)
+                <a href="{{$usaha->website->twitter}}" class="footer-twitter"><i class="fa fa-twitter"></i></a> @endif
+                @if($usaha->website->instagram != null)
+                <a href="{{$usaha->website->instagram}}" class="footer-google"><i class="fa fa-instagram"></i></a> @endif
+                @if($usaha->website->marketplace != null)
+                <a href="{{$usaha->website->marketplace}}" class="footer-share show-share-bottom"><i class="fa fa-shopping-bag"></i></a> @endif
+
+            </div>
+        </div>
+        <!-- <div class="center-socials">
             <a href="{{$usaha->website->whatsapp}}" class="footer-share show-share-bottom"><i class="fa fa-whatsapp" style="color:white"></i></a>
             @if($usaha->website->facebook != null)
             <a href="{{$usaha->website->facebook}}" class="facebook-color facebook-social"><i class="fa fa-facebook"></i></a>@endif
@@ -57,7 +73,7 @@
             <a href="{{$usaha->website->twitter}}" class="twitter-color twitter-social"><i class="fa fa-twitter"></i></a>@endif
             @if($usaha->website->marketplace != null)
             <a href="{{$usaha->website->marketplace}}" class="footer-share show-share-bottom"><i class="fa fa-shopping-bag" style="color:white"></i></a>@endif
-        </div>
+        </div> -->
         <a href="javascript:void(0)" class="skeleton-button" data-toggle="modal" data-target="#deskripsiUsaha">
           Deskripsi Usaha
         </a>
@@ -94,17 +110,19 @@
         <p class="center-text">
             Berikut beberapa produk unggulan dari {{$usaha->nama}}.
         </p>
-        <ul class="gallery round-thumb homepage-gallery">
+        <ul class="gallery homepage-gallery">
           @foreach($usaha->produks as $value)
-            <li>
-              <a class="swipebox" href="{{ asset($value->gambar) }}" title="An awesome gallery!">
-                <img src="{{ asset($value->gambar) }}" alt="img" />
-              </a>
-              <a href="{{route('landing')}}/{{$usaha->slug}}/{{$value->slug}}">
-                <h5 class="text-center">{{$value->nama}}</h5>
-                <p class="text-center"><i>Rp {{number_format($value['harga'],0,",",".")}}</i></p>
-              </a>
-            </li>
+              <li class="produk">
+                <a href="{{route('landing')}}/{{$usaha->slug}}/{{$value->slug}}">
+                <div class="produk-box">
+                    <!-- <a class="swipebox" href="{{ asset($value->gambar) }}" title="An awesome gallery!"> -->
+                      <img src="{{ asset($value->gambar) }}" alt="img" />
+                    <!-- </a> -->
+                      <p class="text-center">{{$value->nama}}</p>
+                      <h5 class="text-center"><i>Rp {{number_format($value['harga'],0,",",".")}}</i></h5>
+                  </div>
+                </a>
+              </li>
           @endforeach
         </ul>
     </div>

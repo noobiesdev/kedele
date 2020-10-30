@@ -53,4 +53,6 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/{slug}', 'WebsiteUsahaController@show')->name('index');
 Route::get('/{slug}/keranjang', 'WebsiteUsahaController@cart')->name('keranjang');
 Route::get('/{slug}/{produk}', 'WebsiteUsahaController@product')->name('produk');
+Route::post('/{slug}/addToCart', 'WebsiteUsahaController@addToCart')->name('addToCart');
 Route::post('/checkout', 'WebsiteUsahaController@checkout')->name('checkout');
+Route::post('/checkout', 'WebsiteUsahaController@clearCart')->name('clearCart');
