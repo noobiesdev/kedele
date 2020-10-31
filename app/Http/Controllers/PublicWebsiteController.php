@@ -89,7 +89,11 @@ class PublicWebsiteController extends Controller
           );
           Session::put('cart', $cart);
           Session::flash('success', $produk->nama.' berhasil ditambah ke keranjang!');
-          return redirect()->back();
+          if( isset($request['direct']) && $request['direct'] == 'true'){
+              $this->checkout($request);
+          }else{
+              return redirect()->back();
+          }
       }
 
       public function updateCart(Request $cartdata)
@@ -178,7 +182,7 @@ class PublicWebsiteController extends Controller
           foreach ($carts as $key => $cart) {
             $i +=1;
             $subTotal += $cart['harga']*$cart['jumlah'];
-            $text_produk .= "$i. *".$cart['nama'].'*- sebanyak '.$cart['jumlah'].'%0A';
+            $text_produk .= "$i. *".$cart['nama'].'*- sebanyak x'.$cart['jumlah'].'%0A';
           }
           $tax   = $subTotal/10;
           $admin = 5000;

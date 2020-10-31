@@ -115,7 +115,19 @@
         </div>
       </div>
     </div>
-    <a href="#" class="close-share-bottom direct-buy">Pesan Langsung</a>
+    <form class="{{route('landing')}}/{{$usaha->slug}}/addToCart" action="index.html" method="post">
+      @csrf
+      <input type="number" class="form-control" id="jumlah2" name="jumlah" placeholder="Jumlah" min="1" value="1"  style="display:none">
+      <input type="text" name="direct" value="true" style="display:none">
+      <input type="text" name="toko" value="{{$usaha->slug}}" style="display:none">
+      <textarea name="produk" rows="8" cols="80" name="slug" style="display:none">{{$produk['slug']}}</textarea>
+      <!-- <button type="submit" class="direct-buy btn-block">Pesan Langsung</button> -->
+    </form>
     <a href="#" class="close-share-bottom">Close</a>
 </div>
+@endsection
+
+@section('js')
+<!-- klu id jumlah 1 diubah maka 2 ikut -->
+
 @endsection
