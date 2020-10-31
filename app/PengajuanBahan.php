@@ -23,7 +23,7 @@ class PengajuanBahan extends Model
 {
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'pengajuan_bahan';
@@ -31,7 +31,7 @@ class PengajuanBahan extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_usaha', 'id_supplier', 'kategori_kedelai', 'harga_beli', 'id_kode_pemesanan', 'status', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_usaha', 'id_supplier', 'kategori_kedelai', 'jumlah_bahan', 'id_kode_pemesanan', 'status', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -18,7 +18,7 @@ class CreatePengajuanBahanTable extends Migration
             $table->integer('id_usaha')->index('id_usaha');
             $table->integer('id_supplier')->index('id_supplier');
             $table->integer('kategori_kedelai')->nullable()->index('kategori_kedelai');
-            $table->integer('harga_beli');
+            $table->integer('jumlah_bahan');
             $table->string('id_kode_pemesanan', 12);
             $table->enum('status', ['mencari', 'pengujian', 'pengiriman', 'selesai']);
             $table->timestamp('created_at')->useCurrent();

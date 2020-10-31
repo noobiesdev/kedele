@@ -93,7 +93,7 @@ class ProdukController extends Controller
           'slug'            => $input['slug'].'-'.ncrypt::compose($produk->id),
           'deskripsi'       => $input['deskripsi'],
           'kebutuhan_bahan' => $input['kebutuhan_bahan'],
-          'harga'           => $input['harga'],
+          'harga'           => $input['harg'],
           'gambar'          => $fileName
         ])) {
             return redirect()->route('produksi.index')->with('success', 'Berhasil memperbarui produk');

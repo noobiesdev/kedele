@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" action="{{route('produksi.update-bahan')}}">
+        <form method="post" action="{{route('pengajuan-bahan.store')}}">
           @csrf
           <div class="form-group">
             <label for="amount" class="col-form-label">Jumlah Bahan:</label>
@@ -17,7 +17,9 @@
           <div class="form-group">
             <label for="quality" class="col-form-label">Kategori Bahan:</label>
             <select class="form-control" name="kualitas_bahan" id="quality">
-              <option value="A">Kategori A</option>
+              <option value="1">Kategori 1</option>
+              <option value="2">Kategori 2</option>
+              <option value="3">Kategori 3</option>
             </select>
           </div>
       </div>
