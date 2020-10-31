@@ -53,6 +53,9 @@
     <li>
       <a href="{{route('produksi.index')}}" data-toggle="collapse" data-target="#produksi"><div class="pull-left"><i class="glyphicon glyphicon-cutlery mr-20"></i><span class="right-nav-text">Produksi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
     </li>
+    <li>
+      <a href="{{route('pengajuan-bahan.index')}}" data-toggle="collapse" data-target="#pengajuan-bahan"><div class="pull-left"><i class="glyphicon glyphicon-cutlery mr-20"></i><span class="right-nav-text">Pengajuan Bahan</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+    </li>
     @endrole
 
     @role('produsen')

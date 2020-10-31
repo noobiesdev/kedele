@@ -30,12 +30,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/sunting/{id}', 'ProdukController@update')->name('update')->middleware('role:produsen');
         Route::get('/hapus', 'ProdukController@destroy')->name('delete')->middleware('role:produsen');
     });
-    Route::group(['as' => 'bahan.' , 'prefix' => 'pengajuan-bahan'], function () {
-        Route::get('/', 'PengajuanBahan@index')->name('index')->middleware('role:produsen');
-        Route::get('/buat-pengajuan', 'ProdukController@create')->name('create')->middleware('role:produsen');
-        Route::post('/buat-pengajuan', 'ProdukController@store')->name('store')->middleware('role:produsen');
-        Route::post('/{unique}/sunting', 'ProdukController@update')->name('update')->middleware('role:produsen');
-        Route::post('/{unique}/batal', 'ProdukController@cancel')->name('cancel')->middleware('role:produsen');
+    Route::group(['as' => 'pengajuan-bahan.' , 'prefix' => 'pengajuan-bahan'], function () {
+        Route::get('/', 'PengajuanController@index')->name('index')->middleware('role:produsen');
+        // Route::get('/buat-pengajuan', 'ProdukController@create')->name('create')->middleware('role:produsen');
+        Route::post('/buat-pengajuan', 'PengajuanController@store')->name('store')->middleware('role:produsen');
+        // Route::post('/{unique}/sunting', 'ProdukController@update')->name('update')->middleware('role:produsen');
+        // Route::post('/{unique}/batal', 'ProdukController@cancel')->name('cancel')->middleware('role:produsen');
     });
     Route::group(['as' => 'pembelian.' , 'prefix' => 'pembelian'], function () {
         Route::get('/', 'PembelianController@index')->name('index')->middleware('role:produsen');
