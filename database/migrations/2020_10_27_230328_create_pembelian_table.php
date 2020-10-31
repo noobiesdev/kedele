@@ -18,6 +18,7 @@ class CreatePembelianTable extends Migration
             $table->integer('id_pembeli')->index('id_pembeli');
             $table->integer('id_usaha');
             $table->string('kode_pemesanan', 12);
+            $table->text('alamat')->nullable()->default('Tidak tertulis, mohon hubungi melalui kontak');
             $table->integer('total_harga');
             $table->enum('status', ['dipesan', 'diproses', 'dikirim', 'batal']);
             $table->timestamp('created_at')->useCurrent();

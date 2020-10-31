@@ -6,6 +6,11 @@
 
 @section('content')
 <div class="content">
+  @if(isset($auth) && $auth == true)
+    @include('usaha.modalOrder')
+  @elseif(isset($order) && $order == true)
+    @include('usaha.modalWa')
+  @endif
     <div class="container-fluid" style="max-width:75%;margin-top:80px;">
     	<div class="row">
     		<div class="col-md-12">
@@ -15,7 +20,8 @@
     	</div>
     	<div class="row">
     		<div class="col-md-8">
-    			<table class="table">
+          <div class="responsive-table">
+            <table class="table">
     				<thead>
     					<tr>
                 <th width="5%">#</th>
@@ -37,22 +43,25 @@
                   </form>
     						</td>
                 <td>
-                  <img src="{{asset($cart['gambar'])}}" style="height:45px;">
+                  <a class="swipebox" href="{{ asset($cart['gambar']) }}" title="Produk {{$cart['nama']}}">
+                    <img src="{{asset($cart['gambar'])}}" style="min-height:45px;max-height:65px;">
+                  </a>
     						</td>
-                <td>
-                  <strong>{{{$cart['nama']}}}</strong>
+                <td class="text-left">
+                  <strong>{{$cart['nama']}}</strong>
                   <p>@ Rp {{number_format($cart['harga'],0,",",".")}}</p>
     						</td>
                 <td>
                   {{$cart['jumlah']}}
                 </td>
-                <td>
+                <td class="text-right">
                   Rp {{number_format( ($cart['harga']*$cart['jumlah']) ,0,",",".")}},-
     						</td>
     					</tr>
               @endforeach
     				</tbody>
     			</table>
+          </div>
           <form class="" action="{{route('clearCart')}}" method="post">
             @csrf
             <input type="text" name="toko" value="{{$usaha->slug}}" style="display:none">
@@ -62,98 +71,56 @@
     		</div>
     		<div class="col-md-4">
     			<table class="table table-hover table-sm">
-    				<thead>
-    					<tr>
-    						<th>
-    							#
-    						</th>
-    						<th>
-    							Product
-    						</th>
-    						<th>
-    							Payment Taken
-    						</th>
-    						<th>
-    							Status
-    						</th>
-    					</tr>
-    				</thead>
     				<tbody>
     					<tr>
-    						<td>
-    							1
-    						</td>
-    						<td>
-    							TB - Monthly
-    						</td>
-    						<td>
-    							01/04/2012
-    						</td>
-    						<td>
-    							Default
-    						</td>
-    					</tr>
-    					<tr class="table-active">
-    						<td>
-    							1
-    						</td>
-    						<td>
-    							TB - Monthly
-    						</td>
-    						<td>
-    							01/04/2012
-    						</td>
-    						<td>
-    							Approved
-    						</td>
-    					</tr>
-    					<tr class="table-success">
-    						<td>
-    							2
-    						</td>
-    						<td>
-    							TB - Monthly
-    						</td>
-    						<td>
-    							02/04/2012
-    						</td>
-    						<td>
-    							Declined
-    						</td>
-    					</tr>
-    					<tr class="table-warning">
-    						<td>
-    							3
-    						</td>
-    						<td>
-    							TB - Monthly
-    						</td>
-    						<td>
-    							03/04/2012
-    						</td>
-    						<td>
-    							Pending
-    						</td>
-    					</tr>
-    					<tr class="table-danger">
-    						<td>
-    							4
-    						</td>
-    						<td>
-    							TB - Monthly
-    						</td>
-    						<td>
-    							04/04/2012
-    						</td>
-    						<td>
-    							Call in to confirm
-    						</td>
-    					</tr>
+                <td>Sub Total</td>
+                <td class="text-right">Rp {{number_format( ($bill['subTotal']) ,0,",",".")}},-</td>
+              </tr>
+    					<tr>
+                <td>Pajak (10%)</td>
+                <td class="text-right">Rp {{number_format( ($bill['tax']) ,0,",",".")}},-</td>
+              </tr>
+              <tr>
+                <td>Biaya Admin</td>
+                <td class="text-right">Rp {{number_format( ($bill['admin']) ,0,",",".")}},-</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td class="text-right">Rp {{number_format( ($bill['total']) ,0,",",".")}},-</td>
+              </tr>
     				</tbody>
     			</table>
-    			<button type="submit" class="buttonWrap button button-green contactSubmitButton">Kirim Pesanan</button>
+          <div class="row">
+            <div class="col-lg-4">
+              <h3>Total</h3>
+            </div>
+            <div class="col-lg-8">
+              <h3 class="text-right">Rp {{number_format( ($bill['total']) ,0,",",".")}},-</h3>
+            </div>
+          </div>
+          <form action="{{route('checkout')}}" method="post">
+            @csrf
+            <input type="text" name="toko" value="{{$usaha->slug}}" style="display:none">
+            <button type="submit" class="buttonWrap button button-green contactSubmitButton">Kirim Pesanan</button>
+          </form>
     		</div>
     	</div>
     </div>
 </div>
+
+@endsection
+
+@section('js')
+<script type="text/javascript">
+    @if(isset($auth) && $auth == true)
+            $(window).on('load',function(){
+                $('#orderModal').modal('show');
+            });
+    @else(isset($order) && $order == true)
+            $(window).on('load',function(){
+                $('#waModal').modal('show');
+            });
+    @endif
+</script>
+
 @endsection

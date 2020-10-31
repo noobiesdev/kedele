@@ -61,7 +61,12 @@ License:        You may not reuse or redistribute this framework
     48. Fullscreen Image Slider
     49. Calendar
 */
-
+@media only screen and (max-width: 600px) {
+		.responsive-table{
+			overflow:auto;
+			overflow-x: scroll;
+		}
+}
 .valign{
 	vertical-align: middle;
 	margin-bottom: 20%;
@@ -71,6 +76,15 @@ License:        You may not reuse or redistribute this framework
 }
 .valign p{
 	font-size: 16pt;
+}
+.input-group{
+	width: 100%;
+}
+textarea{
+	resize: vertical;
+}
+i span{
+	font-family: 'Roboto', sans-serif;
 }
 
 /*==================================================
@@ -1920,6 +1934,8 @@ table tr:hover td{
 	padding-bottom:24px;
 	min-width:43%;
 	display:inline-block;
+	font-size: 14px;
+	font-weight: 400;
 }
 
 .formSubmitButtonErrorsWrap a{

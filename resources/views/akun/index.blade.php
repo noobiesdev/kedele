@@ -25,7 +25,10 @@
             <div class="panel panel-default col-lg-9 col-xs-12 card-view">
                 <div class="panel panel-default card-view pa-0">
                   <div class="panel-wrapper collapse in">
-                    <div  class="panel-body pb-0">
+                    <div  class="">
+                      @if(substr(trim (Auth::user()->username), 0, 6) =='guest_')
+                        <strong class="text-center">Harap registrasi kembali menggunakan nomor telfon yang sama untuk melakukan klaim akun.</strong>
+                      @else
                       <div  class="tab-struct custom-tab-1">
                         <ul role="tablist" class="nav nav-tabs nav-tabs-responsive" id="myTabs_8">
                           <li class="active" role="presentation"><a  data-toggle="tab" id="profile_tab_8" role="tab" href="#profile_8" aria-expanded="false"><span>Akun</span></a></li>
@@ -167,6 +170,7 @@
                           </div>
                         </div>
                       </div>
+                      @endif
                     </div>
                   </div>
                 </div>

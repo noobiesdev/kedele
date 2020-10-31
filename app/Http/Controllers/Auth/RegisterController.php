@@ -93,33 +93,52 @@ class RegisterController extends Controller
      */
     protected function create(Array $data)
     {
-        $validation = $this->validator($data);
-        if ($validation->fails()) {
-            return response()->json(['status' => false , 'message' => $validation->errors()->all()], 400);
-        }
-        $user =  User::create([
-            'nama'      => $data['nama'],
-            'username'  => $data['username'],
-            'email'     => $data['email'],
-            'no_hp'     => phone::validate($data['no_hp']),
-            'password'  => Hash::make($data['password']),
-            'level'     => $data['role'],
-        ]);
-        if ($data['role'] == "produsen") {
-            $user->assignRole('produsen');
-            $usaha = \App\Usaha::create([
-              'id_pengusaha' => $user->id,
-              'nama'      => "Toko ".$data['username'],
-              'slug'      => "toko-".strtolower($data['username']),
+        $data['no_hp'] = phone::validate($data['no_hp']);
+        $user = \App\User::where('no_hp', $data['no_hp'])->first();
+        if( $user != null) {
+            if( substr(trim ($user->username), 0, 6) =='guest_' ) {
+                $user->update([
+                    'nama'      => $data['nama'],
+                    'username'  => strtolower($data['username']),
+                    'email'     => $data['email'],
+                    'password'  => Hash::make($data['password']),
+                ]);
+                auth()->attempt([
+                    'email'    => $data['email'],
+                    'password' => $data['password']
+                ]);
+                return $user;
+            }
+        }else{
+            $validation = $this->validator($data);
+            if ($validation->fails()) {
+                return response()->json(['status' => false , 'message' => $validation->errors()->all()], 400);
+            }
+            $user =  User::create([
+                'nama'      => $data['nama'],
+                'username'  => strtolower($data['username']),
+                'email'     => $data['email'],
+                'no_hp'     => phone::validate($data['no_hp']),
+                'password'  => Hash::make($data['password']),
+                'level'     => $data['role'],
             ]);
-            $website = \App\Website::create([
-              'id_usaha' => $usaha->id,
-              'judul_jumbotron' => $usaha->nama,
-              'whatsapp' => $user->no_hp,
-            ]);
-        }else if($data['role'] == "konsumen"){
-            $user->assignRole('konsumen');
+            if ($data['role'] == "produsen") {
+                $user->assignRole('produsen');
+                $usaha = \App\Usaha::create([
+                  'id_pengusaha' => $user->id,
+                  'nama'      => "Toko ".$data['username'],
+                  'slug'      => "toko-".strtolower($data['username']),
+                ]);
+                $website = \App\Website::create([
+                  'id_usaha' => $usaha->id,
+                  'judul_jumbotron' => $usaha->nama,
+                  'whatsapp' => $user->no_hp,
+                ]);
+            }else if($data['role'] == "konsumen"){
+                $user->assignRole('konsumen');
+            }
+            return $user;
         }
-        return $user;
+
     }
 }

@@ -17,7 +17,6 @@ class CreateDetailPembelianTable extends Migration
             $table->integer('id', true);
             $table->integer('id_pembelian')->index('id_pembelian');
             $table->integer('id_produk')->index('id_produk');
-            $table->text('alamat');
             $table->integer('jumlah');
             $table->timestamp('created_at')->useCurrent();
             $table->dateTime('updated_at')->nullable();

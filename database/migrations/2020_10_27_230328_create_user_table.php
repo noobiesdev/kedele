@@ -21,6 +21,7 @@ class CreateUserTable extends Migration
             $table->string('no_hp', 16);
             $table->string('password', 128);
             $table->char('level', 8);
+            $table->text('alamat')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->softDeletes();

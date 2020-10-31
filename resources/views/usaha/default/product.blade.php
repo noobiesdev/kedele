@@ -39,7 +39,7 @@
       </div>
       <div class="row">
           <div class="col-md-6">
-            <a class="swipebox" href="{{ asset($produk->gambar) }}" title="An awesome gallery!">
+            <a class="swipebox" href="{{ asset($produk->gambar) }}" title="Produk {{$produk->nama}}">
               <img class="produk-img" src="{{ asset($produk->gambar) }}" alt="img"/>
             </a>
           </div>

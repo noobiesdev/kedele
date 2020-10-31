@@ -27,17 +27,6 @@
 @endsection
 
 @section('content')
-<!-- <div class="content">
-    <div class="decoration"></div>
-    <div class="container no-bottom">
-        <h2 class="center-text">Hubungkan Sosial Media</h2>
-        <p class="center-text">
-            {{$usaha->nama}} juga tersedia di-
-        </p>
-
-    </div>
-    <div class="decoration"></div>
-</div> -->
 @endsection
 
 @section('owner')
@@ -63,17 +52,6 @@
 
             </div>
         </div>
-        <!-- <div class="center-socials">
-            <a href="{{$usaha->website->whatsapp}}" class="footer-share show-share-bottom"><i class="fa fa-whatsapp" style="color:white"></i></a>
-            @if($usaha->website->facebook != null)
-            <a href="{{$usaha->website->facebook}}" class="facebook-color facebook-social"><i class="fa fa-facebook"></i></a>@endif
-            @if($usaha->website->instagram != null)
-            <a href="{{$usaha->website->instagram}}" class="google-color google-social"><i class="fa fa-instagram"></i></a>@endif
-            @if($usaha->website->twitter != null)
-            <a href="{{$usaha->website->twitter}}" class="twitter-color twitter-social"><i class="fa fa-twitter"></i></a>@endif
-            @if($usaha->website->marketplace != null)
-            <a href="{{$usaha->website->marketplace}}" class="footer-share show-share-bottom"><i class="fa fa-shopping-bag" style="color:white"></i></a>@endif
-        </div> -->
         <a href="javascript:void(0)" class="skeleton-button" data-toggle="modal" data-target="#deskripsiUsaha">
           Deskripsi Usaha
         </a>
@@ -86,10 +64,10 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" style="margin-top:10%;">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Deskripsi Usaha</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+        <h5 class="modal-title" id="exampleModalLongTitle">Deskripsi Usaha</h5>
       </div>
       <div class="modal-body">
         {!!$usaha->deskripsi!!}
@@ -105,7 +83,7 @@
 @section('produk')
 <div class="content">
     <div class="decoration"></div>
-    <div class="container no-bottom">
+    <div class="container no-bottom" id="produk-list">
         <h2 class="center-text">Varian Produk Olahan</h2>
         <p class="center-text">
             Berikut beberapa produk unggulan dari {{$usaha->nama}}.
@@ -128,7 +106,17 @@
     </div>
     <div class="decoration"></div>
 </div>
+@if(isset($order) && $order == true)
+  @include('usaha.modalWa')
+@endif
 @endsection
 
 @section('js')
+<script type="text/javascript">
+    @if(isset($order) && $order == true)
+            $(window).on('load',function(){
+                $('#waModal').modal('show');
+            });
+    @endif
+</script>
 @endsection

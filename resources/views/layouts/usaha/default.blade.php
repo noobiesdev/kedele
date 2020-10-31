@@ -34,6 +34,9 @@
           --primer: #27ae60;
           --sekunder: #ffffff;
         }
+        .badge-danger{
+          background-color: #c9302c;
+        }
       </style>
     </head>
     <body>
@@ -48,58 +51,35 @@
         </div>
 
         <ul class="menu-top">
-            <li class="active-menu"><a href="index.html"><i class="fa fa-home"></i>Homepage<i class="fa fa-circle"></i></a></li>
+            <li class="active-menu"><a href="{{route('landing')}}/{{$usaha->slug}}/"><i class="fa fa-home"></i>Halaman Utama<i class="fa fa-circle"></i></a></li>
+            <li><a href="{{route('landing')}}/{{$usaha->slug}}#produk-list"><i class="fa fa-cube"></i>Produk<i class="fa fa-circle"></i></a></li>
+            <li><a href="{{route('landing')}}/{{$usaha->slug}}/keranjang"><i class="fa fa-shopping-basket"></i>Keranjang Belanja<i class="fa fa-circle"></i></a></li>
             <li>
-                <a class="has-submenu" href="#"><i class="fa fa-cog"></i>Features<i class="fa fa-plus"></i></a>
+                <a class="has-submenu" href="#"><i class="fa fa-phone"></i>Kontak<i class="fa fa-plus"></i></a>
                 <ul class="submenu">
-                    <li><a href="features-type.html"><i class="fa fa-angle-right"></i>Type Features<i class="fa fa-circle"></i></a></li>
-                    <li><a href="features-jquery.html"><i class="fa fa-angle-right"></i>jQuery Features<i class="fa fa-circle"></i></a></li>
-                    <li><a href="features-others.html"><i class="fa fa-angle-right"></i>Other Features<i class="fa fa-circle"></i></a></li>
+                  @if($usaha->website->whatsapp != null)
+                  <li><a href="{{$usaha->website->whatsapp}}"><i class="fa fa-whatsapp"></i>Whatsapp<i class="fa fa-circle"></i></a></li>@endif
+                  @if($usaha->website->facebook != null)
+                  <li><a href="{{$usaha->website->facebook}}"><i class="fa fa-facebook"></i>Facebook<i class="fa fa-circle"></i></a></li>@endif
+                  @if($usaha->website->twitter != null)
+                  <li><a href="{{$usaha->website->twitter}}"><i class="fa fa-instagram"></i>Instagram<i class="fa fa-circle"></i></a></li>@endif
+                  @if($usaha->website->instagram != null)
+                  <li><a href="{{$usaha->website->instagram}}"><i class="fa fa-twitter"></i>Twitter<i class="fa fa-circle"></i></a></li>@endif
+                  @if($usaha->website->marketplace != null)
+                  <li><a href="{{$usaha->website->marketplace}}"><i class="fa fa-shopping-bag"></i>Toko Online<i class="fa fa-circle"></i></a></li>@endif
                 </ul>
             </li>
-            <li>
-                <a class="has-submenu" href="#"><i class="fa fa-camera"></i>Media<i class="fa fa-plus"></i></a>
-                <ul class="submenu">
-                    <li><a href="gallery-square.html"><i class="fa fa-angle-right"></i>Square Gallery<i class="fa fa-circle"></i></a></li>
-                    <li><a href="gallery-round.html"><i class="fa fa-angle-right"></i>Round Gallery<i class="fa fa-circle"></i></a></li>
-                    <li><a href="gallery-wide.html"><i class="fa fa-angle-right"></i>Wide Gallery<i class="fa fa-circle"></i></a></li>
-                    <li><a href="portfolio-adaptive.html"><i class="fa fa-angle-right"></i>Adaptive Portfolio<i class="fa fa-circle"></i></a></li>
-                    <li><a href="portfolio-one.html"><i class="fa fa-angle-right"></i>One Column Portfolio<i class="fa fa-circle"></i></a></li>
-                    <li><a href="portfolio-two.html"><i class="fa fa-angle-right"></i>Two Column Portfolio<i class="fa fa-circle"></i></a></li>
-                </ul>
-            </li>
-            <li>
-                <a class="has-submenu" href="#"><i class="fa fa-files-o"></i>Pages<i class="fa fa-plus"></i></a>
-                <ul class="submenu">
-                    <li><a href="page-charts.html"><i class="fa fa-angle-right"></i>Charts & Pies<i class="fa fa-circle"></i></a></li>
-                    <li><a href="page-error.html"><i class="fa fa-angle-right"></i>404 Page<i class="fa fa-circle"></i></a></li>
-                    <li><a href="page-soon.html"><i class="fa fa-angle-right"></i>Soon Page<i class="fa fa-circle"></i></a></li>
-                    <li><a href="page-updates.html"><i class="fa fa-angle-right"></i>Updates Page<i class="fa fa-circle"></i></a></li>
-                    <li><a href="page-timeline.html"><i class="fa fa-angle-right"></i>Timeline Page<i class="fa fa-circle"></i></a></li>
-                    <li><a href="page-videos.html"><i class="fa fa-angle-right"></i>Video Page<i class="fa fa-circle"></i></a></li>
-                    <li><a href="index2.html"><i class="fa fa-angle-right"></i>Clasic Homepage<i class="fa fa-circle"></i></a></li>
-                </ul>
-            </li>
-            <li>
-                <a class="has-submenu" href="#"><i class="fa fa-mobile"></i>App Specific<i class="fa fa-plus"></i></a>
-                <ul class="submenu">
-                    <li><a href="pageapp-login.html"><i class="fa fa-angle-right"></i>Login<i class="fa fa-circle"></i></a></li>
-                    <li><a href="pageapp-singup.html"><i class="fa fa-angle-right"></i>Signup<i class="fa fa-circle"></i></a></li>
-                    <li><a href="pageapp-coverpage.html"><i class="fa fa-angle-right"></i>Coverpage<i class="fa fa-circle"></i></a></li>
-                    <li><a href="pageapp-userlist.html"><i class="fa fa-angle-right"></i>Userlist<i class="fa fa-circle"></i></a></li>
-                    <li><a href="pageapp-calendar.html"><i class="fa fa-angle-right"></i>Calendar<i class="fa fa-circle"></i></a></li>
-                    <li><a href="pageapp-activity.html"><i class="fa fa-angle-right"></i>Activity Feed<i class="fa fa-circle"></i></a></li>
-                    <li><a href="pageapp-chat.html"><i class="fa fa-angle-right"></i>Chat Bubbles<i class="fa fa-circle"></i></a></li>
-                    <li><a href="pageapp-share.html"><i class="fa fa-angle-right"></i>Share Boxes<i class="fa fa-circle"></i></a></li>
-                </ul>
-            </li>
-            <li><a href="contact.html"><i class="fa fa-envelope-o"></i>Contact<i class="fa fa-circle"></i></a></li>
             <li><a class="close-menu" href="#"><i class="fa fa-times"></i>Close<i class="fa fa-circle"></i></a></li>
         </ul>
         <div class="header justify-content-between">
             <a href="{{route('landing')}}/{{$usaha->slug}}/" class="header-logo"><i class="head">{{$usaha->nama}}</i> </a>
             <a href="#" class="header-navigation show-navigation"><i class="fa fa-navicon"></i></a>
-            <a href="{{route('landing')}}/{{$usaha->slug}}/keranjang" class="header-navigation"><i class="fa fa-shopping-basket"></i></a>
+            <?php
+            $ca = ( Session::has('cart') )? count(Session::get('cart')) : 0; ?>
+            <a href="{{route('landing')}}/{{$usaha->slug}}/keranjang" class="header-navigation"><i class="fa fa-shopping-basket">@if($ca>0) <span class="badge badge-danger">{{$ca}}</span> @endif</i></a>
+            @auth
+            <a href="{{route('home')}}" class="header-navigation"><i class="fa fa-user"></i></a>
+            @endauth
         </div>
 
 
@@ -170,6 +150,7 @@
         <script src="{{ asset('main/vendors/bower_components/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset('main/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('main/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js') }}"></script>
+        <script src="{{ asset('main/vendors/bower_components/jquery/dist/jquery-mask.min.js') }}"></script>
         <script>
           @if($message = Session::get('success'))
             $(window).on("load",function(){
@@ -217,7 +198,16 @@
             $("#share-toko").hide();
             alert("Tautan telah disalin")
         });
-
+        $(document).ready(function(){
+            $('#no_hp').mask('+62 9999 999 99ZZ', {
+            translation: {
+              'Z': {
+                pattern: /[0-9]/, optional: true
+              }
+            }
+          });
+        });
         </script>
+        @yield('js')
     </body>
 </html>

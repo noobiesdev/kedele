@@ -8,6 +8,9 @@ class PhoneHelper {
 
       if( !preg_match('/[^0-9]/', trim($phone)) ) {
           if(substr(trim ($phone), 0, 2) == '62') {
+            if(substr(trim ($phone), 0, 3) == '620') {
+              $phone =  '62'.substr(trim($phone), 3);
+            }
             $phone = trim($phone);
           }else if ( substr(trim ($phone), 0, 2) == '08') {
             $phone =  '62'.substr(trim($phone), 1);
