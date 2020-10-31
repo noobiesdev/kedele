@@ -39,7 +39,7 @@
                           <thead>
                             <tr>
                               <th>Tanggal</th>
-                              <th>Nominal</th>
+                              <th>Jumlah Bahan</th>
                               <th>Kode Pemesanan</th>
                               <th>Status</th>
                               <th>Tanggal Update</th>
@@ -51,7 +51,7 @@
                             @foreach ($pengajuan as $value)
                             <tr>
                               <td>{{$value['created_at']}}</td>
-                              <td>{{$value['harga_beli']}}</td>
+                              <td>{{$value['jumlah_bahan']}} kg</td>
                               <td>{{$value['id_kode_pemesanan']}}</td>
                               <td>{{$value['status']}}</td>
                               <td>{{$value['updated_at']}}</td>
