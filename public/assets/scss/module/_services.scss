@@ -1,0 +1,136 @@
+/*------------------------------------*\
+#Services
+\*------------------------------------*/
+.services {
+    padding-top   : 130px;
+    padding-bottom: 120px;
+    position      : relative;
+
+    .service-content {
+        display        : flex;
+        flex-flow      : column;
+        justify-content: center;
+        height         : 100%;
+
+        @media #{$minLarge} {
+            .heading {
+                .heading-desc {
+                    padding-right: 70px;
+                }
+            }
+        }
+
+        .service-list {
+            li {
+                display      : flex;
+                font-size    : 16px;
+                line-height  : 1.5;
+                color        : $color-body;
+                font-weight  : 400;
+                margin-bottom: 20px;
+                padding-left : 10px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                span {
+                    margin-top  : 4px;
+                    color       : $color-theme;
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+
+    .service-card {
+        position: relative;
+        width   : 528px;
+        height  : 450px;
+        margin  : 0 auto;
+
+        @media screen and (max-width:467px) {
+            width: 320px;
+
+        }
+
+        @media screen and (min-width:468px) and (max-width:767px) {
+            width: 460px;
+        }
+
+        @media screen and (min-width:992px) and (max-width:1200px) {
+            width: 450px;
+        }
+
+        @media #{$maxTablet} {
+            margin-bottom: 50px;
+        }
+
+        .service-card-top {
+            position     : absolute;
+            top          : 0px;
+            left         : 0px;
+            width        : 152px;
+            height       : 152px;
+            border-radius: 4px;
+            z-index      : 0;
+        }
+
+        .service-card-middle {
+            position: relative;
+            padding : 30px 80px 0 30px;
+            height: 100%;
+            width: 100%;
+
+            @media #{$maxTablet} {
+                max-width: 470px;
+                margin   : 0 auto;
+            }
+
+            @media #{$maxSmall} {
+                padding: 30px 30px 0 30px;
+            }
+
+            .service-card-bg {
+                position: relative;
+                z-index : 1;
+                border-radius: 4px;
+            }
+        }
+
+        .service-card-bottom {
+            position     : absolute;
+            bottom       : 30px;
+            right        : 0;
+            width        : 157px;
+            height       : 180px;
+            border-radius: 4px;
+            z-index      : 3;
+            padding      : 33px 29px;
+            cursor       : pointer;
+
+            .counters {
+                .counting-holder {
+                    font-size    : 40px;
+                    font-weight  : 500;
+                    line-height  : 50px;
+                    color        : $color-white;
+                    margin-bottom: 10px;
+
+                    .counting {
+                        display: inline-block;
+                    }
+                }
+
+                .counting-desc {
+                    font-size     : 20px;
+                    font-weight   : 500;
+                    line-height   : 30px;
+                    color         : $color-white;
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,275 @@
+/*------------------------------------*\
+    #Hero
+\*------------------------------------*/
+
+.hero {
+    padding-top        : 280px;
+    padding-bottom     : 0;
+    background-color   : $color-white;
+    overflow           : visible;
+    background-size    : cover;
+    background-position: center bottom;
+    position           : relative;
+
+    @media #{$maxSmall} {
+        padding-top: 130px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width:991px) {
+        padding-top: 190px;
+    }
+
+    .hero-cotainer {
+
+        .hero-content {
+            display        : flex;
+            flex-direction : column;
+            justify-content: center;
+
+            .hero-headline {
+                color         : $color-white;
+                font-family   : $font-heading;
+                font-size     : 45px;
+                font-weight   : 700;
+                line-height   : 1.15;
+                margin-bottom : 20px;
+                text-transform: none;
+
+                @media #{$maxTablet} {
+                    font-size: 45px;
+                }
+
+                @media screen and (min-width:992px) and (max-width:1200px) {
+                    font-size: 60px;
+                }
+            }
+
+            .hero-bio {
+                color        : $color-white;
+                font-family  : $font-body;
+                font-size    : 18px;
+                font-weight  : 400;
+                line-height  : 27px;
+                margin-bottom: 42px;
+
+                br {
+                    @media screen and (max-width:991px) {
+                        display: none;
+                    }
+                }
+            }
+
+            .hero-action {
+                .contact-body {
+                    .contactForm {
+                        position: relative;
+
+                        .form-control {
+                            margin-bottom   : 0;
+                            background-color: $color-white;
+                            border-radius   : 4px;
+                            padding-left    : 40px;
+                            padding-right   : 250px;
+                            border-bottom   : 0;
+
+                            @media #{$maxSmall} {
+                                padding-left : 25px;
+                                padding-right: 200px;
+                            }
+                        }
+
+                        .btn {
+                            position: absolute;
+                            top     : 3px;
+                            right   : 3px;
+
+                            @media #{$maxSmall} {
+                                width: 170px;
+                            }
+                        }
+                    }
+                }
+
+                .form-action {
+                    position    : relative;
+                    max-width   : 600px;
+                    margin-right: auto;
+                    margin-left : auto;
+
+                    .input-group {
+                        border : none;
+                        padding: 0;
+
+                        .btn {
+                            width: 220px;
+                        }
+                    }
+
+                    .form-control {
+                        margin-bottom   : 0;
+                        background-color: $color-white;
+                        border-radius   : 4px;
+                        padding-left    : 40px;
+                        padding-right   : 250px;
+                        border-bottom   : 0;
+                        width           : calc(100% - 230px);
+
+                        @media #{$maxSmall} {
+                            padding-left : 25px;
+                            padding-right: 200px;
+                        }
+                    }
+
+                    .btn {
+                        position: absolute;
+                        top     : 3px;
+                        right   : 3px;
+                        z-index : 60;
+
+                        @media #{$maxSmall} {
+                            width: 170px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .scroll-to {
+        margin-top: 10px;
+
+        svg {
+            display  : inline-block;
+            color    : $color-white;
+            font-size: 42px;
+            cursor   : pointer;
+            animation: 1s Up-Down ease-in-out infinite;
+        }
+    }
+
+    &.hero-mailchimp {
+        padding : 330px 0 420px 0;
+        position: relative;
+
+        .scroll-to {
+            position : absolute;
+            bottom   : 139px;
+            left     : 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &.hero-click {
+        padding : 330px 0 420px 0;
+        position: relative;
+
+        @media #{$maxTablet} {
+            padding: 230px 0;
+        }
+
+        .hero-cotainer {
+
+            .hero-content {
+                margin-bottom: 0;
+
+                .hero-headline {
+                    font-size     : 65px;
+                    font-weight   : 700;
+                    line-height   : 1.15;
+                    margin-bottom : 20px;
+                    text-transform: none;
+
+                    @media #{$maxTablet} {
+                        font-size: 40px;
+                    }
+
+                    @media screen and (min-width:992px) and (max-width:1200px) {
+                        font-size: 60px;
+                    }
+                }
+            }
+        }
+
+        .scroll-to {
+            position : absolute;
+            bottom   : 139px;
+            left     : 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &.hero-lead {
+        padding-top        : 254px;
+        padding-bottom     : 155px;
+        background-position: center bottom;
+
+        @media #{$maxSmall} {
+            padding-top   : 133px;
+            padding-bottom: 133px;
+        }
+
+        @media #{$maxTablet} {
+            text-align: center;
+
+            .popup-contact-form {
+                max-width   : 500px;
+                margin-right: auto;
+                margin-left : auto;
+                padding     : 20px;
+            }
+        }
+
+        .hero-cotainer {
+            padding-bottom: 78px;
+
+            .hero-content {
+                padding-top: 140px;
+            }
+        }
+
+        .form-group {
+            position     : relative;
+            height       : 57px;
+            text-align   : left;
+            margin-bottom: 30px;
+            padding-top  : 7px;
+
+            label {
+                position        : absolute;
+                left            : 10px;
+                top             : 0;
+                padding         : 0 8px;
+                background-color: $color-white;
+                font-size       : 12px;
+                text-transform  : capitalize;
+                margin-bottom   : 0;
+                z-index         : 1;
+            }
+
+            .form-control {
+                border       : 1px solid #DEE2E6;
+                border-radius: 4px;
+                line-height  : 50px;
+                height       : 50px;
+                margin-bottom: 0;
+                padding-left : 17px;
+            }
+        }
+    }
+}
+
+.divider-shape {
+    position: absolute;
+    top     : auto;
+    right   : 0;
+    bottom  : 0;
+    left    : 0;
+}
+
+.divider-shape-top {
+    position: absolute;
+    top     : 0;
+    right   : 0;
+    bottom  : auto;
+    left    : 0;
+}

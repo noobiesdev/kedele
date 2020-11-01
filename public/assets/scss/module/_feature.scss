@@ -1,0 +1,178 @@
+/*------------------------------------*\
+    #Features
+\*------------------------------------*/
+.features {
+    padding-top   : 110px;
+    padding-bottom: 90px;
+
+    @media #{$maxTablet} {
+        padding-top   : 10px;
+        padding-bottom: 50px;
+    }
+
+    .feature-panel {
+        position     : relative;
+        margin-bottom: 25px;
+        box-shadow   : none;
+        transition   : 0.3s ease-in-out;
+        cursor       : pointer;
+        display      : flex;
+
+        @media #{$maxTablet} {
+            max-width: 370px;
+            margin   : 0 auto 50px auto;
+        }
+
+        @media #{$minLarge} {
+            margin-right: 20px;
+        }
+
+        .feature-icon {
+            color       : $color-theme;
+            line-height : 1;
+            margin-right: 36px;
+            position    : relative;
+            margin-top  : 8px;
+
+            i {
+                transition: all 0.3s linear;
+                display   : inline-block;
+
+                &::before {
+                    font-size: 50px;
+                    margin   : 0;
+                }
+            }
+
+            &:hover {
+                i {
+                    animation: pulse 0.9s infinite;
+                }
+            }
+        }
+
+        .feature-content {
+            h3 {
+                font-size     : 20px;
+                line-height   : 1.5;
+                margin-bottom : 9px;
+                text-transform: capitalize;
+            }
+
+            p {
+                font-size    : 16px;
+                font-weight  : 400;
+                line-height  : 24px;
+                margin-bottom: 0;
+                color        : $color-body;
+            }
+        }
+    }
+}
+
+.features-2 {
+    padding-top   : 118px;
+    padding-bottom: 85px;
+
+    .feature-panel {
+        margin-bottom: 10px;
+
+        @media #{$maxTablet} {
+            max-width    : none;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.feature-left {
+    .feature-panel {
+        transition   : all 0.3s;
+        margin-bottom: 18px;
+
+        &:hover {
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            position     : absolute;
+            left         : 0;
+            top          : 0;
+            margin-bottom: 0;
+        }
+
+        .feature-content {
+            padding-left: 68px;
+        }
+    }
+}
+
+/* feature left circle  */
+
+.feature-left-circle {
+    .feature-content {
+        h3 {
+            font-size    : 22px;
+            font-family  : $font-heading;
+            font-weight  : 500;
+            line-height  : 29px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size  : 14px;
+            font-weight: 400;
+            line-height: 23px;
+            padding    : 0;
+        }
+    }
+
+    .feature-icon {
+        width        : 45px;
+        height       : 45px;
+        line-height  : 42px;
+        border-radius: 50%;
+        color        : $color-theme;
+        font-family  : $font-body;
+        font-size    : 24px;
+        border       : 2px solid $color-theme;
+        transition   : all 0.2s linear;
+    }
+
+    &:hover {
+        .feature-icon {
+            background  : $color-theme;
+            border-color: $color-theme;
+            color       : $color-white;
+        }
+    }
+}
+
+.feature-divider {
+    margin-top   : 0;
+    margin-bottom: 0;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .feature-panel {
+        margin-bottom: 20px;
+
+        .feature-icon {
+            margin-bottom: 10px;
+        }
+    }
+
+    .feature {
+        img {
+            max-width: 100%;
+            height   : auto;
+        }
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .feature-panel {
+        margin-bottom: 20px;
+    }
+}

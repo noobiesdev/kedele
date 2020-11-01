@@ -1,0 +1,231 @@
+/*------------------------------------*\
+    #PRICING-SECTION
+\*------------------------------------*/
+.pricing {
+    padding-top   : 110px;
+    padding-bottom: 122px;
+    position      : relative;
+
+    .pricing-switcher {
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+        margin-top     : 25px;
+        margin-bottom  : 50px;
+
+        input {
+            display: none;
+        }
+
+        label {
+            font-size     : 20px;
+            font-weight   : 500;
+            line-height   : 1.5;
+            text-transform: capitalize;
+            cursor        : pointer;
+            transition    : 0.5s ease-in-out;
+            color         : $color-body;
+
+            &:hover,
+            &.active {
+                color: $color-theme;
+            }
+        }
+
+        .indicator {
+            width           : 53px;
+            height          : 23px;
+            background-color: $color-theme;
+            border-radius   : 20px;
+            margin          : 0 20px;
+            position        : relative;
+            cursor          : pointer;
+
+            .ball {
+                display         : inline-block;
+                width           : 24px;
+                height          : 23px;
+                background-color: $color-white;
+                border-radius   : 50%;
+                border          : 1px solid $color-theme;
+                transition      : 0.5s ease-in-out;
+                transform       : translateX(0px);
+
+                &.yearly {
+                    transform: translateX(30px);
+                }
+
+                &.monthly {
+                    transform: translateX(0);
+                }
+            }
+        }
+
+    }
+
+    .pricing-panel {
+        background-color   : $color-white;
+        box-shadow         : 0px 30px 50px 0 rgba(232, 80, 91, 0.1);
+        padding-bottom     : 30px;
+        margin-bottom      : 35px;
+        transition         : all 0.35s ease-in-out;
+        position           : relative;
+        backface-visibility: hidden;
+
+        @media #{$maxTablet} {
+            max-width    : 370px;
+            margin-right : auto;
+            margin-left  : auto;
+            margin-bottom: 30px;
+        }
+
+        &.visible {
+            position: relative;
+            z-index : 5;
+        }
+
+        &.hidden {
+            position : absolute;
+            top      : 0;
+            left     : 0;
+            height   : 100%;
+            width    : 100%;
+            z-index  : 1;
+            transform: rotateY(180deg);
+        }
+
+        .pricing-head {
+            border-radius : 4px 4px 0 0;
+            position      : relative;
+            display       : flex;
+            flex-direction: column;
+            align-items   : center;
+            padding-top   : 65px;
+            padding-bottom: 65px;
+            position      : relative;
+            overflow      : hidden;
+
+            .best-banner {
+                position        : absolute;
+                top             : 20px;
+                right           : 0;
+                transform       : rotate(45deg) translate(35px, -30px);
+                padding         : 15px;
+                width           : 190px;
+                text-align      : center;
+                text-transform  : capitalize;
+                font-size       : 14px;
+                font-weight     : 500;
+                line-height     : 1.5;
+                color           : $color-white;
+                background-color: $color-theme;
+            }
+
+            &::before {
+                content : '';
+                position: absolute;
+                width   : 100%;
+                height  : 100%;
+                top     : 0;
+                left    : 0;
+                right   : 0;
+            }
+
+            .pricing-type {
+                margin-bottom: 10px;
+
+                .type {
+                    font-size     : 60px;
+                    line-height   : 1.17;
+                    text-transform: capitalize;
+                    font-weight   : 500;
+                    color         : $color-white;
+
+                    @media #{$maxSmall} {
+                        font-size: 32px;
+                    }
+                }
+
+                .currency {
+                    font-size   : 20px;
+                    line-height : 1.5;
+                    font-weight : 700;
+                    margin-right: 5px;
+                    color       : $color-white;
+                }
+
+                .price {
+                    font-size  : 60px;
+                    font-weight: 600;
+                    line-height: 1.17;
+                    color      : $color-white;
+                }
+
+                .per {
+                    font-size  : 14px;
+                    font-weight: 500;
+                    line-height: 1.5;
+                    color      : $color-white;
+                }
+            }
+
+            .pricing-name {
+                font-size     : 18px;
+                font-weight   : 500;
+                line-height   : 1.5;
+                text-transform: capitalize;
+                color         : $color-white;
+            }
+        }
+
+        .pricing-body {
+            text-align: center;
+
+            .pricing-list {
+                margin-bottom: 30px;
+
+                li {
+                    font-size  : 16px;
+                    line-height: 1.5;
+                    color      : $color-body;
+                    font-weight: 400;
+                    text-align : center;
+                    padding    : 18px;
+
+                    &:nth-child(even) {
+                        background-color: $color-gray;
+                    }
+
+                    &.disabled {
+                        text-decoration: line-through;
+                        color          : #adb5bd;
+                    }
+                }
+            }
+
+            .btn {
+                width        : 186px;
+                margin-bottom: 25px;
+
+                @media #{$maxTablet} {
+                    width       : calc(100% - 30px);
+                    margin-right: auto;
+                    margin-left : auto;
+                }
+            }
+
+            .pricing-desc {
+                font-size  : 12px;
+                line-height: 1.5;
+                text-align : center;
+                padding    : 0 50px;
+
+                @media #{$maxTablet} {
+                    padding: 0 15px;
+                }
+            }
+        }
+
+    }
+
+}

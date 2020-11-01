@@ -1,0 +1,19 @@
+.logo{
+  max-height: 55px;
+}
+p.counting-desc{
+  line-height: 20px !important;
+}
+.counters{
+  margin-top: -15px;
+}
+.modal-dialog,
+.modal-content,
+.modal-body p-0,
+.popup-contact-form{
+  border-radius: 20px !important;
+}
+a strong{
+  font-size: 14pt;
+  color: #57b846;
+}

@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    #Video
+\*------------------------------------*/
+.video {
+    height         : 390px;
+    background-size: cover;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    margin-bottom  : 30px;
+}
+
+.video-section {
+    padding-top   : 110px;
+    padding-bottom: 120px;
+
+    .video {
+        height: 500px;
+    }
+}
