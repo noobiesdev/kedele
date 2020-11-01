@@ -32,6 +32,7 @@
     <li>
       <a class="active" href="{{route('dashboard')}}" data-toggle="collapse" data-target="#dashboard"><div class="pull-left"><i class="glyphicon glyphicon-home mr-20"></i><span class="right-nav-text">Dasbor</span></div><div class="clearfix"></div></a>
     </li>
+
     @role('konsumen')
     <li>
       <a href="javascript:void(0);" data-toggle="collapse" data-target="#belanja"><div class="pull-left"><i class="fa fa-shopping-basket mr-20"></i><span class="right-nav-text">Pembelian</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
@@ -54,7 +55,7 @@
       <a href="{{route('produksi.index')}}" data-toggle="collapse" data-target="#produksi"><div class="pull-left"><i class="glyphicon glyphicon-cutlery mr-20"></i><span class="right-nav-text">Produksi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
     </li>
     <li>
-      <a href="{{route('pengajuan-bahan.index')}}" data-toggle="collapse" data-target="#pengajuan-bahan"><div class="pull-left"><i class="glyphicon glyphicon-cutlery mr-20"></i><span class="right-nav-text">Pengajuan Bahan</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+      <a href="{{route('pengajuan-bahan.index')}}" data-toggle="collapse" data-target="#pengajuan-bahan"><div class="pull-left"><i class="glyphicon glyphicon-list-alt mr-20"></i><span class="right-nav-text">Pengajuan Bahan</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
     </li>
     @endrole
 
@@ -85,6 +86,12 @@
     </li>
     <li>
       <a href="###" data-target="#tagihan" style="color:orange; background-color:white"><div class="pull-left"><i class="glyphicon glyphicon-circle-arrow-up mr-20"></i><span class="right-nav-text">Pembayaran</span></div><div class="clearfix"></div></a>
+    </li>
+    @endrole
+
+    @role('admin')
+    <li>
+      <a href="{{route('pengajuan-bahan.index2')}}" data-toggle="collapse" data-target="#pengajuan-bahan"><div class="pull-left"><i class="glyphicon glyphicon-list-alt mr-20"></i><span class="right-nav-text">Pengajuan Bahan</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
     </li>
     @endrole
 

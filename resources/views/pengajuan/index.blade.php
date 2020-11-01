@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "Produksi")
+@section('title', "Pengajuan Bahan")
 
 @section('css')
 <link href="{{ asset('main/vendors/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet" type="text/css"/>
@@ -26,7 +26,7 @@
 
       <!-- Row -->
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
           <!-- Product List -->
           <div class="panel panel-default card-view">
             <div class="panel-wrapper collapse in">
@@ -36,32 +36,74 @@
                     <div class="table-wrap">
                       <div class="table-responsive">
                           <table id="example" class="table table-hover display  pb-30" >
+                          @role('produsen')
                           <thead>
                             <tr>
                               <th>Tanggal</th>
                               <th>Jumlah Bahan</th>
                               <th>Kode Pemesanan</th>
                               <th>Status</th>
-                              <th>Tanggal Update</th>
                               <th>Aksi</th>
                             </tr>
                           </thead>
 
                           <tbody>
-                            @foreach ($pengajuan as $value)
-                            <tr>
-                              <td>{{$value['created_at']}}</td>
-                              <td>{{$value['jumlah_bahan']}} kg</td>
-                              <td>{{$value['id_kode_pemesanan']}}</td>
-                              <td>{{$value['status']}}</td>
-                              <td>{{$value['updated_at']}}</td>
-                              <td>
-                                <a class="btn btn-warning btn-icon-anim btn-square btn-sm" href="#"><i class="fa fa-pencil"></i></a>
-                                <a class="btn btn-danger btn-icon-anim btn-square btn-sm" href="#" onclick="return confirm('Apakah yakin untuk menghapus produk ini?\n Produk yang dihapus diakan membatalkan pesanan dan tidak dapat dikembalikan')"><i class="fa fa-trash-o"></i></a>
-                              </td>
-                            </tr>
-                            @endforeach
+                                @foreach ($pengajuan as $pengajuans)
+                                <tr>
+                                  <td>{{$pengajuans['created_at']}}</td>
+                                  <td>{{$pengajuans['jumlah_bahan']}} kg</td>
+                                  <td>{{$pengajuans['id_kode_pemesanan']}}</td>
+                                  <td>{{$pengajuans['status']}}</td>
+                                  <td>
+                                    <a class="btn btn-danger btn-icon-anim btn-square btn-sm" href="/pengajuan-bahan/{{$pengajuans['id']}}/batal" onclick="return confirm('Apakah yakin untuk membatalkan pengajuan ini?')"><i class="fa fa-trash-o"></i></a>
+                                  </td>
+                                </tr>
+                                @endforeach
                           </tbody>
+                          @endrole
+
+                          @role('admin')
+                          <thead>
+                            <tr>
+                              <th>Tanggal</th>
+                              <th>Id Usaha</th>
+                              <th>Id Supplier</th>
+                              <th>Kategori_kedelai</th>
+                              <th>Jumlah Bahan</th>
+                              <th>Kode Pemesanan</th>
+                              <th>Status</th>
+                              <th>Aksi</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                                @foreach ($pengajuan as $pengajuans)
+                                <tr>
+                                  <td>{{$pengajuans['created_at']}}</td>
+                                  <td>{{$pengajuans['id_usaha']}}</td>
+                                  <td>{{$pengajuans['id_supplier']}}</td>
+                                  <td>{{$pengajuans['kategori_kedelai']}}</td>
+                                  <td>{{$pengajuans['jumlah_bahan']}} kg</td>
+                                  <td>{{$pengajuans['id_kode_pemesanan']}}</td>
+                                  <td><div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php echo $pengajuans['status']; ?>
+                                    </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li>Ubah Status</li>
+                                <a class="dropdown-item" href="/pengajuan-bahan/{{$pengajuans['id']}}/mencari"><li><span class="btn btn-warning btn-icon-anim">Mencari</span></li></a>
+                                <a class="dropdown-item" href="/pengajuan-bahan/{{$pengajuans['id']}}/pengujian"><li><span class="btn btn-info btn-icon-anim">Pengujian</span></li></a>
+                                <a class="dropdown-item" href="/pengajuan-bahan/{{$pengajuans['id']}}/pengiriman"><li><span class="btn btn-danger btn-icon-anim">Pengiriman</span></li></a>
+                                <a class="dropdown-item" href="/pengajuan-bahan/{{$pengajuans['id']}}/selesai"><li><span class="btn btn-success btn-icon-anim">Selesai</span></li></a>
+                              </div>
+                            </ul></td>
+                                  <td>
+                                    <a class="btn btn-danger btn-icon-anim btn-square btn-sm" href="/pengajuan-bahan/{{$pengajuans['id']}}/batal" onclick="return confirm('Apakah yakin untuk membatalkan pengajuan ini?')"><i class="fa fa-trash-o"></i></a>
+                                  </td>
+                                </tr>
+                                @endforeach
+                          </tbody>
+                          @endrole
                         </table>
                       </div>
                     </div>

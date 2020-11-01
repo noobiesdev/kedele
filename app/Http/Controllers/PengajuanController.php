@@ -10,15 +10,20 @@ class PengajuanController extends Controller
         $id = \App\Usaha::findOrFail($uid);
         return $id;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
+      $usaha = self::get_usaha(Auth::user()->id);
+      $pengajuan = \App\PengajuanBahan::all()->where('id_usaha', $usaha->id_pengusaha);
+      // dd($pengajuan);
+      return view('pengajuan.index', compact('pengajuan'));
+    }
+
+    public function index2()
+    {
       $pengajuan = \App\PengajuanBahan::all();
-      return view('pengajuan.index',['pengajuan' => $pengajuan]);
+      // dd($pengajuan);
+      return view('pengajuan.index', compact('pengajuan'));
     }
 
     /**
@@ -53,7 +58,7 @@ class PengajuanController extends Controller
         // 'id_supplier'       => $supplier->id,
         // 'kategori_kedelai'  => $input['kualitas_bahan'],
         'jumlah_bahan'      => $input['jumlah_bahan'],
-        'id_kode_pemesanan' => str_random(12),
+        'id_kode_pemesanan' => str_random(6),
         'status'            => 'mencari',
       ]);
       return redirect()->route('pengajuan-bahan.index')->with('success', 'Berhasil menambahkan pengajuan bahan');
@@ -101,6 +106,8 @@ class PengajuanController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $pengajuan = \App\PengajuanBahan::find($id);
+      $pengajuan->delete();
+      return redirect()->route('pengajuan-bahan.index')->with('success', 'Berhasil membatalkan pengajuan bahan');
     }
 }
