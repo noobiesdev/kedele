@@ -188,7 +188,9 @@ dt {
 
 code {
   background: transparent; }
-
+textarea{
+  	resize: vertical; }
+    
 ::-webkit-file-upload-button {
   cursor: pointer; }
 
