@@ -17,3 +17,6 @@ a strong{
   font-size: 14pt;
   color: #57b846;
 }
+.form-control{
+  text-transform: none;
+}

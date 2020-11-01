@@ -15,6 +15,8 @@
     <link href="{{ asset('assets/css/vendor.css') }}" rel="stylesheet"/>
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet"/>
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet"/>
+    <!-- Toast CSS -->
+    <link href="{{ asset('main/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css') }}" rel="stylesheet" type="text/css">
     <!-- include includes/_googleTagHead.pug-->
     <!--
     Document Title
@@ -410,5 +412,41 @@
     <script src="{{ asset('assets/js/vendor/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('assets/js/vendor.js') }}"></script>
     <script src="{{ asset('assets/js/functions.js') }}"></script>
+    <!-- Toast JavaScript -->
+    <script src="{{ asset('main/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js') }}"></script>
+    <script>
+        @if($message = Session::get('success'))
+        $(window).on("load",function(){
+        	window.setTimeout(function(){
+        		$.toast({
+        			heading: 'Sukses',
+        			text: '{{$message}}',
+        			position: 'bottom-left',
+              bgColor: '#18C967',
+        			loaderBg:'#A4DE02',
+        			icon: '',
+        			hideAfter: 3500,
+        			stack: 6
+        		});
+        	}, 1000);
+        });
+        @endif
+        @if ($message = Session::get('error'))
+        $(window).on("load",function(){
+        	window.setTimeout(function(){
+        		$.toast({
+        			heading: 'Kesalahan',
+        			text: '{{$message}}',
+        			position: 'bottom-left',
+              bgColor:'#E01A31',
+        			loaderBg:'#B53737',
+        			icon: '',
+        			hideAfter: 3500,
+        			stack: 6
+        		});
+        	}, 1000);
+        });
+        @endif
+    </script>
   </body>
 </html>
