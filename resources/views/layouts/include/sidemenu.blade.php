@@ -93,6 +93,9 @@
     <li>
       <a href="{{route('pengajuan-bahan.index2')}}" data-toggle="collapse" data-target="#pengajuan-bahan"><div class="pull-left"><i class="glyphicon glyphicon-list-alt mr-20"></i><span class="right-nav-text">Pengajuan Bahan</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
     </li>
+    <li>
+      <a href="{{route('admin.manage')}}" data-toggle="collapse" data-target="manage-user"><div class="pull-left"><i class="fa fa-users mr-20"></i><span class="right-nav-text">Kelola Pengguna</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+    </li>
     @endrole
 
     <li><hr class="light-grey-hr mb-10"/></li>

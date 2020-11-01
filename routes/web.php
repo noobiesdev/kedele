@@ -46,6 +46,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/arsip', 'BelanjaController@arsip')->name('arsip')->middleware('role:konsumen');
         Route::get('/{hash}/kembalikan', 'BelanjaController@kembalikan')->name('revert')->middleware('role:konsumen');
     });
+    Route::group(['as' => 'admin.' , 'prefix' => 'userAdmin'], function () {
+        Route::get('/', 'AkunController@manage')->name('manage')->middleware('role:admin');
+        Route::post('/tambah', 'AkunController@store')->name('store')->middleware('role:admin');
+        Route::post('/update/{username}', 'AkunController@edit')->name('edit')->middleware('role:admin');
+        Route::get('/hapus', 'AkunController@destroy')->name('delete')->middleware('role:admin');
+        Route::get('/kembalikan', 'AkunController@revert')->name('revert')->middleware('role:admin');
+    });
     //-tagihan supplier admin, request pengiriman, riwayat penerimaan, acc transaksi
 });
 
