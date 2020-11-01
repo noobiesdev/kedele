@@ -15,7 +15,7 @@ class ProdukController extends Controller
 {
     public function get_usaha($uid) {
         // $id = DB::table('usaha')->where('id', $uid);
-        $id = \App\Usaha::findOrFail($uid);
+        $id = \App\Usaha::where('id_pengusaha',$uid)->first();
         return $id;
     }
 

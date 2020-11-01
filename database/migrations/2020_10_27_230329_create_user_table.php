@@ -3,6 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Hash;
+use App\Helpers\PhoneHelper as phone;
+use App\Helpers\CryptoHelper as ncrypt;
 
 class CreateUserTable extends Migration
 {

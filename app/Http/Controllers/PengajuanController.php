@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class PengajuanController extends Controller
 {
     public function get_usaha($uid) {
-        $id = \App\Usaha::findOrFail($uid);
+        $id = \App\Usaha::where('id_pengusaha',$uid)->first();
         return $id;
     }
 

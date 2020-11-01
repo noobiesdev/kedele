@@ -15,7 +15,7 @@ class PublicWebsiteController extends Controller
 {
       public static function get_usaha($uid)
       {
-          $id = \App\Usaha::findOrFail($uid);
+          $id = \App\Usaha::where('id_pengusaha',$uid)->first();
           return $id;
       }
 

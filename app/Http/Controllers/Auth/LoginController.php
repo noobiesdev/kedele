@@ -58,7 +58,7 @@ class LoginController extends Controller
             $request->username = phone::validate($request->username);
         }
         $login = [
-            $loginType => $request->username,
+            $loginType => strtolower($request->username),
             'password' => $request->password
         ];
 
