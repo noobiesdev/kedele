@@ -86,7 +86,23 @@
                                   <td>{{$pengajuans['jumlah_bahan']}} kg</td>
                                   <td>{{$pengajuans['id_kode_pemesanan']}}</td>
                                   <td><div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <?php
+                                        switch ($pengajuans->status) {
+                                          case 'mencari':
+                                            $type = 'warning';
+                                            break;
+                                          case 'pengujian':
+                                            $type = 'info';
+                                            break;
+                                          case 'pengiriman':
+                                            $type = 'danger';
+                                            break;
+                                          case 'selesai':
+                                            $type = 'success';
+                                            break;
+                                        }
+                                     ?>
+                                    <button class="btn btn-{{$type}} dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?php echo $pengajuans['status']; ?>
                                     </button>
                               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">

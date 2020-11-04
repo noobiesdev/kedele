@@ -86,6 +86,16 @@ class PengajuanController extends Controller
         //
     }
 
+    public function setstatus($id, $status){
+            $pesanan = \App\PengajuanBahan::findOrFail($id);
+            // if( $status == "belumbayar"){
+            //     $status = 'belum bayar';
+            // }
+            $pesanan->update([
+              'status'      => $status
+            ]);
+            return redirect()->route('pengajuan-bahan.index2')->with('success', 'Status pesanan berhasil diperbarui');
+        }
     /**
      * Update the specified resource in storage.
      *

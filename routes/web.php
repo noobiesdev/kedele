@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', 'PengajuanController@index')->name('index')->middleware('role:produsen');
         Route::get('/admin', 'PengajuanController@index2')->name('index2')->middleware('role:admin');
         Route::post('/buat-pengajuan', 'PengajuanController@store')->name('store')->middleware('role:produsen');
+        Route::get('/{id}/{status}', 'PengajuanController@setstatus')->name('edit')->middleware('role:admin');
         Route::get('/{id}/batal', 'PengajuanController@destroy')->name('cancel')->middleware('role:produsen');
     });
     Route::group(['as' => 'pembelian.' , 'prefix' => 'pembelian'], function () {
