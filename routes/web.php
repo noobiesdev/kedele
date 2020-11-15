@@ -53,6 +53,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/update/{username}', 'AkunController@edit')->name('edit')->middleware('role:admin');
         Route::get('/hapus', 'AkunController@destroy')->name('delete')->middleware('role:admin');
         Route::get('/kembalikan', 'AkunController@revert')->name('revert')->middleware('role:admin');
+        Route::get('/supplier', 'SupplierController@index')->name('supplier')->middleware('role:admin');
+    });
+    Route::group(['as' => 'supplier.' , 'prefix' => 'supplier'], function () {
+        Route::get('/', 'SupplierController@index')->name('index')->middleware('role:admin');
+        Route::post('/buat-pengajuan', 'SupplierController@store')->name('store')->middleware('role:admin');
+        Route::get('/{id}/edit', 'SupplierController@update')->name('edit')->middleware('role:admin');
+        Route::get('/{id}/hapus', 'PengajuanController@destroy')->name('delete')->middleware('role:admin');
     });
     //-tagihan supplier admin, request pengiriman, riwayat penerimaan, acc transaksi
 });
