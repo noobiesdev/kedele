@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property int $id
@@ -21,12 +22,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PengajuanBahan extends Model
 {
+    use SoftDeletes;
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'pengajuan_bahan';
+    protected $dates = ['deleted_at'];
 
     /**
      * @var array

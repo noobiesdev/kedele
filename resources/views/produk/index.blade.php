@@ -65,7 +65,7 @@
 											</div>
 											<div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
 												<img class="imgcon" src="{{asset('img/i_ajukan_bahan.png')}}" alt="">
-                        <a class="btn btn-danger btn-sm smbt btn-rounded btn-block btn-anim mt-5" data-toggle="modal" data-target="#stokModal"><i class="fa fa-pencil"></i><span class="btn-text">Perbarui</span></a>
+                        <a class="btn btn-danger btn-sm smbt btn-rounded btn-block btn-anim mt-5" data-toggle="modal" data-target="#pengajuanModal"><i class="fa fa-pencil"></i><span class="btn-text">Ajukan</span></a>
 											</div>
 										</div>
 									</div>
@@ -74,6 +74,7 @@
 						</div>
 					</div>
 				</div>
+        @include('produk.include.pengajuan_modal')
         @include('produk.include.edit_stok')
 			</div>
       <div class="row">

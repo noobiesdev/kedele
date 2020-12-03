@@ -21,6 +21,7 @@ class ProdukController extends Controller
 
     public function index(Request $request)
     {
+        $data_kategori = \App\Kategori::all();
         $usaha = self::get_usaha(Auth::user()->id);
         // $edit = isset($request->produk)? $request->produk : '';
         if( isset($request->produk) && !is_null($request->produk) ){
@@ -29,7 +30,7 @@ class ProdukController extends Controller
         }else{
             $edit = '';
         }
-        return view('produk.index', compact('usaha', 'edit'));
+        return view('produk.index', compact('usaha', 'edit', 'data_kategori'));
     }
 
     public function store(Request $request)
@@ -93,7 +94,7 @@ class ProdukController extends Controller
           'slug'            => $input['slug'].'-'.ncrypt::compose($produk->id),
           'deskripsi'       => $input['deskripsi'],
           'kebutuhan_bahan' => $input['kebutuhan_bahan'],
-          'harga'           => $input['harg'],
+          'harga'           => $input['harga'],
           'gambar'          => $fileName
         ])) {
             return redirect()->route('produksi.index')->with('success', 'Berhasil memperbarui produk');

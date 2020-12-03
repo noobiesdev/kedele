@@ -34,8 +34,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', 'PengajuanController@index')->name('index')->middleware('role:produsen');
         Route::get('/admin', 'PengajuanController@index2')->name('index2')->middleware('role:admin');
         Route::post('/buat-pengajuan', 'PengajuanController@store')->name('store')->middleware('role:produsen');
+        Route::get('/batal/{id}', 'PengajuanController@destroy')->name('cancel')->middleware('role:produsen');
         Route::get('/{id}/{status}', 'PengajuanController@setstatus')->name('edit')->middleware('role:admin');
-        Route::get('/{id}/batal', 'PengajuanController@destroy')->name('cancel')->middleware('role:produsen');
+        Route::post('/editsupplier/{id}', 'PengajuanController@edit')->name('editsup')->middleware('role:admin');
+
     });
     Route::group(['as' => 'pembelian.' , 'prefix' => 'pembelian'], function () {
         Route::get('/', 'PembelianController@index')->name('index')->middleware('role:produsen');
@@ -53,13 +55,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/update/{username}', 'AkunController@edit')->name('edit')->middleware('role:admin');
         Route::get('/hapus', 'AkunController@destroy')->name('delete')->middleware('role:admin');
         Route::get('/kembalikan', 'AkunController@revert')->name('revert')->middleware('role:admin');
-        Route::get('/supplier', 'SupplierController@index')->name('supplier')->middleware('role:admin');
+
     });
     Route::group(['as' => 'supplier.' , 'prefix' => 'supplier'], function () {
         Route::get('/', 'SupplierController@index')->name('index')->middleware('role:admin');
-        Route::post('/buat-pengajuan', 'SupplierController@store')->name('store')->middleware('role:admin');
-        Route::get('/{id}/edit', 'SupplierController@update')->name('edit')->middleware('role:admin');
-        Route::get('/{id}/hapus', 'PengajuanController@destroy')->name('delete')->middleware('role:admin');
+        Route::post('/tambah', 'SupplierController@store')->name('store')->middleware('role:admin');
+        Route::post('/edit/{id}', 'SupplierController@edit')->name('edit')->middleware('role:admin');
+        Route::get('/hapus', 'SupplierController@destroy')->name('delete')->middleware('role:admin');
     });
     //-tagihan supplier admin, request pengiriman, riwayat penerimaan, acc transaksi
 });

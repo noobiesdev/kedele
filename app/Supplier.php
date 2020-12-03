@@ -22,7 +22,7 @@ class Supplier extends Model
 {
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'supplier';
@@ -30,7 +30,7 @@ class Supplier extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'maps', 'whatsapp', 'twitter', 'instagram', 'facebook', 'marketplace', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nama', 'maps', 'kategori', 'whatsapp', 'twitter', 'instagram', 'facebook', 'marketplace', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -21,7 +21,7 @@
 
       <!-- Row -->
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
           <!-- Info -->
           <div class="panel panel-default card-view">
             <div class="panel-wrapper collapse in">
@@ -32,7 +32,7 @@
                       <div class="btn-group">
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">Tambah Supplier</button>
                       </div>
-                      <div class="btn-group">
+                      <!-- <div class="btn-group">
                         <div class="dropdown">
                           <button aria-expanded="false" data-toggle="dropdown" class="btn btn-info dropdown-toggle " type="button">Sortir<span class="caret"></span></button>
                           <ul role="menu" class="dropdown-menu">
@@ -43,7 +43,7 @@
                             <li><a href="{{route('admin.manage')}}">Pengguna Terhapus</a></li>
                           </ul>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                     @include('supplier.include.create')
                   </div>
@@ -65,6 +65,7 @@
                               <th>Nama Supplier</th>
                               <th>Alamat</th>
                               <th>Nomor Whatsapp</th>
+                              <th>Kategori</th>
                               <th>Instagram</th>
                               <th>Facebook</th>
                               <th>Twitter</th>
@@ -74,39 +75,23 @@
                           </thead>
 
                           <tbody>
+                            @foreach($data_supplier as $key => $supplier)
                             <tr>
-                              <td width="20%">
-                							</td>
-
+                              <td>{{$supplier->nama}}</td>
+                              <td>{{$supplier->maps}}</td>
+                              <td>+{{$supplier->whatsapp}}</td>
+                              <td>{{$supplier->kategori}}</td>
+                              <td><a href="https://www.instagram.com/{{$supplier->instagram}}">{{$supplier->instagram}}</a> </td>
+                              <td><a href="https://www.facebook.com/{{$supplier->facebook}}">{{$supplier->facebook}}</a></td>
+                              <td><a href="https://twitter.com/{{$supplier->twitter}}">{{$supplier->twitter}}</a></td>
+                              <td>{{date('d-m-Y', strtotime($supplier->created_at))}}</td>
                               <td>
-                              </td>
-
-                              <td width="20%">
-                              </td>
-
-                              <td>
-
-                              </td>
-
-                              <td>
-                              </td>
-
-                              <td>
-                              </td>
-
-                              <td>
-                              </td>
-
-                              <td>
-                                <a class="btn btn-warning btn-icon-anim btn-square btn-sm" href="/userAdmin/"><i class="fa fa-pencil"></i></a>
-
-                                <a class="btn btn-success btn-icon-anim btn-square btn-sm" href="/userAdmin/kembalikan/" onclick=""><i class="fa fa-random"></i></a>
-
-                                <a class="btn btn-danger btn-icon-anim btn-square btn-sm" href="/userAdmin/hapus/" onclick=""><i class="fa fa-trash-o"></i></a>
-
+                                <a class="btn btn-warning btn-icon-anim btn-square btn-sm" href="/supplier/?edit={{$supplier->id}}"><i class="fa fa-pencil"></i></a>
+                                <a class="btn btn-danger btn-icon-anim btn-square btn-sm" onclick="return confirm('Yakin akan menghapus supplier {{$supplier->nama}}?')"
+                                  href="/supplier/hapus/?user={{$supplier->id}}"><i class="fa fa-trash-o"></i></a>
                               </td>
                             </tr>
-
+                            @endforeach
                           </tbody>
                         </table>
                       </div>
@@ -155,9 +140,25 @@ $(document).ready(function(){
       }
     });
 });
+$(document).ready(function(){
+    $('#no_hp1').mask('+62 9999 999 99ZZ', {
+    translation: {
+      'Z': {
+        pattern: /[0-9]/, optional: true
+        }
+      }
+    });
+    $('.phone').mask('+62 9999 999 99ZZ', {
+    translation: {
+      'Z': {
+        pattern: /[0-9]/, optional: true
+        }
+      }
+    });
+});
 @if(isset($edit) && $edit != "")
     $(window).on('load',function(){
-      $('#editModal').modal('show');
+      $('#editModal1').modal('show');
     });
 @endif
 </script>

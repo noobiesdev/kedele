@@ -1,14 +1,14 @@
-<div class="modal fade" id="stokModal" tabindex="-1" role="dialog" aria-labelledby="stokModalLabel" aria-hidden="true">
+<div class="modal fade" id="pengajuanModal" tabindex="-1" role="dialog" aria-labelledby="pengajuanModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="stokModalLabel">Perbarui Bahan Baku</h5>
+        <h5 class="modal-title" id="pengajuanModalLabel">Pengajuan Bahan Baku</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" action="">
+        <form method="post" action="{{route('pengajuan-bahan.store')}}">
           @csrf
           <div class="form-group">
             <label for="amount" class="col-form-label">Jumlah Bahan:</label>

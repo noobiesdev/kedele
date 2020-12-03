@@ -41,6 +41,7 @@
                             <tr>
                               <th>Tanggal</th>
                               <th>Jumlah Bahan</th>
+                              <th>Kategori</th>
                               <th>Kode Pemesanan</th>
                               <th>Status</th>
                               <th>Aksi</th>
@@ -52,10 +53,11 @@
                                 <tr>
                                   <td>{{$pengajuans['created_at']}}</td>
                                   <td>{{$pengajuans['jumlah_bahan']}} kg</td>
+                                  <td>{{$pengajuans['kategori_kedelai']}}</td>
                                   <td>{{$pengajuans['id_kode_pemesanan']}}</td>
                                   <td>{{$pengajuans['status']}}</td>
                                   <td>
-                                    <a class="btn btn-danger btn-icon-anim btn-square btn-sm" href="/pengajuan-bahan/{{$pengajuans['id']}}/batal" onclick="return confirm('Apakah yakin untuk membatalkan pengajuan ini?')"><i class="fa fa-trash-o"></i></a>
+                                    <a class="btn btn-danger btn-icon-anim btn-square btn-sm" href="/pengajuan-bahan/batal/{{$pengajuans['id']}}" onclick="return confirm('Apakah yakin untuk membatalkan pengajuan ini?')"><i class="fa fa-trash-o"></i></a>
                                   </td>
                                 </tr>
                                 @endforeach
@@ -114,6 +116,7 @@
                               </div>
                             </ul></td>
                                   <td>
+                                    <a class="btn btn-warning btn-icon-anim btn-square btn-sm" href="/pengajuan-bahan/admin/?pop={{$pengajuans['id']}}"><i class="fa fa-pencil"></i></a>
                                     <a class="btn btn-danger btn-icon-anim btn-square btn-sm" href="/pengajuan-bahan/{{$pengajuans['id']}}/batal" onclick="return confirm('Apakah yakin untuk membatalkan pengajuan ini?')"><i class="fa fa-trash-o"></i></a>
                                   </td>
                                 </tr>
@@ -132,6 +135,9 @@
 
         </div>
       </div>
+      @if(isset($pop) && $pop !="")
+          @include('pengajuan.include.admin_supplier')
+      @endif
       <!-- /Row -->
 @endsection
 
@@ -178,7 +184,12 @@ $(document).ready(function() {
   });
 });
 
-
+@if(isset($pop) && $pop != "")
+  console.log('pop keluar!!');
+    $(window).on('load',function(){
+      $('#popModal').modal('show');
+    });
+@endif
 
 </script>
 @if(isset($edit) && $edit != "")
