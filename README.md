@@ -43,7 +43,7 @@ Dalam pengembangan projek ini, kami menggunakan beberapa framework penunjang ant
 ## Tim Pengembang
 - **Analyst** AFRILIA PERMATASARI (18'1027)
 - **Tester** <a href="https://github.com/UKha11/">SITI MASRUKHA (18'1051) </a>
-- **Programmer** <a href="https://github.com/noobiesdev/">FERNALDI WIDHARSONO (18'1083)</a>
+- **Programmer** <a href="https://github.com/noobiesdev/">FERNALDI WIDHARSONO (18'1083) </a>
 - **Project Manager** <a href="https://github.com/darkun7">HARTAWAN BAHARI MULYADI (18'1113)</a>
 - **Designer** DIMAS WAHYU ROSSEVIN (18'2067)
 
