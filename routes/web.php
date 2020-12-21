@@ -41,11 +41,11 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::group(['as' => 'pembelian.' , 'prefix' => 'pembelian'], function () {
         Route::get('/', 'PembelianController@index')->name('index')->middleware('role:produsen');
-        Route::get('/set/{status}/', 'PembelianController@update')->name('update')->middleware('role:produsen'); #set selesai/ batal
+        Route::get('/set/{id}/{status}/', 'PembelianController@setstatus')->name('edit')->middleware('role:produsen'); #set selesai/ batal
     });
     Route::group(['as' => 'belanja.' , 'prefix' => 'belanja'], function () {
         Route::get('/', 'BelanjaController@index')->name('index')->middleware('role:konsumen');
-        Route::get('/set/{status}/', 'BelanjaController@update')->name('update')->middleware('role:konsumen'); #set arsip/ batal
+        Route::get('/set/{id}/{status}', 'BelanjaController@setstatus')->name('update')->middleware('role:konsumen'); #set arsip/ batal
         Route::get('/arsip', 'BelanjaController@arsip')->name('arsip')->middleware('role:konsumen');
         Route::get('/{hash}/kembalikan', 'BelanjaController@kembalikan')->name('revert')->middleware('role:konsumen');
     });

@@ -68,9 +68,9 @@
                           <thead>
                             <tr>
                               <th>Tanggal</th>
-                              <th>Id Usaha</th>
-                              <th>Id Supplier</th>
-                              <th>Kategori_kedelai</th>
+                              <th>Pengusaha</th>
+                              <th>Supplier</th>
+                              <th>Kategori kedelai</th>
                               <th>Jumlah Bahan</th>
                               <th>Kode Pemesanan</th>
                               <th>Status</th>
@@ -82,8 +82,8 @@
                                 @foreach ($pengajuan as $pengajuans)
                                 <tr>
                                   <td>{{$pengajuans['created_at']}}</td>
-                                  <td>{{$pengajuans['id_usaha']}}</td>
-                                  <td>{{$pengajuans['id_supplier']}}</td>
+                                  <td>{{$pengajuans->usaha->nama}}</td>
+                                  <td>@if(!is_null($pengajuans['id_supplier'])){{$pengajuans->supplier->nama}}@else <i style="color:red">Supplier dipilih</i>@endif</td>
                                   <td>{{$pengajuans['kategori_kedelai']}}</td>
                                   <td>{{$pengajuans['jumlah_bahan']}} kg</td>
                                   <td>{{$pengajuans['id_kode_pemesanan']}}</td>

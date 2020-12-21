@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "Pembelian")
+@section('title', "Belanja")
 
 @section('css')
 <link href="{{ asset('main/vendors/bower_components/dropify/dist/css/dropify.min.css') }}" rel="stylesheet" type="text/css"/>
@@ -15,7 +15,7 @@
     <div class="container-fluid">
       <div class="row heading-bg">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-          <h4 class="txt-dark">Pembelian</h4>
+          <h4 class="txt-dark">Belanja</h4>
         </div>
         <!-- Breadcrumb -->
         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
@@ -99,9 +99,10 @@
                           <thead>
                             <tr>
                               <th>Tanggal</th>
-                              <th>Pembeli</th>
+                              <th>Toko</th>
                               <th>Daftar Produk</th>
                               <th>Resi</th>
+                              <th>Status</th>
                               <th>Aksi</th>
                             </tr>
                           </thead>
@@ -113,21 +114,23 @@
                                   {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('M d Y')}}<br>
                                   {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('H:i')}}
                                 </td>
-                                <td width="10%">
-                                  <strong class="product-name">{{$order->user->nama}}</strong><br>
-                                  <p><a href="https://wa.me/{{$order->user->no_hp}}" target="_blank">{{$order->user->no_hp}}</a></p>
+                                <td width="20%">
+                                  <strong class="product-name">{{$order->detailPembelians[0]->produk->usaha->nama}}</strong><br>
+                                  <p><a href="{{route('landing')}}/{{$order->detailPembelians[0]->produk->usaha->slug}}" target="_blank">Kunjungi toko</a></p>
                                 </td>
                                 <td>
                                   @foreach ($order->detailPembelians as $p)
                                   <i style="color:#27AE60;font-weight:800">{{$p->produk->nama}}</i> sebanyak <strong>{{$p->jumlah}} item</strong> (Rp{{number_format($p->produk->harga*$p->jumlah,0,",",".")}})<br>
                                   @endforeach
                                   <hr style="margin-bottom:0">
-                                  <strong>Total: Rp{{number_format($order->total_harga-5000,0,",",".")}}</strong>
+                                  <p>Pajak (10%): Rp{{number_format(($order->total_harga-5000)/11,0,",",".")}}</p>
+                                  <p>Biaya Admin: Rp5.000</p>
+                                  <strong>Total: Rp{{number_format($order->total_harga,0,",",".")}}</strong>
                                 </td>
                                 <td>
                                   <a href="#">{{$order->kode_pemesanan}}</a>
                                 </td>
-                                <td><div class="dropdown">
+                                <td>
                                   <?php
                                       switch ($order->status) {
                                         case 'dipesan':
@@ -147,20 +150,11 @@
                                           break;
                                       }
                                    ?>
-                                      <button class="btn btn-{{$type}} dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <?php echo $order['status']; ?>
-                                      </button>
-                                  @if($order->status!= 'selesai')
-                                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <li>Ubah Status</li>
-                                    <a class="dropdown-item" href="/pembelian/set/{{$order['kode_pemesanan']}}/dipesan"><li><span class="btn btn-warning btn-icon-anim">Dipesan</span></li></a>
-                                    <a class="dropdown-item" href="/pembelian/set/{{$order['kode_pemesanan']}}/diproses"><li><span class="btn btn-info btn-icon-anim">Diproses</span></li></a>
-                                    <a class="dropdown-item" href="/pembelian/set/{{$order['kode_pemesanan']}}/dikirim"><li><span class="btn btn-secondary btn-icon-anim" style="color:black">Dikirim</span></li></a>
-                                    <a class="dropdown-item" href="/pembelian/set/{{$order['kode_pemesanan']}}/selesai"><li><span class="btn btn-success btn-icon-anim">Selesai</span></li></a>
-                                    <a class="dropdown-item" href="/pembelian/set/{{$order['kode_pemesanan']}}/batal"><li><span class="btn btn-danger btn-icon-anim">Batal</span></li></a>
-                                  </div>
-                                </ul>@endif
-                              </td>
+                                      <p class="badge badge-{{$type}} dropdown-toggle">{{$order['status']}}</p>
+                                  </td>
+                                  <td>
+                                    <a class="btn btn-danger btn-icon-anim btn-square btn-sm" href="/belanja/set/{{$order['kode_pemesanan']}}/batal" onclick="return confirm('Apakah yakin untuk membatalkan pesanan ini?\n Pesanan yang dibatalkan akan dipindah pada menu arsip')"><i class="fa fa-trash-o"></i></a>
+                                  </td>
                               </tr>
                             @endforeach
                           </tbody>

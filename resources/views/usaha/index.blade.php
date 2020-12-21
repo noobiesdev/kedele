@@ -122,6 +122,7 @@
   										<div class="pt-20">
                         <form method="post" action="{{route('usaha.update')}}" enctype="multipart/form-data">
                           @csrf
+                          <input type="text" name="slug" value="{{$usaha['slug']}}" style="display:none">
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon">Memiliki NPWP</div>

@@ -19,7 +19,7 @@ class CreatePembelianTable extends Migration
             $table->integer('id_usaha');
             $table->string('kode_pemesanan', 12);
             $table->integer('total_harga');
-            $table->enum('status', ['dipesan', 'diproses', 'dikirim', 'batal']);
+            $table->enum('status', ['dipesan', 'diproses', 'dikirim', 'selesai','batal']);
             $table->timestamp('created_at')->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->softDeletes();
