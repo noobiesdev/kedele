@@ -10,13 +10,14 @@
       <div class="modal-body">
         <form method="post" action="">
           @csrf
+          <input type="text" name="slug" value="{{$usaha['slug']}}" style="display:none">
           <div class="form-group">
             <label for="amount" class="col-form-label">Jumlah Bahan:</label>
             <input type="number" name="jumlah_bahan" class="form-control" id="amount" value="{{$usaha['jumlah_bahan']}}">
           </div>
           <div class="form-group">
-            <label for="kategori" class="col-form-label">Kategori Bahan:</label>
-            <select class="form-control" name="kategori" id="kategori">
+            <label for="kualitas_bahan" class="col-form-label">Kategori Bahan:</label>
+            <select class="form-control" name="kualitas_bahan" id="kualitas_bahan">
               @foreach($data_kategori as $key=>$kategori)
               <option value="{{$kategori->nama}}">{{$kategori->nama}}</option>
               @endforeach

@@ -61,7 +61,7 @@
 										<div class="row">
 											<div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left">
                         <span class="weight-500 uppercase-font block txt-light">Ajukan Permintaan Bahan</span>
-												<span class="txt-light block counter">Kategori {{$usaha['kualitas_bahan']}}</span>
+												<span class="weight-500 uppercase-font block txt-light"><br>Kategori: {{$usaha['kualitas_bahan']}}</span>
 											</div>
 											<div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
 												<img class="imgcon" src="{{asset('img/i_ajukan_bahan.png')}}" alt="">
@@ -160,6 +160,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
+  $('.buttons-pdf').remove();
   $('.price').mask('00.000.000,-', {reverse: true});
   $(".share").click(function() {
     var id = $(this).attr("id");

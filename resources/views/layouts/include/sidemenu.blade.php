@@ -4,7 +4,7 @@
       <!-- User Profile -->
       <li>
         <div class="user-profile text-center">
-          <img src="" alt="logo-kedele.me" class="user-auth-img img-circle"/>
+          <img src="{{ asset('img/'.Auth::user()->level.'.png') }}" alt="logo-kedele.me" class="user-auth-img img-circle" style="background-color:rgba(39,174,96,.4)"/>
           <div class="dropdown mt-5">
           <a href="#" class="dropdown-toggle pr-0 bg-transparent" data-toggle="dropdown">{{ Auth::user()->nama }} <span class="caret"></span></a>
           <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
@@ -101,7 +101,7 @@
     </li>
     @endrole
 
-    <li><hr class="light-grey-hr mb-10"/></li>
+    <!-- <li><hr class="light-grey-hr mb-10"/></li>
     <li class="navigation-header">
       <span>Pendukung</span>
       <i class="zmdi zmdi-more"></i>
@@ -116,7 +116,7 @@
           <a class="active" href="{{route('helpdesk')}}">Ajukan Pertanyaan</a>
         </li>
       </ul>
-    </li>
+    </li> -->
     <!-- <li>
       <a href="documentation.html"><div class="pull-left"><i class="zmdi zmdi-book mr-20"></i><span class="right-nav-text">Dokumentasi</span></div><div class="clearfix"></div></a>
     </li> -->

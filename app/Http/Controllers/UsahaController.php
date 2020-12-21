@@ -56,12 +56,16 @@ class UsahaController extends Controller
               'slug' => 'required|string|alpha_dash|max:64|unique:usaha,slug,'.$usaha->id,
               'deskripsi' => 'string',
             ];
-        }else{
+        }else if( isset($input['nama_pemilik']) && isset($input['nomor_pemilik']) ){
             #To update Kepemilikan section
             $dataValidator = [
               'nama_pemilik' => 'required|string|max:128',
               'nomor_pemilik' => 'required|string|min:12|max:32',
               'bukti_pemilik' => 'mimes:jpeg,jpg,png',
+            ];
+        }else{
+            $dataValidator = [
+              'slug' => 'required|string|alpha_dash|max:64|unique:usaha,slug,'.$usaha->id,
             ];
         }
         $validation = Validator::make($request->all(), $dataValidator);
