@@ -69,7 +69,11 @@ class AkunController extends Controller
         if(isset($input['no_hp'])){
             $input['no_hp'] = phone::validate($input['no_hp']);
         }
-        $oldpass = $input['old_password'];
+        if(isset($input['old_password2'])){
+            $oldpass = $input['old_password2'];
+        }else{
+            $oldpass = $input['old_password'];
+        }
         if(Hash::check($oldpass, $user->password)){
           unset( $input['old_password'] );
           if(isset($input['password'])){

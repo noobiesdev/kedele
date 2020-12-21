@@ -65,7 +65,7 @@ class LoginController extends Controller
         //LAKUKAN LOGIN
         if (auth()->attempt($login)) {
             //JIKA BERHASIL, MAKA REDIRECT KE HALAMAN HOME
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         }
         //JIKA SALAH, MAKA KEMBALI KE LOGIN DAN TAMPILKAN NOTIFIKASI
         return redirect()->back()->with(['error' => 'Email/ No. telpon /Password salah!']);
