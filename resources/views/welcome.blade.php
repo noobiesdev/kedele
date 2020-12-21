@@ -45,10 +45,10 @@
             <div class="collapse navbar-collapse" id="navbarContent">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a class="nav-link" data-scroll="scrollTo" href="#hero">Home</a></li>
-                <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#feature">Features</a></li>
-                <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#video">Video</a></li>
-                <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#testimonials">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#feature">Fasilitas</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#video">Video</a></li> -->
+                <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#services">Layanan</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" data-scroll="scrollTo" href="#testimonials">Testimonials</a></li> -->
               </ul>
               <div class="module-container">
                 <!--module-btn-->
@@ -125,7 +125,7 @@
       </div>
       <!-- Start hero #1-->
       <section class="hero hero-click bg-overlay bg-overlay-dark" id="hero">
-        <div class="bg-section"><img src="{{ asset('assets/images/background/bg-5.jpg') }}" alt="background"/></div>
+        <div class="bg-section"><img src="{{ asset('assets/images/background/bg-kedele.png') }}" alt="background"/></div>
         <div class="divider-shape"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="139" viewBox="0 0 1920 139" preserveAspectRatio="none">
 <g transform="translate(0 -0.59)">
 <path data-name="Path 429" d="M1920,3.4C1575.885,18,1529.1,84.89,1101.63,84.89c-480,0-480-84.3-960-84.3C89.1.59,42.3,1.6,0,3.4V140H1920Z" transform="translate(0)" fill="rgba(255,255,255,0.3)"/>
@@ -139,8 +139,9 @@
             <div class="row">
               <div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
                 <div class="hero-content">
-                  <h1 class="hero-headline">Make The Best Landing <Br> in The Market</h1>
-                  <div class="hero-bio">We are LeData agency, our strategists will help you set an objective and choose your tools, <Br> developing a plan that is custom built for your business.</div>
+                  <h1 class="hero-headline">Temukan Produk <Br>Olahan Kedelai</h1>
+                  <div class="hero-bio">Kedele.me mempermudah penjual produk olahan kedelai menemukan suplai bahan <Br> dan menjual produknya, dan
+                    juga mempermudah pelanggan dalam melakukan pembelian produk olahan kedelai.</div>
                   <div class="hero-action text-center"><a class="btn btn--secondary mx-auto" href="{{route('register')}}" > <span>Daftar Sekarang <i class="icon-right-arrow"></i></span></a></div>
                 </div>
                 <!-- End .hero-content-->
@@ -160,10 +161,10 @@
             <!-- Panel #1  -->
             <div class="col-12 col-md-12 col-lg-4 ">
               <div class="feature-panel">
-                <div class="feature-icon"><i class="flaticon-command"></i></div>
+                <div class="feature-icon"><img class="logo logo-light" src="{{ asset('assets/images/deliver.png') }}"></img></div>
                 <div class="feature-content">
-                  <h3>Ultra Responsive</h3>
-                  <p>This should be used to tell a story and let your users know more about your service. How can you benefit them?</p>
+                  <h3>Pembelian</h3>
+                  <p>Beli produk olahan kedelai lebih mudah dan cepat dengan Kedele.me</p>
                 </div>
               </div>
               <!-- .feature-panel end  -->
@@ -172,10 +173,10 @@
             <!-- Panel #2  -->
             <div class="col-12 col-md-12 col-lg-4 ">
               <div class="feature-panel active">
-                <div class="feature-icon"><i class="flaticon-controls-1"></i></div>
+                <div class="feature-icon"><img class="logo logo-light" src="{{ asset('assets/images/hand.png') }}"></img></div>
                 <div class="feature-content">
-                  <h3>Unlimited Features</h3>
-                  <p>This should be used to tell a story and let your users know more about your service. How can you benefit them?</p>
+                  <h3>Dirikan Usaha Anda</h3>
+                  <p>Langganan di Kedele.me dan dirikan usaha penjualan anda dengan laman toko pribadi</p>
                 </div>
               </div>
               <!-- .feature-panel end  -->
@@ -184,10 +185,10 @@
             <!-- Panel #3  -->
             <div class="col-12 col-md-12 col-lg-4 ">
               <div class="feature-panel">
-                <div class="feature-icon"><i class="flaticon-diamond"></i></div>
+                <div class="feature-icon"><img class="logo logo-light" src="{{ asset('assets/images/produce.png') }}"></img></div>
                 <div class="feature-content">
-                  <h3>Creative Design</h3>
-                  <p>This should be used to tell a story and let your users know more about your service. How can you benefit them?</p>
+                  <h3>Suplai Kedelai</h3>
+                  <p>Kedele.me bersama petani kedelai menyediakan kemudahan dalam penyetokan bahan suplai kedelai.</p>
                 </div>
               </div>
               <!-- .feature-panel end  -->
@@ -199,7 +200,7 @@
         <!-- End .container  -->
       </section>
       <!-- Video Section-->
-      <section class="video-section bg-light-primary" id="video">
+      <!-- <section class="video-section bg-light-primary" id="video">
         <div class="container">
           <div class="row clearfix">
             <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
@@ -221,22 +222,22 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
       <section class="services features features-2 bg-pink" id="services">
         <div class="container">
           <div class="row">
             <div class="col-12 col-lg-6">
               <div class="service-card">
                 <div class="service-card-top">
-                  <div class="bg-section"><img src="{{ asset('assets/images/background/bg-card.png') }}" alt="background"/></div>
+                  <div class="bg-section"><img src="{{ asset('assets/images/bg-greencard.png') }}" alt="background"/></div>
                 </div>
                 <div class="service-card-middle">
                   <div class="service-card-bg">
-                    <div class="bg-section"><img class="img-fluid" src="{{ asset('assets/images/background/bg-10.jpg') }}" alt="vector"/></div>
+                    <div class="bg-section"><img class="img-fluid" src="{{ asset('assets/images/background/sendok-kedelai.jpg') }}" alt="vector"/></div>
                   </div>
                 </div>
                 <div class="service-card-bottom">
-                  <div class="bg-section"><img src="{{ asset('assets/images/background/bg-card.png') }}" alt="background"/></div>
+                  <div class="bg-section"><img src="{{ asset('assets/images/bg-greencard.png') }}" alt="background"/></div>
                   <div class="counters">
                     <div class="counting-holder"><span class="counting">25</span>+</div>
                     <p class="counting-desc">Mitra Pengusaha Olahan Kedelai</p>
@@ -247,25 +248,25 @@
             <div class="col-12 col-lg-6">
               <div class="service-content">
                 <div class="heading heading-4">
-                  <h2 class="heading-title">Your most exciting landing page will be LeData template</h2>
-                  <p class="heading-desc">This should be used to tell a story and let your users know a little more about your product or service</p>
+                  <h2 class="heading-title">Dirikan Usaha Produk Olahan Kedelai Anda di Kedele.me</h2>
+                  <!-- <p class="heading-desc">Berlangganan Rp. 10.000/bulan</p> -->
                 </div>
                 <ul class="list-unstyled service-list">
                   <li>
                     <div class="feature-panel">
-                      <div class="feature-icon"><i class="flaticon-layers-1"></i></div>
+                      <div class="feature-icon"><img class="logo logo-light" src="{{ asset('assets/images/smart-order.png') }}"></img></div>
                       <div class="feature-content">
-                        <h3>Easy Customization</h3>
-                        <p>This should be used to tell a story and let your users know more about your service. How can you benefit them?</p>
+                        <h3>Kelola Toko</h3>
+                        <p>Kedele.me menyediakan layanan dalam mengelola laman toko dan produk olahan yang dijual</p>
                       </div>
                     </div>
                   </li>
                   <li>
                     <div class="feature-panel">
-                      <div class="feature-icon"><i class="flaticon-radar"></i></div>
+                      <div class="feature-icon"><img class="logo logo-light" src="{{ asset('assets/images/produce.png') }}"></img></div>
                       <div class="feature-content">
-                        <h3>Supper Support</h3>
-                        <p>This should be used to tell a story and let your users know more about your service. How can you benefit them?</p>
+                        <h3>Pembelian Suplai</h3>
+                        <p>Kedele.me menyesuaikan pembelian suplai pengusaha dengan detail kategori kedelai yang ingin dibeli agar dapat disesuaikan dengan produk yang dijual</p>
                       </div>
                     </div>
                   </li>
@@ -276,7 +277,7 @@
         </div>
       </section>
       <!-- Start Testimonials-->
-      <section class="testimonials bg-light-primary" id="testimonials">
+      <!-- <section class="testimonials bg-light-primary" id="testimonials">
         <div class="container">
           <div class="row clearfix">
             <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
@@ -289,9 +290,9 @@
           </div>
           <div class="row">
             <div class="col-12 col-md-12 col-lg-12">
-              <div class="owl-carousel carousel-dots carousel-navs" data-slide="3" data-slide-res="1" data-autoplay="false" data-nav="true" data-dots="true" data-space="30" data-loop="true" data-speed="800" data-center="true">
+              <div class="owl-carousel carousel-dots carousel-navs" data-slide="3" data-slide-res="1" data-autoplay="false" data-nav="true" data-dots="true" data-space="30" data-loop="true" data-speed="800" data-center="true"> -->
                 <!--  Testimonial #1   -->
-                <div class="testimonial-panel">
+                <!-- <div class="testimonial-panel">
                   <div class="testimonial-body">
                     <div class="testimonial-icon"><span class="icon-left-quotes-sign"></span></div>
                     <div class="testimonial-author">
@@ -300,9 +301,9 @@
                     </div>
                     <p>" This should be used to tell a story and include any testimonials you might have about your product or service for your clients "</p>
                   </div>
-                </div>
+                </div> -->
                 <!--  Testimonial #2 -->
-                <div class="testimonial-panel">
+                <!-- <div class="testimonial-panel">
                   <div class="testimonial-body">
                     <div class="testimonial-icon"><span class="icon-left-quotes-sign"></span></div>
                     <div class="testimonial-author">
@@ -311,9 +312,9 @@
                     </div>
                     <p>" This should be used to tell a story and include any testimonials you might have about your product or service for your clients "</p>
                   </div>
-                </div>
+                </div> -->
                 <!--  Testimonial #3 -->
-                <div class="testimonial-panel">
+                <!-- <div class="testimonial-panel">
                   <div class="testimonial-body">
                     <div class="testimonial-icon"><span class="icon-left-quotes-sign"></span></div>
                     <div class="testimonial-author">
@@ -326,9 +327,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- End .container  -->
-      </section>
+      <!-- </section> -->
       <!-- End #testimonials -->
       <!--
       CTA #1
@@ -339,8 +340,9 @@
         <div class="container">
           <div class="row">
             <div class="col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 text-center">
-              <h3>Whatever the challenge, we Deliver a solution.</h3>
-              <p>Bengal. Birman. American shorthair tabby russian blue. Turkish angora leopard yet malkin and ocicat cougar, cougar manx. Cornish rex cougar but bombay, cheetah.</p>
+              <h3>Penjualan dan Pembelian Produk Olahan Kedelai</h3>
+              <p>Pengunjung web yang ingin mendirikan usaha penjualan produk olahan kedelai atau ingin membeli produk olahan
+                kedelai dapat meng-klik tombol dibawah ini</p>
               <a class="btn btn--secondary mx-auto" href="{{ route('register') }}"> <span>Daftar Sekarang <i class="icon-right-arrow"></i></span></a>
             </div>
             <!-- End .col-md-12-->
@@ -362,16 +364,16 @@
                 <div class="footer-widget"><a class="logo navbar-brand" href="index.html"><img class="logo logo-light" src="{{ asset('assets/logo_full.png') }}" alt="Kedele.Me"/></a>
                   <div class="footer-contact mt-10">
                     <ul class="list-unstyled">
-                      <li> <a href="mailto:support@pupuknaraku.com">support@pupuknaraku.com</a></li>
+                      <li> <a href="mailto:support@kedele.com">support@kedele.com</a></li>
                       <li> <a href="tel:+62 822-4547-93495">+62 822-4547-9349</a></li>
                     </ul>
                   </div>
                   <ul class="list-unstyled navigation">
                     <li class="nav-item"><a class="nav-link" href="javascript:void(0)">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="javascript:void(0)">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">Video </a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="javascript:void(0)">Video </a></li> -->
                     <li class="nav-item"><a class="nav-link" href="javascript:void(0)">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)">Testimonials</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="javascript:void(0)">Testimonials</a></li> -->
                   </ul>
                 </div>
               </div>
