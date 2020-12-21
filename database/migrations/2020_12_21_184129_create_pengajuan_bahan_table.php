@@ -16,11 +16,11 @@ class CreatePengajuanBahanTable extends Migration
         Schema::create('pengajuan_bahan', function (Blueprint $table) {
             $table->integer('id', true);
             $table->integer('id_usaha')->index('id_usaha');
-            $table->integer('id_supplier')->index('id_supplier');
-            $table->integer('kategori_kedelai')->nullable()->index('kategori_kedelai');
+            $table->integer('id_supplier')->nullable()->index('id_supplier');
+            $table->string('kategori_kedelai', 20)->nullable();
             $table->integer('jumlah_bahan');
             $table->string('id_kode_pemesanan', 12);
-            $table->enum('status', ['mencari', 'pengujian', 'pengiriman', 'selesai']);
+            $table->enum('status', ['mencari', 'pengujian', 'pengiriman', 'selesai', 'batal']);
             $table->timestamp('created_at')->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->softDeletes();

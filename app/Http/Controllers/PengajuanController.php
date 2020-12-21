@@ -14,7 +14,7 @@ class PengajuanController extends Controller
     public function index() //role produsen
     {
       $usaha = self::get_usaha(Auth::user()->id);
-      $pengajuan = \App\PengajuanBahan::all()->where('id_usaha', $usaha->id_pengusaha);
+      $pengajuan = \App\PengajuanBahan::all()->where('id_usaha', $usaha->id);
       // dd($pengajuan);
       return view('pengajuan.index', compact('pengajuan'));
     }
@@ -57,7 +57,7 @@ class PengajuanController extends Controller
       ]);
       $input = $request->all();
       $usaha = self::get_usaha(Auth::user()->id);
-      $usaha_id = $usaha->id_pengusaha;
+      $usaha_id = $usaha->id;
       $produk = \App\PengajuanBahan::create([
         'id_usaha'          => $usaha_id,
         // 'id_supplier'       => $supplier->id,

@@ -55,8 +55,8 @@ class PengajuanBahan extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function kategoriKedelai()
-    {
-        return $this->belongsTo('App\KategoriKedelai', 'kategori_kedelai');
-    }
+    // public function kategoriKedelai()
+    // {
+    //     return $this->belongsTo('App\KategoriKedelai', 'kategori_kedelai');
+    // }
 }

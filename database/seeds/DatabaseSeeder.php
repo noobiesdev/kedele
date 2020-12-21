@@ -52,6 +52,7 @@ class DatabaseSeeder extends Seeder
                           'id_pengusaha' => $user->id,
                           'nama'      => "Toko Testing",
                           'slug'      => "toko-test",
+                          'status'    => "act",
                         ]);
                         $website = \App\Website::create([
                           'id_usaha' => $usaha->id,
@@ -72,6 +73,63 @@ class DatabaseSeeder extends Seeder
                           ]);
                         }
                     }
+                }
+
+                $kategori = [
+                  [
+                    'nama'      => "Kedelai Edamame SESA",
+                    'harga'  => '26000',
+                    'jenis'     => 'Edamame',
+                  ],
+                  [
+                    'nama'      => "Kedelai USA",
+                    'harga'  => '10000',
+                    'jenis'     => 'Kedelai Hijau',
+                  ],
+                  [
+                    'nama'      => "Kedelai Kuning",
+                    'harga'  => '19000',
+                    'jenis'     => 'Kedelai Kuning',
+                  ],
+                  [
+                    'nama'      => "Kedelai Kuning Pecah",
+                    'harga'  => '14500',
+                    'jenis'     => 'Kedelai Kuning',
+                  ],
+                  [
+                    'nama'      => "Kedelai Kuning Kupas",
+                    'harga'  => '22500',
+                    'jenis'     => 'Kedelai Kuning',
+                  ]
+                ];
+                $supplier = [
+                  [
+                    'nama'      => "Suherman",
+                    'maps'      => "Jl. Slamet Riyadi No. 99A",
+                    'kategori'  => "Kedelai Kuning",
+                    'whatsapp'  => "6283334444432",
+                    'instagram' => 'suherman.desu'
+                  ],
+                  [
+                    'nama'      => "Siswanto",
+                    'maps'      => "Jl. Trunojoyo V No. 91A",
+                    'kategori'  => "Kedelai Edamame SESA",
+                    'whatsapp'  => "6283322311113",
+                    'instagram' => 'black.soy'
+                  ],
+                  [
+                    'nama'      => "Arip Kurniawan",
+                    'maps'      => "Jl. Panjaitan 1 No. 2",
+                    'kategori'  => "Kedelai Kuning Kupas",
+                    'whatsapp'  => "6283322311213",
+                    'twitter' => '@green.t'
+                  ],
+                ];
+                foreach ($supplier as $key => $input) {
+                  \App\Supplier::create($input);
+                }
+                foreach ($kategori as $key => $input) {
+                  \App\Kategori::create($input);
                 }
     }
 }
