@@ -16,7 +16,7 @@
 
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="description" content="Kedele.me adalah platform marketing untuk produk olahan kedelai, juga sebagai sarana penghubung produsen dengan supplier">
-  <meta name="keywords" content="tanaman, pertanian, perkebunan, ">
+  <meta name="keywords" content="tanaman, pertanian, perkebunan, kedelai, kedele, universitas jember, kabupaten jember ">
   <meta name="author" content="Startup Agroindustri Unej">
 
 	<title>Kedele - @yield('title')</title>

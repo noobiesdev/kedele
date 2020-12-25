@@ -11,9 +11,9 @@
 	<link rel="manifest" href="{{ asset('assets/icon/site.webmanifest') }}">
 
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="description" content="EXO | SEO Landing page Template">
-	<meta name="keywords" content="tanaman, pertanian, perkebunan, pupuk, pupuk organic, kalkukator pintar, neraca bahan baku, sistem pintar">
-	<meta name="author" content="PKM 2020 Naraku Unej">
+	<meta name="description" content="Kedele.me adalah platform marketing untuk produk olahan kedelai, juga sebagai sarana penghubung produsen dengan supplier">
+	<meta name="keywords" content="tanaman, pertanian, perkebunan, kedelai, kedele, universitas jember, kabupaten jember ">
+	<meta name="author" content="Startup Agroindustri Unej">
 	<title>@yield('title')</title>
 	<!-- include the site stylesheet -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700%7COpen+Sans:300,300i,600" rel="stylesheet">

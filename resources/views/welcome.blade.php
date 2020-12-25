@@ -5,9 +5,10 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <!-- IE Compatibility Meta-->
-    <meta name="author" content="zytheme"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <meta name="description" content="Multi-purpose Business html5 landing page"/>
+    <meta name="description" content="Kedele.me adalah platform marketing untuk produk olahan kedelai, juga sebagai sarana penghubung produsen dengan supplier">
+    <meta name="keywords" content="tanaman, pertanian, perkebunan, kedelai, kedele, universitas jember, kabupaten jember ">
+    <meta name="author" content="Startup Agroindustri Unej">
     @include('layouts.favicon')
     <!--  Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;display=swap%7CMontserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" type="text/css"/>
@@ -22,9 +23,6 @@
     Document Title
     =============================================
     -->
-    <meta name="description" content="Kedele.me adalah platform marketing untuk produk olahan kedelai, juga sebagai sarana penghubung produsen dengan supplier">
-    <meta name="keywords" content="tanaman, pertanian, perkebunan, ">
-    <meta name="author" content="Startup Agroindustri Unej">
     <title>Kedele.Me | Landing - Startup Agroindustri Olahan Kedelai</title>
   </head>
   <body class="body-scroll">
