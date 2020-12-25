@@ -199,30 +199,6 @@
         </div>
         <!-- End .container  -->
       </section>
-      <!-- Video Section-->
-      <!-- <section class="video-section bg-light-primary" id="video">
-        <div class="container">
-          <div class="row clearfix">
-            <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-              <div class="heading heading-1 text-center">
-                <h2 class="heading-title">
-                   Don't miss our new awesome <br/>Services promo video</h2>
-                <p class="heading-desc">This should be used to tell a story and let your users know a little more about your product or service. How can you benefit them?</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-10 offset-md-1">
-              <div class="video">
-                <div class="bg-section"><img src="{{ asset('assets/images/background/bg-9.jpg') }}" alt="background"/></div><a class="btn-video popup-video" href="https://www.youtube.com/watch?v=7e90gBu4pas"><i class="fas fa-play"></i></a>
-              </div>
-              <div class="connect"><span>Working everyday to get our customers' trust. </span>
-                <div class="connect-link"><a href="index.html"> <span>get started now</span><i class="icon-right-arrow"></i></a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
       <section class="services features features-2 bg-pink" id="services">
         <div class="container">
           <div class="row">
@@ -276,65 +252,6 @@
           </div>
         </div>
       </section>
-      <!-- Start Testimonials-->
-      <!-- <section class="testimonials bg-light-primary" id="testimonials">
-        <div class="container">
-          <div class="row clearfix">
-            <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-              <div class="heading heading-1 text-center">
-                <h2 class="heading-title">
-                   What people will talk about us<br/>after Using our services</h2>
-                <p class="heading-desc">This should be used to tell a story and let your users know a little more about your product or service. How can you benefit them?</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-12 col-lg-12">
-              <div class="owl-carousel carousel-dots carousel-navs" data-slide="3" data-slide-res="1" data-autoplay="false" data-nav="true" data-dots="true" data-space="30" data-loop="true" data-speed="800" data-center="true"> -->
-                <!--  Testimonial #1   -->
-                <!-- <div class="testimonial-panel">
-                  <div class="testimonial-body">
-                    <div class="testimonial-icon"><span class="icon-left-quotes-sign"></span></div>
-                    <div class="testimonial-author">
-                      <div class="testimonial-img"><img src="{{ asset('assets/images/testimonials/avatar-1.png') }}" alt="avatar author"/></div>
-                      <p><span>Mark Joe</span> Digital Inc</p>
-                    </div>
-                    <p>" This should be used to tell a story and include any testimonials you might have about your product or service for your clients "</p>
-                  </div>
-                </div> -->
-                <!--  Testimonial #2 -->
-                <!-- <div class="testimonial-panel">
-                  <div class="testimonial-body">
-                    <div class="testimonial-icon"><span class="icon-left-quotes-sign"></span></div>
-                    <div class="testimonial-author">
-                      <div class="testimonial-img"><img src="{{ asset('assets/images/testimonials/avatar-2.png') }}" alt="author"/></div>
-                      <p><span>Leila Domniuc</span> Google Inc</p>
-                    </div>
-                    <p>" This should be used to tell a story and include any testimonials you might have about your product or service for your clients "</p>
-                  </div>
-                </div> -->
-                <!--  Testimonial #3 -->
-                <!-- <div class="testimonial-panel">
-                  <div class="testimonial-body">
-                    <div class="testimonial-icon"><span class="icon-left-quotes-sign"></span></div>
-                    <div class="testimonial-author">
-                      <div class="testimonial-img"><img src="{{ asset('assets/images/testimonials/avatar-3.png') }}" alt="author"/></div>
-                      <p><span>Vera Duncan</span> Envato Inc</p>
-                    </div>
-                    <p>" This should be used to tell a story and include any testimonials you might have about your product or service for your clients "</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- End .container  -->
-      <!-- </section> -->
-      <!-- End #testimonials -->
-      <!--
-      CTA #1
-      =============================================
-      -->
       <section class="cta text-center bg-overlay bg-overlay-dark" id="cta">
         <div class="bg-section"><img src="{{ asset('assets/images/background/bg-11.jpg') }}" alt="background"/></div>
         <div class="container">
@@ -364,8 +281,8 @@
                 <div class="footer-widget"><a class="logo navbar-brand" href="index.html"><img class="logo logo-light" src="{{ asset('assets/logo_full.png') }}" alt="Kedele.Me"/></a>
                   <div class="footer-contact mt-10">
                     <ul class="list-unstyled">
-                      <li> <a href="mailto:support@kedele.com">support@kedele.com</a></li>
-                      <li> <a href="tel:+62 822-4547-93495">+62 822-4547-9349</a></li>
+                      <li> <a href="mailto:mailkedele@gmail.com">mailkedele@gmail.com</a></li>
+                      <li> <a href="tel:+62 899-9442-993">+62 899-9442-993</a></li>
                     </ul>
                   </div>
                   <ul class="list-unstyled navigation">
@@ -383,27 +300,7 @@
         <div class="container">
           <hr/>
         </div>
-        <!--
-        Copyrights
-        =============================================
-        -->
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-md-12 col-lg-12 text--center">
-              <div class="footer-copyright"><span>2020 &copy; <a href="http://themeforest.net/user/zytheme/portfolio?ref=zytheme">zytheme</a>. All rights reserved.</span>
-                <div class="footer-social">
-                  <ul class="list-unstyled">
-                    <li> <a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a></li>
-                    <li> <a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
-                    <li> <a href="javascript:void(0)"><i class="fab fa-dribbble"></i></a></li>
-                    <li> <a href="javascript:void(0)"><i class="fab fa-behance"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End .container  -->
+
       </footer>
     </div>
     <!-- End #wrapper   -->
